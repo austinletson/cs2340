@@ -4,7 +4,7 @@ android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
     defaultConfig {
-        applicationId "com.example.alex.cs_2340_project"
+        applicationId "a2340.rainapp"
         minSdkVersion 15
         targetSdkVersion 25
         versionCode 1
