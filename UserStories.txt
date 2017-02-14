@@ -1,7 +1,7 @@
 1.	As a user, I want to login so that I can access and report data. -- Courtney 
 2.	As a user, I want to be able to click a pin on the map so that I can see the type and condition of the water source there.
 3.	As an administrator, I want to view the security log so that I can keep track of important actions including login attempts, account deletions, user bans, unblocking of accounts and report deletions. 
-4.	As a user, I want to submit a water source report so that I can help create a comprehensive map of available water sources.
+4.	As a user, I want to submit a water source report so that I can help create a comprehensive map of available water sources. --Alex
 5.	As a user, I want to view available water sources so that I can find clean water sources in my local area.
 6.	As a worker, I want to report on water purity levels so that users can determine the overall condition of the water source based on the amount of viruses and contaminants in the water. 
 7.	As a manager, I want to view historical reports and trends of water purity so that I can predict which water sources will be safe to use in the future.
