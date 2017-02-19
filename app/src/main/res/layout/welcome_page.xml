@@ -7,13 +7,15 @@
         android:text="Login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/buttonLogin"
-        android:elevation="0dp" />
+        android:id="@+id/welcomeButtonLogin"
+        android:elevation="0dp"
+        android:onClick="onLoginPressed"/>
 
     <Button
         android:text="Register"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/buttonRegister" />
+        android:id="@+id/welcomeButtonRegister"
+        android:onClick="onRegisterPressed"/>
 
 </LinearLayout>
