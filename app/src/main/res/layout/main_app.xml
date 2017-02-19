@@ -4,9 +4,16 @@
     android:layout_height="match_parent">
 
     <Button
+        android:text="Create/Edit Profile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/profileButton" />
+
+    <Button
         android:text="Log Out"
-        android:layout_width="167dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/logOutButton"
         android:onClick="logoutPressed"/>
+
 </LinearLayout>
