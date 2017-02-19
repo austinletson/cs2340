@@ -36,7 +36,9 @@
         android:layout_alignLeft="@+id/usernameEdit"
         android:layout_alignStart="@+id/usernameEdit"
         android:layout_marginTop="73dp"
-        android:id="@+id/passwordEdit" />
+        android:id="@+id/passwordEdit"
+        android:layout_alignRight="@+id/usernameEdit"
+        android:layout_alignEnd="@+id/usernameEdit" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -71,5 +73,17 @@
         android:layout_alignStart="@+id/passwordEdit"
         android:id="@+id/cancelButton"
         android:textSize="24sp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="22dp"
+        android:id="@+id/nameEdit"
+        android:textAlignment="center"
+        android:hint="Name" />
 
 </RelativeLayout>
