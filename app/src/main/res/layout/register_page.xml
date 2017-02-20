@@ -44,40 +44,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="Password"
-        android:ems="10"
-        android:layout_marginTop="17dp"
-        android:id="@+id/passwordLabel"
-        android:layout_below="@+id/usernameEdit"
-        android:layout_alignLeft="@+id/passwordEdit"
-        android:layout_alignStart="@+id/passwordEdit"
-        android:textSize="24sp" />
-
-    <Button
-        android:text="Register"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/usernameEdit"
-        android:layout_alignEnd="@+id/usernameEdit"
-        android:layout_marginBottom="71dp"
-        android:id="@+id/registerButton"
-        android:textSize="24sp" />
-
-    <Button
-        android:text="Cancel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/registerButton"
-        android:layout_alignLeft="@+id/passwordEdit"
-        android:layout_alignStart="@+id/passwordEdit"
-        android:id="@+id/cancelButton"
-        android:textSize="24sp" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
         android:ems="10"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
@@ -85,5 +51,60 @@
         android:id="@+id/nameEdit"
         android:textAlignment="center"
         android:hint="Name" />
+
+    <Button
+        android:text="Cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/cancelButton"
+        android:textSize="24sp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/passwordEdit"
+        android:layout_alignStart="@+id/passwordEdit"
+        android:layout_marginBottom="26dp" />
+
+    <Button
+        android:text="Register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/registerButton"
+        android:textSize="24sp"
+        android:layout_alignBaseline="@+id/cancelButton"
+        android:layout_alignBottom="@+id/cancelButton"
+        android:layout_alignRight="@+id/passwordEdit"
+        android:layout_alignEnd="@+id/passwordEdit" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:id="@+id/typeSpinner"
+        android:layout_above="@+id/cancelButton"
+        android:layout_alignLeft="@+id/cancelButton"
+        android:layout_alignStart="@+id/cancelButton" />
+
+    <TextView
+        android:text="Type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/typeSpinner"
+        android:layout_alignLeft="@+id/typeSpinner"
+        android:layout_alignStart="@+id/typeSpinner"
+        android:layout_marginBottom="15dp"
+        android:id="@+id/typeLabel"
+        android:textSize="24sp"
+        android:layout_toLeftOf="@+id/registerButton"
+        android:layout_toStartOf="@+id/registerButton" />
+
+    <TextView
+        android:text="Password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="19dp"
+        android:id="@+id/passwordLabel"
+        android:textSize="24sp"
+        android:layout_below="@+id/usernameEdit"
+        android:layout_alignLeft="@+id/usernameEdit"
+        android:layout_alignStart="@+id/usernameEdit" />
 
 </RelativeLayout>
