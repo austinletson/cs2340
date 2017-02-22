@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:inputType="textEmailAddress"
         android:ems="10"
-        android:id="@+id/editText"
+        android:id="@+id/profile_emailEdit"
         android:hint="Email" />
 
     <EditText
@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:inputType="textPostalAddress"
         android:ems="10"
-        android:id="@+id/editText2"
+        android:id="@+id/profile_addressEdit"
         android:hint="Home Address" />
 
     <EditText
@@ -32,6 +32,13 @@
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:id="@+id/editText3"
+        android:id="@+id/profile_titleEdit"
         android:hint="Title" />
+
+    <Button
+        android:text="Update"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/updateButton"
+        android:onClick="onUpdatePressed" />
 </LinearLayout>

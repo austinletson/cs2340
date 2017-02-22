@@ -25,13 +25,22 @@ public class WelcomeActivity extends AppCompatActivity {
         registerButton = (Button) findViewById(R.id.welcomeButtonRegister);
     }
 
+    /**
+     * called when login button pressed
+     * @param view
+     */
     protected void onLoginPressed(View view) {
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
     }
 
+    /**
+     * called when register button pressed
+     * @param view
+     */
     protected void onRegisterPressed(View view) {
-        //impliment in M5
+        Intent intent = new Intent(this, RegisterActivity.class);
+        startActivity(intent);
     }
 
 

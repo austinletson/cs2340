@@ -7,8 +7,6 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 import a2340.rainapp.R;
 import model.User;
 
@@ -25,21 +23,32 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_page);
-        userNameEditText = (EditText) findViewById(R.id.usernameEdit);
-        passwordEditText = (EditText) findViewById(R.id.passwordEdit);
+        userNameEditText = (EditText) findViewById(R.id.register_usernameEdit);
+        passwordEditText = (EditText) findViewById(R.id.register_passwordEdit);
         alertTextView = (TextView) findViewById(R.id.alertTextView);
     }
 
+    /**
+     * called when login pressed
+     * @param view
+     */
     protected void loginPressed(View view) {
-        User dummyUser = new User("user", "pass");
-        if (userNameEditText.getText().toString().equals(dummyUser.get_username()) &&
-                passwordEditText.getText().toString().equals(dummyUser.get_password())) {
+        //grab username and password input
+        String inputUserName = userNameEditText.getText().toString();
+        String inputPassword = passwordEditText.getText().toString();
 
-            Intent intent = new Intent(this, MainApplicationScreenActivity.class);
-            startActivity(intent);
-        } else {
-            alertTextView.setText("Wrong username and passowrd");
+        //check for existing users
+        for (User user: User.get_users()) {
+            if (user.get_username().equals(inputUserName) && user.get_password().equals(inputPassword)) {
+                User.setCurrentUser(user);
+                Intent intent = new Intent(this, MainApplicationScreenActivity.class);
+                startActivity(intent);
+                return;
+            }
         }
+
+        alertTextView.setText("Wrong username and passowrd");
+
     }
 }
 
