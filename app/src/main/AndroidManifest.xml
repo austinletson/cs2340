@@ -20,6 +20,7 @@
         <activity android:name=".controllers.RegisterActivity"></activity>
         <activity android:name=".controllers.MainApplicationScreenActivity"></activity>
         <activity android:name=".controllers.ProfileActivity"></activity>
+        <activity android:name=".controllers.ViewReportsActivity"></activity>
     </application>
 
 </manifest>
