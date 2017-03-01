@@ -8,6 +8,7 @@ import android.view.View;
 
 import a2340.rainapp.R;
 import model.User;
+import model.UserHandler;
 
 /**
  * Created by austinletson on 2/14/17.
@@ -18,7 +19,7 @@ public class MainApplicationScreenActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main_app);
+        setContentView(R.layout.user_main_page);
     }
 
     /**
@@ -26,7 +27,7 @@ public class MainApplicationScreenActivity extends AppCompatActivity {
      * @param view
      */
     protected void logoutPressed(View view) {
-        User.setCurrentUser(null);
+        UserHandler.getHandler().set_currentUser(null);
         Intent intent = new Intent(this, WelcomeActivity.class);
         startActivity(intent);
     }
@@ -37,6 +38,24 @@ public class MainApplicationScreenActivity extends AppCompatActivity {
      */
     protected void editProfPressed(View view) {
         Intent intent = new Intent(this, ProfileActivity.class);
+        startActivity(intent);
+    }
+
+    /**
+     * called when viewReport button is pressed
+     * @param view
+     */
+    protected void viewReportsPressed(View view) {
+        Intent intent = new Intent(this, ViewReportsActivity.class);
+        startActivity(intent);
+    }
+
+    /**
+     * called when view Report button is pressed
+     * @param view
+     */
+    protected void submitReportPressed(View view) {
+        Intent intent = new Intent(this, SubmitReportActivity.class);
         startActivity(intent);
     }
 }

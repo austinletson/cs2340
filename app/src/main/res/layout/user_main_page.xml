@@ -10,7 +10,8 @@
         android:id="@+id/logoutButton"
         android:textSize="24sp"
         android:layout_below="@+id/viewProfileButton"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="logoutPressed"/>
 
     <Button
         android:text="View Profile"
@@ -23,7 +24,8 @@
         android:layout_alignLeft="@+id/viewReportsButton"
         android:layout_alignStart="@+id/viewReportsButton"
         android:layout_alignRight="@+id/viewReportsButton"
-        android:layout_alignEnd="@+id/viewReportsButton" />
+        android:layout_alignEnd="@+id/viewReportsButton"
+        android:onClick="editProfPressed"/>
 
     <Button
         android:text="Submit Report"
@@ -34,7 +36,8 @@
         android:elevation="0dp"
         android:textSize="24sp"
         android:layout_below="@+id/mainPageLabel"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="submitReportPressed"/>
 
     <Button
         android:text="View Reports"
@@ -47,7 +50,8 @@
         android:layout_alignLeft="@+id/submitReportButton"
         android:layout_alignStart="@+id/submitReportButton"
         android:layout_alignRight="@+id/submitReportButton"
-        android:layout_alignEnd="@+id/submitReportButton" />
+        android:layout_alignEnd="@+id/submitReportButton"
+        android:onClick="viewReportsPressed"/>
 
     <TextView
         android:text="Main Page"

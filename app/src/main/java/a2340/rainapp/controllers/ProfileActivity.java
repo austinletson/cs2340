@@ -8,6 +8,7 @@ import android.widget.EditText;
 
 import a2340.rainapp.R;
 import model.User;
+import model.UserHandler;
 
 /**
  * Created by austinletson on 2/21/17.
@@ -26,9 +27,9 @@ public class ProfileActivity extends AppCompatActivity {
         emailEdit = (EditText) findViewById(R.id.profile_emailEdit);
         addressEdit = (EditText) findViewById(R.id.profile_addressEdit);
         titleEdit = (EditText) findViewById(R.id.profile_titleEdit);
-        emailEdit.setText(User.getCurrentUser().get_email());
-        addressEdit.setText(User.getCurrentUser().get_address());
-        titleEdit.setText(User.getCurrentUser().get_title());
+        emailEdit.setText(UserHandler.getHandler().get_currentUser().get_email());
+        addressEdit.setText(UserHandler.getHandler().get_currentUser().get_address());
+        titleEdit.setText(UserHandler.getHandler().get_currentUser().get_title());
     }
 
     /**
@@ -36,8 +37,8 @@ public class ProfileActivity extends AppCompatActivity {
      * @param view
      */
     protected void onUpdatePressed (View view) {
-        User.getCurrentUser().set_email(emailEdit.getText().toString());
-        User.getCurrentUser().set_address(addressEdit.getText().toString());
-        User.getCurrentUser().set_title(titleEdit.getText().toString());
+        UserHandler.getHandler().get_currentUser().set_email(emailEdit.getText().toString());
+        UserHandler.getHandler().get_currentUser().set_address(addressEdit.getText().toString());
+        UserHandler.getHandler().get_currentUser().set_title(titleEdit.getText().toString());
     }
 }

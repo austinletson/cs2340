@@ -21,6 +21,7 @@
         <activity android:name=".controllers.MainApplicationScreenActivity"></activity>
         <activity android:name=".controllers.ProfileActivity"></activity>
         <activity android:name=".controllers.ViewReportsActivity"></activity>
+        <activity android:name=".controllers.SubmitReportActivity"></activity>
     </application>
 
 </manifest>

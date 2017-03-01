@@ -2,6 +2,7 @@ package a2340.rainapp.controllers;
 
 
 import android.os.Bundle;
+import android.os.UserHandle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 
 import a2340.rainapp.R;
 import model.User;
+import model.UserHandler;
 
 /**
  * Created by austinletson on 2/14/17.
@@ -56,7 +58,7 @@ public class RegisterActivity extends AppCompatActivity {
             return;
         }
         //check exist for existing users
-        for(User u: User.get_users()) {
+        for(User u: UserHandler.getHandler().get_users()) {
             if (u.get_username().equals(usernameInput)) {
                 errorTextView.setText("That user name is already taken");
                 return;
@@ -65,7 +67,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         //create a new user and store them in users
 
-        User.addUser(new User(usernameInput, passwordInput, (User.UserType) typeSpinner.getSelectedItem()));
+        UserHandler.getHandler().addUser(new User(usernameInput, passwordInput, (User.UserType) typeSpinner.getSelectedItem()));
         errorTextView.setText("Registered");
     }
 }

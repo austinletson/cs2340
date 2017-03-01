@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import a2340.rainapp.R;
 import model.User;
+import model.UserHandler;
 
 /**
  * Created by austinletson on 2/13/17.
@@ -38,9 +39,9 @@ public class LoginActivity extends AppCompatActivity {
         String inputPassword = passwordEditText.getText().toString();
 
         //check for existing users
-        for (User user: User.get_users()) {
+        for (User user: UserHandler.getHandler().get_users()) {
             if (user.get_username().equals(inputUserName) && user.get_password().equals(inputPassword)) {
-                User.setCurrentUser(user);
+                UserHandler.getHandler().set_currentUser(user);
                 Intent intent = new Intent(this, MainApplicationScreenActivity.class);
                 startActivity(intent);
                 return;
