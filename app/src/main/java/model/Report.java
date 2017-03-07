@@ -40,6 +40,30 @@ public class Report {
         return "" + _type + "/" +_condition +" @(" + _latitude + ", " + _longitude +")";
     }
 
+    public double get_latitude() {
+        return _latitude;
+    }
+
+    public double get_longitude() {
+        return _longitude;
+    }
+
+    public Date get_reportDate() {
+        return _reportDate;
+    }
+
+    public int get_reportNumber() {
+        return _reportNumber;
+    }
+
+    public Type get_type() {
+        return _type;
+    }
+
+    public Condition get_condition() {
+        return _condition;
+    }
+
     /**
      * Enum of report type
      */
