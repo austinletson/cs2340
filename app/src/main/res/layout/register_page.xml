@@ -40,63 +40,6 @@
         android:layout_alignRight="@+id/register_usernameEdit"
         android:layout_alignEnd="@+id/register_usernameEdit" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="22dp"
-        android:id="@+id/register_nameEdit"
-        android:textAlignment="center"
-        android:hint="Name" />
-
-    <Button
-        android:text="Cancel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/cancelButton"
-        android:textSize="24sp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/register_passwordEdit"
-        android:layout_alignStart="@+id/register_passwordEdit"
-        android:layout_marginBottom="26dp" />
-
-    <Button
-        android:text="Register"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/registerButton"
-        android:textSize="24sp"
-        android:layout_alignBaseline="@+id/cancelButton"
-        android:layout_alignBottom="@+id/cancelButton"
-        android:layout_alignRight="@+id/register_passwordEdit"
-        android:layout_alignEnd="@+id/register_passwordEdit"
-        android:onClick="onRegisterPressed" />
-
-    <Spinner
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
-        android:layout_above="@+id/cancelButton"
-        android:layout_alignLeft="@+id/cancelButton"
-        android:layout_alignStart="@+id/cancelButton"
-        android:id="@+id/register_typeSpinner" />
-
-    <TextView
-        android:text="Type"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/typeSpinner"
-        android:layout_alignLeft="@+id/typeSpinner"
-        android:layout_alignStart="@+id/typeSpinner"
-        android:layout_marginBottom="15dp"
-        android:id="@+id/typeLabel"
-        android:textSize="24sp"
-        android:layout_toLeftOf="@+id/registerButton"
-        android:layout_toStartOf="@+id/registerButton" />
-
     <TextView
         android:text="Password"
         android:layout_width="wrap_content"
@@ -108,12 +51,53 @@
         android:layout_alignLeft="@+id/register_usernameEdit"
         android:layout_alignStart="@+id/register_usernameEdit" />
 
+    <Button
+        android:text="Register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/registerButton"
+        android:textSize="24sp"
+        android:onClick="onRegisterPressed"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="43dp" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:id="@+id/register_typeSpinner"
+        android:layout_above="@+id/registerButton"
+        android:layout_toRightOf="@+id/usernameLabel"
+        android:layout_toEndOf="@+id/usernameLabel" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/register_nameEdit"
+        android:textAlignment="center"
+        android:hint="Name"
+        android:layout_below="@+id/register_errorTextView"
+        android:layout_centerHorizontal="true" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/registerButton"
-        android:layout_toRightOf="@+id/passwordLabel"
-        android:layout_toEndOf="@+id/passwordLabel"
-        android:id="@+id/register_errorTextView" />
+        android:id="@+id/register_errorTextView"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="12dp" />
+
+    <TextView
+        android:text="Type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/typeLabel"
+        android:textSize="24sp"
+        android:layout_alignBottom="@+id/register_typeSpinner"
+        android:layout_toLeftOf="@+id/register_nameEdit"
+        android:layout_toStartOf="@+id/register_nameEdit" />
 
 </RelativeLayout>

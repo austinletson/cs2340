@@ -15,19 +15,6 @@
         android:layout_marginLeft="20dp"
         android:layout_marginStart="20dp" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="date"
-        android:ems="10"
-        android:layout_alignTop="@+id/dateLabel"
-        android:layout_toRightOf="@+id/dateLabel"
-        android:layout_toEndOf="@+id/dateLabel"
-        android:layout_marginLeft="10dp"
-        android:layout_marginStart="10dp"
-        android:id="@+id/dateInput"
-        android:textSize="24sp" />
-
     <TextView
         android:text="Reporter:"
         android:layout_width="wrap_content"
@@ -38,77 +25,6 @@
         android:layout_alignLeft="@+id/reportNumberLabel"
         android:layout_alignStart="@+id/reportNumberLabel"
         android:layout_marginTop="24dp" />
-
-    <TextView
-        android:text="Report #:"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="11dp"
-        android:id="@+id/reportNumberLabel"
-        android:textSize="24sp"
-        android:layout_below="@+id/dateInput"
-        android:layout_alignLeft="@+id/dateLabel"
-        android:layout_alignStart="@+id/dateLabel" />
-
-    <TextView
-        android:text="Water Location Address:"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/waterLocationLabel"
-        android:textSize="24sp"
-        android:layout_marginTop="27dp"
-        android:layout_below="@+id/reporterNameLabel"
-        android:layout_alignLeft="@+id/reporterNameLabel"
-        android:layout_alignStart="@+id/reporterNameLabel" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="Name"
-        android:ems="10"
-        android:id="@+id/nameInput"
-        android:textSize="24sp"
-        android:layout_alignBaseline="@+id/reporterNameLabel"
-        android:layout_alignBottom="@+id/reporterNameLabel"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_toEndOf="@+id/reportNumberLabel"
-        android:layout_alignLeft="@+id/reportNumberText"
-        android:layout_alignStart="@+id/reportNumberText" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPostalAddress"
-        android:ems="10"
-        android:id="@+id/addressInput"
-        android:textSize="24sp"
-        android:singleLine="false"
-        android:layout_centerVertical="true"
-        android:layout_alignLeft="@+id/waterLocationLabel"
-        android:layout_alignStart="@+id/waterLocationLabel" />
-
-    <TextView
-        android:text="Type of Water:"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/typeLabel"
-        android:layout_below="@+id/addressInput"
-        android:layout_alignLeft="@+id/addressInput"
-        android:layout_alignStart="@+id/addressInput"
-        android:layout_marginTop="19dp"
-        android:textSize="24sp" />
-
-    <Spinner
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/typeLabel"
-        android:layout_toRightOf="@+id/typeLabel"
-        android:layout_toEndOf="@+id/typeLabel"
-        android:layout_marginLeft="13dp"
-        android:layout_marginStart="13dp"
-        android:id="@+id/typeSpinner" />
 
     <TextView
         android:text="Water Conditon:"
@@ -131,17 +47,6 @@
         android:layout_marginLeft="20dp"
         android:layout_marginStart="20dp" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/cancelButton"
-        android:text="Cancel"
-        android:textSize="24sp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/reportNumberText"
-        android:layout_alignEnd="@+id/reportNumberText"
-        android:layout_marginBottom="37dp" />
-
     <TextView
         android:text="Date:"
         android:layout_width="wrap_content"
@@ -157,15 +62,138 @@
         android:layout_alignParentStart="true"
         android:fontFamily="sans-serif" />
 
-    <Button
-        android:text="Submit"
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/reportTypeSpinner"
+        android:layout_marginBottom="78dp"
+        android:layout_above="@+id/submit"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/waterConditionLabel"
+        android:layout_toEndOf="@+id/waterConditionLabel" />
+
+    <TextView
+        android:text="Water Location Address:"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/submitButton"
+        android:id="@+id/waterLocationLabel"
         android:textSize="24sp"
-        android:layout_alignBaseline="@+id/cancelButton"
-        android:layout_alignBottom="@+id/cancelButton"
-        android:layout_alignRight="@+id/addressInput"
-        android:layout_alignEnd="@+id/addressInput" />
+        android:layout_marginTop="25dp"
+        android:layout_below="@+id/reporterNameLabel"
+        android:layout_alignLeft="@+id/reporterNameLabel"
+        android:layout_alignStart="@+id/reporterNameLabel" />
+
+    <TextView
+        android:text="Longitude:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/LongitudeLabel"
+        android:textSize="18sp"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/waterConditionSpinner"
+        android:layout_alignStart="@+id/waterConditionSpinner"
+        android:layout_marginLeft="33dp"
+        android:layout_marginStart="33dp" />
+
+    <TextView
+        android:text="Latitude:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/latitudeLabel"
+        android:textSize="18sp"
+        android:textAllCaps="false"
+        android:fontFamily="sans-serif"
+        android:layout_alignBaseline="@+id/LongitudeLabel"
+        android:layout_alignBottom="@+id/LongitudeLabel"
+        android:layout_toLeftOf="@+id/reportNameText"
+        android:layout_toStartOf="@+id/reportNameText" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:ems="10"
+        android:id="@+id/latitudeText"
+        android:textSize="14sp"
+        android:text="0.000"
+        android:layout_below="@+id/latitudeLabel"
+        android:layout_toLeftOf="@+id/reportTypeSpinner"
+        android:layout_toStartOf="@+id/reportTypeSpinner" />
+
+    <TextView
+        android:text="Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/reportNameText"
+        android:textSize="24sp"
+        android:layout_alignBaseline="@+id/reporterNameLabel"
+        android:layout_alignBottom="@+id/reporterNameLabel"
+        android:layout_toLeftOf="@+id/LongitudeLabel"
+        android:layout_toStartOf="@+id/LongitudeLabel" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:ems="10"
+        android:id="@+id/longitudeText"
+        android:text="0.000"
+        android:textSize="14sp"
+        android:layout_below="@+id/LongitudeLabel"
+        android:layout_toRightOf="@+id/latitudeText"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:text="Report #:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/reportNumberLabel"
+        android:textSize="24sp"
+        android:layout_below="@+id/dateLabel"
+        android:layout_alignLeft="@+id/dateLabel"
+        android:layout_alignStart="@+id/dateLabel"
+        android:layout_marginTop="22dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/dateText"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/reportErrorView" />
+
+    <TextView
+        android:text="1/1/17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/dateText"
+        android:textSize="24sp"
+        android:layout_above="@+id/reportNumberLabel"
+        android:layout_toRightOf="@+id/reporterNameLabel" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/submit"
+        android:text="Submit"
+        android:textSize="24sp"
+        android:onClick="submit"
+        android:layout_below="@+id/waterConditionLabel"
+        android:layout_toRightOf="@+id/dateLabel"
+        android:layout_toEndOf="@+id/dateLabel"
+        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="33dp" />
+
+    <TextView
+        android:text="Type of Water:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/typeLabel"
+        android:textSize="24sp"
+        android:layout_below="@+id/latitudeText"
+        android:layout_alignRight="@+id/reportNumberText"
+        android:layout_alignEnd="@+id/reportNumberText" />
 
 </RelativeLayout>
