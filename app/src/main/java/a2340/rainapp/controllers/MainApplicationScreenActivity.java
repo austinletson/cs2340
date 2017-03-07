@@ -7,7 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import a2340.rainapp.R;
-import model.User;
 import model.UserHandler;
 
 /**
@@ -58,4 +57,14 @@ public class MainApplicationScreenActivity extends AppCompatActivity {
         Intent intent = new Intent(this, SubmitReportActivity.class);
         startActivity(intent);
     }
+
+    /**
+     * called when water availability button is pressed
+     * @param view
+     */
+    protected void waterAvailPressed(View view) {
+        Intent intent = new Intent(this, MapsActivity.class);
+        startActivity(intent);
+    }
+
 }

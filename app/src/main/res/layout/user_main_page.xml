@@ -3,31 +3,6 @@
     android:layout_width="match_parent" android:layout_height="match_parent">
 
     <Button
-        android:text="Logout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
-        android:id="@+id/logoutButton"
-        android:textSize="24sp"
-        android:layout_below="@+id/viewProfileButton"
-        android:layout_centerHorizontal="true"
-        android:onClick="logoutPressed"/>
-
-    <Button
-        android:text="View Profile"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
-        android:id="@+id/viewProfileButton"
-        android:textSize="24sp"
-        android:layout_below="@+id/viewReportsButton"
-        android:layout_alignLeft="@+id/viewReportsButton"
-        android:layout_alignStart="@+id/viewReportsButton"
-        android:layout_alignRight="@+id/viewReportsButton"
-        android:layout_alignEnd="@+id/viewReportsButton"
-        android:onClick="editProfPressed"/>
-
-    <Button
         android:text="Submit Report"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -39,20 +14,6 @@
         android:layout_centerHorizontal="true"
         android:onClick="submitReportPressed"/>
 
-    <Button
-        android:text="View Reports"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="41dp"
-        android:id="@+id/viewReportsButton"
-        android:textSize="24sp"
-        android:layout_below="@+id/submitReportButton"
-        android:layout_alignLeft="@+id/submitReportButton"
-        android:layout_alignStart="@+id/submitReportButton"
-        android:layout_alignRight="@+id/submitReportButton"
-        android:layout_alignEnd="@+id/submitReportButton"
-        android:onClick="viewReportsPressed"/>
-
     <TextView
         android:text="Main Page"
         android:layout_width="wrap_content"
@@ -61,4 +22,52 @@
         android:textSize="30sp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
+
+    <Button
+        android:text="Logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/logoutButton"
+        android:textSize="24sp"
+        android:onClick="logoutPressed"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="50dp" />
+
+    <Button
+        android:text="Water Availability"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="22dp"
+        android:id="@+id/waterAvailButton"
+        android:textSize="24sp"
+        android:onClick="waterAvailPressed"
+        android:layout_below="@+id/viewProfileButton"
+        android:layout_centerHorizontal="true"/>
+
+    <Button
+        android:text="View Profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/viewProfileButton"
+        android:textSize="24sp"
+        android:onClick="editProfPressed"
+        android:layout_marginTop="13dp"
+        android:layout_below="@+id/viewReportsButton"
+        android:layout_alignLeft="@+id/viewReportsButton"
+        android:layout_alignStart="@+id/viewReportsButton"
+        android:layout_alignRight="@+id/viewReportsButton"
+        android:layout_alignEnd="@+id/viewReportsButton" />
+
+    <Button
+        android:text="View Reports"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="27dp"
+        android:id="@+id/viewReportsButton"
+        android:textSize="24sp"
+        android:onClick="viewReportsPressed"
+        android:layout_below="@+id/submitReportButton"
+        android:layout_centerHorizontal="true" />
+
 </RelativeLayout>
