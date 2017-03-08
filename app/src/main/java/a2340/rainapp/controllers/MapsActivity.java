@@ -1,7 +1,10 @@
 package a2340.rainapp.controllers;
 
+
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+
+
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap.OnMarkerClickListener;
@@ -52,7 +55,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
         place_reports();
-
     }
 
     private void place_reports(){
@@ -71,12 +73,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             //Add a marker for one report
             mMap.addMarker(new MarkerOptions()
                     .position(new LatLng(_latitude, _longitude))
-                    .title("Report #: " + reportNumber)
-                    .snippet("Date: " + reportDate
-                    + "\nWater Condition: " + condition
-                    + "\nWater Type" + type));
+                    .title("Date: " + reportDate)
+                    .snippet("Water Condition: " + condition
+                    + "        Water Type: " + type));
 
         }
     }
-
 }
