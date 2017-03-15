@@ -44,10 +44,10 @@
         android:layout_height="wrap_content"
         android:text="TextView"
         tools:text="Virus PPM"
-        android:layout_above="@+id/contaminantPPMEditText"
-        android:layout_alignLeft="@+id/purityErrorText"
-        android:layout_alignStart="@+id/purityErrorText"
-        android:layout_marginBottom="29dp" />
+        android:layout_alignBaseline="@+id/virusPPMEditText"
+        android:layout_alignBottom="@+id/virusPPMEditText"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:id="@+id/contaminantPPMTextView"
@@ -76,12 +76,12 @@
         android:id="@+id/waterLocationText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/purityDate"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Water Location" />
+        android:text="Water Location"
+        android:layout_below="@+id/purityDate"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <EditText
         android:id="@+id/latitudeText"
@@ -167,14 +167,13 @@
         android:id="@+id/virusPPMEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="12dp"
-        android:layout_marginRight="12dp"
         android:ems="10"
         android:hint="0"
         android:inputType="number"
-        android:layout_alignBottom="@+id/virusPPMTextView"
+        android:layout_above="@+id/contaminantPPMEditText"
         android:layout_alignRight="@+id/textView2"
-        android:layout_alignEnd="@+id/textView2" />
+        android:layout_alignEnd="@+id/textView2"
+        android:layout_marginBottom="52dp" />
 
     <Button
         android:text="Submit"
