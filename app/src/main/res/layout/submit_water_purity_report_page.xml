@@ -93,8 +93,8 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Latitude"
-        android:layout_alignRight="@+id/virusPPMTextView"
-        android:layout_alignEnd="@+id/virusPPMTextView" />
+        android:layout_toLeftOf="@+id/purityLatitudeDecimal"
+        android:layout_toStartOf="@+id/purityLatitudeDecimal" />
 
     <EditText
         android:id="@+id/longitudeText"
