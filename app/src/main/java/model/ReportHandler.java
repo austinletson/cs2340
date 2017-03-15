@@ -8,10 +8,22 @@ import java.util.ArrayList;
 
 public class ReportHandler {
     private ArrayList<Report> reports = new ArrayList<>();
+    private ArrayList<PurityReport> purityReports = new ArrayList<>();
     private int nextId = 1;
+    private int nextPurityId = 1;
     private static ReportHandler handler = new ReportHandler();
 
+
     /**
+     * gets all the purity reports in an arraylist
+     * @return an array list of reports
+     */
+    public ArrayList<PurityReport> getPurityReports() {
+        return purityReports;
+    }
+
+    /**
+
      * gets the next id that will be genrated
      * @return the id of the next report generated
      */
@@ -26,6 +38,24 @@ public class ReportHandler {
     public int getNextIdAndIncrement() {
         nextId++;
         return nextId;
+    }
+
+    /**
+
+     * gets the next id that will be genrated
+     * @return the id of the next report generated
+     */
+    public int getNextPurityId() {
+        return nextPurityId;
+    }
+
+    /**
+     * Generates the next purity id and preps to generate another
+     * @return the id that was generated
+     */
+    public int getNextPurityIdAndIncrement() {
+        nextId++;
+        return nextPurityId;
     }
 
     /**
@@ -48,6 +78,7 @@ public class ReportHandler {
     private ReportHandler() {
         handler = this;
         reports.add(new Report(1, 1, new User("a", "a", User.UserType.ADMIN), Report.Type.BOTTLED, Report.Condition.POTABLE));
+        purityReports.add(new PurityReport(1, 1, new User("a", "a", User.UserType.ADMIN), PurityReport.OverallCondition.SAFE, 1, 1));
     }
 
     /**
@@ -56,6 +87,14 @@ public class ReportHandler {
      */
     public void addReport(Report reportToAdd) {
         reports.add(reportToAdd);
+    }
+
+    /**
+     * adds given report
+     * @param reportToAdd
+     */
+    public void addPurityReport(PurityReport reportToAdd) {
+        purityReports.add(reportToAdd);
     }
 
 

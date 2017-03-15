@@ -41,6 +41,8 @@
         <activity android:name=".controllers.ProfileActivity" />
         <activity android:name=".controllers.ViewReportsActivity" />
         <activity android:name=".controllers.SubmitReportActivity" />
+        <activity android:name=".controllers.ViewWaterPurityReportsActivity"/>
+        <activity android:name=".controllers.SubmitPurityReportActivity"/>
 
         <activity
             android:name=".controllers.MapsActivity"
