@@ -6,7 +6,7 @@
     <string name="error_message_email">Enter Email</string>
     <string name="error_message_title">Please enter all values</string>
     <string name="error_message_address">Enter Address</string>
-    <string name="error_valid_username_password">Wrong Email or Password</string>
+    <string name="error_valid_username_password">Invalid username and password combination.</string>
     <string name="error_message_name">Enter Name</string>
     <string name="success_message">Registration Successful</string>
     <string name="error_username_exists">Username Already Exists</string>
