@@ -43,7 +43,7 @@
         android:inputType="textPersonName"
         android:ems="10"
         android:layout_marginTop="22dp"
-        android:id="@+id/register_usernameEdit"
+        android:id="@+id/login_usernameEdit"
         android:textSize="24sp"
         android:layout_below="@+id/textView3"
         android:layout_alignLeft="@+id/usernameLabel"
@@ -63,9 +63,18 @@
         android:inputType="textPassword"
         android:ems="10"
         android:layout_marginTop="32dp"
-        android:id="@+id/register_passwordEdit"
+        android:id="@+id/login_passwordEdit"
         android:layout_below="@+id/usernameLabel"
         android:layout_alignLeft="@+id/usernameLabel"
         android:layout_alignStart="@+id/usernameLabel" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="49dp"
+        android:id="@+id/login_alertTextView"
+        android:layout_below="@+id/login_passwordEdit"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

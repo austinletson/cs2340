@@ -29,7 +29,7 @@ public class WelcomeActivity extends AppCompatActivity {
      * called when login button pressed
      * @param view
      */
-    protected void onLoginPressed(View view) {
+    public void onLoginPressed(View view) {
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
     }
@@ -38,7 +38,7 @@ public class WelcomeActivity extends AppCompatActivity {
      * called when register button pressed
      * @param view
      */
-    protected void onRegisterPressed(View view) {
+    public void onRegisterPressed(View view) {
         Intent intent = new Intent(this, RegisterActivity.class);
         startActivity(intent);
     }

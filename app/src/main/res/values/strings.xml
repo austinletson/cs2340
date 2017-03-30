@@ -1,4 +1,20 @@
 <resources>
     <string name="app_name">RainApp</string>
     <string name="title_activity_maps">Map</string>
+    <string name="error_message_username">Enter Username</string>
+    <string name="error_message_password">Enter Password</string>
+    <string name="error_message_email">Enter Email</string>
+    <string name="error_message_title">Please enter all values</string>
+    <string name="error_message_address">Enter Address</string>
+    <string name="error_valid_username_password">Wrong Email or Password</string>
+    <string name="error_message_name">Enter Name</string>
+    <string name="success_message">Registration Successful</string>
+    <string name="error_username_exists">Username Already Exists</string>
+    <string name="error_latitude">Enter a nonnegative latitude</string>
+    <string name="error_longitude">Enter a nonnegative longitude</string>
+    <string name="error_virusPPM">Enter the Virus PPM</string>
+    <string name="error_contaminantPPM">Enter the Contaminant PPM</string>
+
+
+
 </resources>
