@@ -9,31 +9,14 @@ import java.util.Date;
 
 public class Report {
 
-    private Date _reportDate;
+    private String _reportDate;
     private int _reportNumber;
-    private User _user;
+    private String _username;
     private double _latitude;
     private double _longitude;
-    private Type _type;
-    private Condition _condition;
+    private String _type;
+    private String _condition;
 
-    /**
-     * Constructor for report
-     * @param _latitude
-     * @param _longitude
-     * @param _user
-     * @param _type
-     * @param _condition
-     */
-    public Report(double _latitude, double _longitude, User _user, Type _type, Condition _condition) {
-        this._latitude = _latitude;
-        this._longitude = _longitude;
-        this._user = _user;
-        this._type = _type;
-        this._condition = _condition;
-        _reportDate = Calendar.getInstance().getTime();
-        _reportNumber = ReportHandler.getHandler().getNextIdAndIncrement();
-    }
 
     @Override
     public String toString() {
@@ -44,37 +27,55 @@ public class Report {
         return _latitude;
     }
 
+    public void set_latitude(double _latitude) {
+        this._latitude = _latitude;
+    }
+
     public double get_longitude() {
         return _longitude;
     }
 
-    public Date get_reportDate() {
+    public void set_longitude(double _longitude) {
+        this._longitude = _longitude;
+    }
+
+    public String get_reportDate() {
         return _reportDate;
+    }
+
+    public void set_reportDate(String _reportDate) {
+        this._reportDate = Calendar.getInstance().getTime().toString();
     }
 
     public int get_reportNumber() {
         return _reportNumber;
     }
 
-    public Type get_type() {
+    public void set_reportNumber(int _reportNumber) {
+        this._reportNumber = _reportNumber;
+    }
+
+    public String get_type() {
         return _type;
     }
 
-    public Condition get_condition() {
+    public void set_type(String _type) {
+        this._type = _type;
+    }
+
+
+    public String get_condition() {
         return _condition;
     }
 
-    /**
-     * Enum of report type
-     */
-    public enum Type {
-        BOTTLED, WELL, STREAM, LAKE, SPRING, OTHER
+    public void set_condition(String _condition) {
+        this._condition = _condition;
     }
 
-    /**
-     * Enum of report condition
-     */
-    public enum Condition {
-        WASTE, TREATABLE_CLEAR, TREATABLE_MUDDY, POTABLE
+    public void set_username(String _username) {
+        this._username = _username;
     }
+
+
 }
+

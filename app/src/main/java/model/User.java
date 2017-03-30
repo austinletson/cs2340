@@ -1,18 +1,21 @@
 package model;
 
 import java.util.ArrayList;
+import model.UserType;
 
 /**
  * Created by austinletson on 2/14/17.
  */
 
-public class    User {
+public class User {
     private String _username;
     private String _password;
-    private UserType _type;
+    private String _type;
     private String _email;
     private String _address;
     private String _title;
+    private String _name;
+    private long _id;
 
     /**
      * gets the email of the user
@@ -66,7 +69,7 @@ public class    User {
      * gets the type of the user
      * @return type of user
      */
-    public UserType get_type() {
+    public String get_type() {
         return _type;
     }
 
@@ -74,7 +77,7 @@ public class    User {
      * sets the type of user
      * @param _type
      */
-    public void set_type(UserType _type) {
+    public void set_type(String _type) {
         this._type = _type;
     }
 
@@ -103,6 +106,14 @@ public class    User {
         return _username;
     }
 
+    public void set_name(String name) {
+        this._name = _name;
+    }
+
+    public String get_name() {
+        return _name;
+    }
+
     /**
      * gets password of user
      * @return pass word of user
@@ -111,23 +122,35 @@ public class    User {
         return _password;
     }
 
+    public void set_id(long _id) {
+        this._id = _id;
+    }
+
+    public long get_id() {
+        return _id;
+    }
+
+
+    public User() {
+
+    }
+
     /**
      * user constructor
      * @param username
      * @param password
      * @param type
      */
-    public User (String username, String password, UserType type) {
+    public User (long id, String username, String password, String type, String email, String address, String title, String name) {
+        _id = id;
         _username = username;
         _password = password;
         _type = type;
+        _email = email;
+        _address = address;
+        _title = title;
+        _name = name;
 
     }
 
-    /**
-     * enum of user type
-     */
-    public enum UserType {
-        USER, WORKER, MANAGER, ADMIN;
-    }
 }

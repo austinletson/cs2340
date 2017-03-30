@@ -1,8 +1,17 @@
 package model;
 
 /**
- * Created by cpettiford on 3/29/17.
+ * Created by cpettiford on 3/27/17.
  */
 
-public class UserType {
+public final class UserType {
+
+    public static final String MANAGER = "Manager";
+    public static final String USER = "User";
+    public static final String ADMINISTRATOR = "Administrator";
+    public static final String WORKER = "Worker";
+
+    private UserType() {
+
+    }
 }

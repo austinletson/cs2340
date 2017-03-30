@@ -25,7 +25,7 @@ public class MainApplicationScreenActivity extends AppCompatActivity {
      * called when logout button is pressed
      * @param view
      */
-    protected void logoutPressed(View view) {
+    public void logoutPressed(View view) {
         UserHandler.getHandler().set_currentUser(null);
         Intent intent = new Intent(this, WelcomeActivity.class);
         startActivity(intent);
@@ -35,7 +35,7 @@ public class MainApplicationScreenActivity extends AppCompatActivity {
      * called when editProf button is pressed
      * @param view
      */
-    protected void editProfPressed(View view) {
+    public void editProfPressed(View view) {
         Intent intent = new Intent(this, ProfileActivity.class);
         startActivity(intent);
     }
@@ -44,7 +44,7 @@ public class MainApplicationScreenActivity extends AppCompatActivity {
      * called when viewReport button is pressed
      * @param view
      */
-    protected void viewReportsPressed(View view) {
+    public void viewReportsPressed(View view) {
         Intent intent = new Intent(this, ViewReportsActivity.class);
         startActivity(intent);
     }
@@ -53,7 +53,8 @@ public class MainApplicationScreenActivity extends AppCompatActivity {
      * called when submit Report button is pressed
      * @param view
      */
-    protected void submitReportPressed(View view) {
+    public void submitReportPressed(View view) {
+        System.out.println("here");
         Intent intent = new Intent(this, SubmitReportActivity.class);
         startActivity(intent);
     }
@@ -62,7 +63,7 @@ public class MainApplicationScreenActivity extends AppCompatActivity {
      * called when water availability button is pressed
      * @param view
      */
-    protected void waterAvailPressed(View view) {
+    public void waterAvailPressed(View view) {
         Intent intent = new Intent(this, MapsActivity.class);
         startActivity(intent);
     }
@@ -71,7 +72,7 @@ public class MainApplicationScreenActivity extends AppCompatActivity {
      * called when viewPurityReport button is pressed
      * @param view
      */
-    protected void viewPurityReportsPressed(View view) {
+    public void viewPurityReportsPressed(View view) {
         Intent intent = new Intent(this, ViewWaterPurityReportsActivity.class);
         startActivity(intent);
     }
@@ -80,8 +81,11 @@ public class MainApplicationScreenActivity extends AppCompatActivity {
      * called when submit purity Report button is pressed
      * @param view
      */
-    protected void submitPurityReportPressed(View view) {
+    public void submitPurityReportPressed(View view) {
         Intent intent = new Intent(this, SubmitPurityReportActivity.class);
         startActivity(intent);
     }
+
+
+
 }

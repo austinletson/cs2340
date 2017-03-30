@@ -4,28 +4,23 @@ package a2340.rainapp.controllers;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 
-
-
-import com.google.android.gms.maps.CameraUpdateFactory;
-import com.google.android.gms.maps.GoogleMap.OnMarkerClickListener;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-import java.util.ArrayList;
-import java.util.Date;
+import java.util.List;
 
 import a2340.rainapp.R;
 import model.Report;
-import model.ReportHandler;
+import database.UserDBHandler;
 
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
+    private UserDBHandler db = new UserDBHandler(MapsActivity.this);;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +30,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
     }
 
 
@@ -48,27 +44,52 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         place_reports();
     }
 
+//    private void place_reports(){
+//        //Retrieve reports from Report handler
+//        ArrayList<Report> reports = ReportHandler.getHandler().getReports();
+//        //Cycle through all of reports to add a marker
+//        for(Report report: reports) {
+//            //Get attributes for one report
+//            double _latitude = report.get_latitude();
+//            double _longitude = report.get_longitude();
+//            int reportNumber = report.get_reportNumber();
+//            String reportDate = report.get_reportDate();
+//            String type = report.get_type();
+//            String condition = report.get_condition();
+//
+//            //Add a marker for one report
+//            mMap.addMarker(new MarkerOptions()
+//                    .position(new LatLng(_latitude, _longitude))
+//                    .title("Date: " + reportDate)
+//                    .snippet("Condition: " + condition
+//                    + ", Type: " + type
+//                    + ", Pos: (" + _latitude + ", " + _longitude + ")"));
+//
+//        }
+//    }
+
     private void place_reports(){
         //Retrieve reports from Report handler
-        ArrayList<Report> reports = ReportHandler.getHandler().getReports();
+        List<Report> reports = db.getAllSourceReports();
         //Cycle through all of reports to add a marker
         for(Report report: reports) {
             //Get attributes for one report
             double _latitude = report.get_latitude();
             double _longitude = report.get_longitude();
-            int reportNumber = report.get_reportNumber();
-            Date reportDate = report.get_reportDate();
-            Report.Type type = report.get_type();
-            Report.Condition condition = report.get_condition();
+            long reportNumber = report.get_reportNumber();
+            String reportDate = report.get_reportDate();
+            String type = report.get_type();
+            String condition = report.get_condition();
 
             //Add a marker for one report
             mMap.addMarker(new MarkerOptions()
                     .position(new LatLng(_latitude, _longitude))
                     .title("Date: " + reportDate)
                     .snippet("Condition: " + condition
-                    + ", Type: " + type
-                    + ", Pos: (" + _latitude + ", " + _longitude + ")"));
+                            + ", Type: " + type
+                            + ", Pos: (" + _latitude + ", " + _longitude + ")"));
 
         }
     }
 }
+

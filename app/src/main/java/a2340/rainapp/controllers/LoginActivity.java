@@ -7,49 +7,77 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+
 import a2340.rainapp.R;
-import model.User;
-import model.UserHandler;
+import database.InputValidation;
+import database.UserDBHandler;
+
 
 /**
  * Created by austinletson on 2/13/17.
  */
 
 public class LoginActivity extends AppCompatActivity {
+    private final AppCompatActivity activity = LoginActivity.this;
     EditText userNameEditText;
     EditText passwordEditText;
     TextView alertTextView;
+
+    private InputValidation inputValidation;
+    private UserDBHandler userDBHandler;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_page);
-        userNameEditText = (EditText) findViewById(R.id.register_usernameEdit);
-        passwordEditText = (EditText) findViewById(R.id.register_passwordEdit);
-        alertTextView = (TextView) findViewById(R.id.alertTextView);
+        getSupportActionBar().hide();
+
+        initView();
+        initObjects();
+    }
+
+    private void initView() {
+        userNameEditText = (EditText) findViewById(R.id.login_usernameEdit);
+        passwordEditText = (EditText) findViewById(R.id.login_passwordEdit);
+        alertTextView = (TextView) findViewById(R.id.login_alertTextView);
+    }
+
+    private void initObjects() {
+        userDBHandler = new UserDBHandler(activity);
+        inputValidation = new InputValidation(activity);
+
     }
 
     /**
      * called when login pressed
      * @param view
      */
-    protected void loginPressed(View view) {
-        //grab username and password input
-        String inputUserName = userNameEditText.getText().toString();
-        String inputPassword = passwordEditText.getText().toString();
+    public void loginPressed(View view) {
+        verifyFromSQLite();
 
-        //check for existing users
-        for (User user: UserHandler.getHandler().get_users()) {
-            if (user.get_username().equals(inputUserName) && user.get_password().equals(inputPassword)) {
-                UserHandler.getHandler().set_currentUser(user);
-                Intent intent = new Intent(this, MainApplicationScreenActivity.class);
-                startActivity(intent);
-                return;
-            }
-        }
-
-        alertTextView.setText("Wrong username and passowrd");
 
     }
+
+    private void verifyFromSQLite() {
+        if (!inputValidation.isEditTextFilled(userNameEditText, alertTextView, getString(R.string.error_message_username))) {
+            return;
+        }
+        if (!inputValidation.isEditTextFilled(passwordEditText, alertTextView, getString(R.string.error_message_password))) {
+            return;
+        }
+        if (userDBHandler.checkUser(userNameEditText.getText().toString().trim()
+                , passwordEditText.getText().toString().trim())) {
+            Intent intent = new Intent(this, MainApplicationScreenActivity.class);
+            startActivity(intent);
+
+        } else {
+            alertTextView.setText(R.string.error_valid_username_password);
+        }
+    }
+
+
 }
 

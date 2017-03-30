@@ -2,72 +2,111 @@ package a2340.rainapp.controllers;
 
 
 import android.os.Bundle;
-import android.os.UserHandle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.support.annotation.Nullable;
+import database.InputValidation;
+import model.User;
+import model.UserType;
+import database.UserDBHandler;
+
 
 import a2340.rainapp.R;
-import model.User;
-import model.UserHandler;
 
 /**
  * Created by austinletson on 2/14/17.
  */
 
 public class RegisterActivity extends AppCompatActivity {
-    EditText nameTextEdit;
+
+    private final AppCompatActivity activity = RegisterActivity.this;
+
+
     EditText userNameEditText;
     EditText passwordEditText;
     Spinner typeSpinner;
     TextView errorTextView;
+    private User user;
+
+    private InputValidation inputValidation;
+    private UserDBHandler userDBHandler;
+    private String[] arraySpinner;
+
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register_page);
+        initViews();
+        initObject();
+    }
+
+    private void initViews() {
         userNameEditText = (EditText) findViewById(R.id.register_usernameEdit);
         passwordEditText = (EditText) findViewById(R.id.register_passwordEdit);
-        nameTextEdit = (EditText) findViewById(R.id.register_nameEdit);
         errorTextView = (TextView) findViewById(R.id.register_errorTextView);
 
         /*
             Initialize Spinner
          */
+
+        this.arraySpinner = new String[] {
+                UserType.USER, UserType.WORKER, UserType.MANAGER, UserType.ADMINISTRATOR
+        };
+
         typeSpinner = (Spinner) findViewById(R.id.register_typeSpinner);
-        ArrayAdapter<String> typeAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, User.UserType.values());
+        ArrayAdapter<String> typeAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, arraySpinner);
         typeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         typeSpinner.setAdapter(typeAdapter);
     }
+
+    private void initObject() {
+        inputValidation = new InputValidation(activity);
+        userDBHandler = new UserDBHandler(activity);
+        user = new User();
+    }
+
+
 
     /**
      * Method called when register is pressed
      * @param view
      */
-    protected void onRegisterPressed(View view){
-        //Grab entered data
-        String usernameInput = userNameEditText.getText().toString();
-        String passwordInput = passwordEditText.getText().toString();
+    public void onRegisterPressed(View view){
+        postDataToSQLite();
+    }
 
-        //Check if fields were empty
-        if (usernameInput.equals("") || passwordInput.equals("")) {
-            errorTextView.setText("One or more fields are empty");
+    private void postDataToSQLite() {
+        if (!inputValidation.isEditTextFilled(userNameEditText, errorTextView, getString(R.string.error_message_username))) {
             return;
         }
-        //check exist for existing users
-        for(User u: UserHandler.getHandler().get_users()) {
-            if (u.get_username().equals(usernameInput)) {
-                errorTextView.setText("That user name is already taken");
-                return;
-            }
+        if (!inputValidation.isEditTextFilled(passwordEditText, errorTextView, getString(R.string.error_message_password))) {
+            return;
         }
 
-        //create a new user and store them in users
+        if (!userDBHandler.checkUser(userNameEditText.getText().toString().trim())) {
+            System.out.println("testing");
 
-        UserHandler.getHandler().addUser(new User(usernameInput, passwordInput, (User.UserType) typeSpinner.getSelectedItem()));
-        errorTextView.setText("Registered");
+            String usernameInput = userNameEditText.getText().toString();
+            String passwordInput = passwordEditText.getText().toString();
+
+
+            user.set_username(usernameInput);
+            user.set_password(passwordInput);
+            user.set_type(typeSpinner.getSelectedItem().toString());
+
+            userDBHandler.addUser(user);
+
+            errorTextView.setText("Registered");
+
+        } else {
+            errorTextView.setText("Username already exists.");
+        }
+
+
     }
 }
