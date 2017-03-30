@@ -11,6 +11,7 @@ import android.view.View;
 import a2340.rainapp.R;
 import model.User;
 import model.UserHandler;
+import model.UserType;
 
 /**
  * Created by austinletson on 2/14/17.
@@ -76,8 +77,8 @@ public class MainApplicationScreenActivity extends AppCompatActivity {
      * @param view
      */
     protected void viewPurityReportsPressed(View view) {
-        if (UserHandler.getHandler().get_currentUser().get_type() == User.UserType.WORKER ||
-                UserHandler.getHandler().get_currentUser().get_type() == User.UserType.MANAGER){
+        if (UserHandler.getHandler().get_currentUser().get_type() == UserType.WORKER ||
+                UserHandler.getHandler().get_currentUser().get_type() == UserType.MANAGER){
             Intent intent = new Intent(this, ViewWaterPurityReportsActivity.class);
             startActivity(intent);
         } else {
