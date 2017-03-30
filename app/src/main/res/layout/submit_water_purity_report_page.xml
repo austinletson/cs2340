@@ -13,24 +13,25 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
-    <EditText
+    <TextView
         android:id="@+id/editText2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignTop="@+id/purityDate"
         android:ems="10"
         android:hint="Date"
         android:inputType="date"
-        android:layout_toStartOf="@+id/purityDate" />
+        android:textSize="20dp"
+        android:layout_alignBaseline="@+id/purityDate"
+        android:layout_alignBottom="@+id/purityDate"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="Report Number"
-        android:text="TextView"
+        android:text=""
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
@@ -42,8 +43,8 @@
         android:id="@+id/virusPPMTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:text="Virus PPM"
+        android:text="Virus PPM"
+        android:textSize="15dp"
         android:layout_alignBaseline="@+id/virusPPMEditText"
         android:layout_alignBottom="@+id/virusPPMEditText"
         android:layout_alignParentLeft="true"
@@ -53,12 +54,12 @@
         android:id="@+id/contaminantPPMTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:text="Contaminant PPM"
-        android:layout_above="@+id/purityErrorText"
+        android:text="Contaminant PPM"
+        android:layout_marginBottom="39dp"
+        android:textSize="15dp"
+        android:layout_above="@+id/submitButton"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="90dp" />
+        android:layout_alignParentStart="true" />
 
     <EditText
         android:id="@+id/contaminantPPMEditText"
@@ -72,7 +73,7 @@
         android:hint="0"
         android:inputType="number" />
 
-    <EditText
+    <TextView
         android:id="@+id/waterLocationText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -81,33 +82,34 @@
         android:text="Water Location"
         android:layout_below="@+id/purityDate"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:textSize="20dp"/>
 
-    <EditText
+    <TextView
         android:id="@+id/latitudeText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/waterLocationText"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Latitude"
-        android:layout_toLeftOf="@+id/purityLatitudeDecimal"
-        android:layout_toStartOf="@+id/purityLatitudeDecimal" />
+        android:textSize="20dp"
+        android:layout_alignBaseline="@+id/purityLatitudeDecimal"
+        android:layout_alignBottom="@+id/purityLatitudeDecimal"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
-    <EditText
+    <TextView
         android:id="@+id/longitudeText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Longitude"
-        android:layout_below="@+id/latitudeText"
+        android:textSize="20dp"
+        android:layout_alignBaseline="@+id/purityLongitudeDecimal"
+        android:layout_alignBottom="@+id/purityLongitudeDecimal"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/contaminantPPMTextView"
-        android:layout_alignEnd="@+id/contaminantPPMTextView" />
+        android:layout_alignParentStart="true" />
 
     <EditText
         android:id="@+id/purityLatitudeDecimal"
@@ -115,10 +117,11 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/waterLocationText"
         android:layout_toEndOf="@+id/longitudeText"
-        android:layout_toRightOf="@+id/longitudeText"
         android:ems="10"
         android:hint="0.00"
-        android:inputType="numberDecimal" />
+        android:inputType="numberDecimal"
+        android:layout_alignLeft="@+id/purityDate"
+        android:layout_alignStart="@+id/purityDate" />
 
     <EditText
         android:id="@+id/purityLongitudeDecimal"
@@ -137,7 +140,6 @@
         android:layout_above="@+id/virusPPMEditText"
         android:layout_marginBottom="41dp"
         android:id="@+id/purityConditionSpinner"
-        android:layout_toRightOf="@+id/textView"
         android:layout_toEndOf="@+id/textView" />
 
     <TextView
@@ -149,12 +151,14 @@
         android:layout_toLeftOf="@+id/purityLongitudeDecimal"
         android:layout_alignTop="@+id/purityConditionSpinner"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:textSize="20dp"/>
 
     <TextView
         android:id="@+id/purityErrorText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text=""
         android:contentDescription="Name of Worker"
         android:layout_alignBaseline="@+id/textView2"
         android:layout_alignBottom="@+id/textView2"
@@ -173,7 +177,7 @@
         android:layout_above="@+id/contaminantPPMEditText"
         android:layout_alignRight="@+id/textView2"
         android:layout_alignEnd="@+id/textView2"
-        android:layout_marginBottom="52dp" />
+        android:layout_marginBottom="52dp"/>
 
     <Button
         android:text="Submit"

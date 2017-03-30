@@ -18,6 +18,15 @@ public class PurityReport {
     private double virusPPM;
     private double contaminantPPM;
 
+    /**
+     *
+     * @param _latitude lat to set
+     * @param _longitude long to set
+     * @param _user user who made reptort
+     * @param _condition condition of report
+     * @param virusPPM virus PPM to set
+     * @param contaminantPPM contaminant PPM to set
+     */
     public PurityReport(double _latitude, double _longitude, User _user, OverallCondition _condition, double virusPPM, double contaminantPPM) {
         this._latitude = _latitude;
         this._longitude = _longitude;
@@ -34,6 +43,9 @@ public class PurityReport {
         return _condition +" @(" + _latitude + ", " + _longitude +") , virusPPM:" + virusPPM + ", contaminatePPM:" + contaminantPPM;
     }
 
+    /**
+     * Enum class to store condition
+     */
     public enum OverallCondition {
         SAFE, TREATABLE, UNSAFE
     }

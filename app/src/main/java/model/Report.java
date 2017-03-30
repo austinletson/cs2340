@@ -40,26 +40,50 @@ public class Report {
         return "" + _type + "/" +_condition +" @(" + _latitude + ", " + _longitude +")";
     }
 
+    /**
+     *
+     * @return latitude
+     */
     public double get_latitude() {
         return _latitude;
     }
 
+    /**
+     *
+     * @return longitude
+     */
     public double get_longitude() {
         return _longitude;
     }
 
+    /**
+     *
+     * @return report date
+     */
     public Date get_reportDate() {
         return _reportDate;
     }
 
+    /**
+     *
+     * @return report number
+     */
     public int get_reportNumber() {
         return _reportNumber;
     }
 
+    /**
+     *
+     * @return report type
+     */
     public Type get_type() {
         return _type;
     }
 
+    /**
+     *
+     * @return report condition
+     */
     public Condition get_condition() {
         return _condition;
     }
