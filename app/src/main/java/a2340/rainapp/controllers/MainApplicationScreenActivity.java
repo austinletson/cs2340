@@ -1,13 +1,17 @@
 package a2340.rainapp.controllers;
 
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import a2340.rainapp.R;
+import model.User;
 import model.UserHandler;
+import model.UserType;
 
 /**
  * Created by austinletson on 2/14/17.
@@ -72,9 +76,24 @@ public class MainApplicationScreenActivity extends AppCompatActivity {
      * called when viewPurityReport button is pressed
      * @param view
      */
-    public void viewPurityReportsPressed(View view) {
-        Intent intent = new Intent(this, ViewWaterPurityReportsActivity.class);
-        startActivity(intent);
+    protected void viewPurityReportsPressed(View view) {
+        if (UserHandler.getHandler().get_currentUser().get_type() == UserType.WORKER ||
+                UserHandler.getHandler().get_currentUser().get_type() == UserType.MANAGER){
+            Intent intent = new Intent(this, ViewWaterPurityReportsActivity.class);
+            startActivity(intent);
+        } else {
+            AlertDialog alertDialog = new AlertDialog.Builder(MainApplicationScreenActivity.this).create();
+            alertDialog.setTitle("Alert");
+            alertDialog.setMessage("You do not have permission to view purity reports");
+            alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+            alertDialog.show();
+        }
+
     }
 
     /**

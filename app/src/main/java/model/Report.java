@@ -23,6 +23,10 @@ public class Report {
         return "" + _type + "/" +_condition +" @(" + _latitude + ", " + _longitude +")";
     }
 
+    /**
+     *
+     * @return latitude
+     */
     public double get_latitude() {
         return _latitude;
     }
@@ -78,4 +82,3 @@ public class Report {
 
 
 }
-
