@@ -32,8 +32,6 @@ public class LoginActivity extends AppCompatActivity {
     private UserDBHandler userDBHandler;
 
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

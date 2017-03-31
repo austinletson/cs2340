@@ -122,10 +122,18 @@ public class User {
         return _password;
     }
 
+    /**
+     * sets the id number for user
+     * @param _id
+     */
     public void set_id(long _id) {
         this._id = _id;
     }
 
+    /**
+     * returns the id number of user
+     * @return _id
+     */
     public long get_id() {
         return _id;
     }
