@@ -23,10 +23,6 @@ public class Report {
         return "" + _type + "/" +_condition +" @(" + _latitude + ", " + _longitude +")";
     }
 
-    /**
-     *
-     * @return latitude
-     */
     public double get_latitude() {
         return _latitude;
     }
@@ -78,6 +74,10 @@ public class Report {
 
     public void set_username(String _username) {
         this._username = _username;
+    }
+
+    public String get_username() {
+        return _username;
     }
 
 

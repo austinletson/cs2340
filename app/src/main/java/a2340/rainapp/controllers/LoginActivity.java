@@ -23,6 +23,11 @@ public class LoginActivity extends AppCompatActivity {
     EditText passwordEditText;
     TextView alertTextView;
 
+    static String loggedInUser = "";
+    static String loggedInUserEmail = "";
+    static String loggedInUserAddress = "";
+    static String loggedInUserTitle = "";
+
     private InputValidation inputValidation;
     private UserDBHandler userDBHandler;
 
@@ -70,7 +75,20 @@ public class LoginActivity extends AppCompatActivity {
         }
         if (userDBHandler.checkUser(userNameEditText.getText().toString().trim()
                 , passwordEditText.getText().toString().trim())) {
+
+            loggedInUser = userNameEditText.getText().toString();
+
+
+
+
+            loggedInUserEmail = userDBHandler.getUserEmail(LoginActivity.loggedInUser);
+            loggedInUserAddress = userDBHandler.getUserAddress(LoginActivity.loggedInUser);
+            loggedInUserTitle = userDBHandler.getUserTitle(LoginActivity.loggedInUser);
+
+
+
             Intent intent = new Intent(this, MainApplicationScreenActivity.class);
+
             startActivity(intent);
 
         } else {
@@ -79,5 +97,5 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
-}
 
+}

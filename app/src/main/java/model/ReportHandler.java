@@ -37,7 +37,7 @@ public class ReportHandler {
      */
     public int getNextIdAndIncrement() {
         nextId++;
-        return nextId - 1;
+        return nextId;
     }
 
     /**

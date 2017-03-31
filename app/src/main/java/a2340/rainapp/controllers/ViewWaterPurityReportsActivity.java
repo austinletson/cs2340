@@ -61,9 +61,11 @@ public class ViewWaterPurityReportsActivity extends ListActivity {
                         String virusPPM = c.getString(c.getColumnIndex("virus_ppm"));
                         String contaminantPPM = c.getString(c.getColumnIndex("contaminant_ppm"));
                         String date = c.getString(c.getColumnIndex("date"));
+                        String username = c.getString(c.getColumnIndex("username"));
 
 
-                        purityReports.add("Condition: " + condition + ",Latitude: " + latitude +
+
+                        purityReports.add("Username: " + username + ",Condition: " + condition + ",Latitude: " + latitude +
                                 ",Longitude: " + longitude + ",Virus PPM: " + virusPPM +
                                 ",Contaminant PPM: " + contaminantPPM + ",Date: " + date);
                     }while (c.moveToNext());

@@ -23,9 +23,7 @@ public class ViewReportsActivity extends ListActivity {
 
     private ArrayList<String> sourceReports = new ArrayList<String>();
     private String tableName = userDBHandler.TABLE_SOURCE_REPORTS;
-    private String tableName2 = userDBHandler.TABLE_USERS;
 
-    private String username;
 
     private SQLiteDatabase newDB;
 
@@ -33,8 +31,7 @@ public class ViewReportsActivity extends ListActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        openAndQueryDatabase2();
-        openAndQueryDatabase();
+        populateReports();
 
         displayResultList();
 
@@ -46,22 +43,27 @@ public class ViewReportsActivity extends ListActivity {
         getListView().setTextFilterEnabled(true);
 
     }
-    private void openAndQueryDatabase() {
+    private void populateReports() {
         try {
             userDBHandler = new UserDBHandler(this.getApplicationContext());
             newDB = userDBHandler.getWritableDatabase();
             String q = "SELECT * FROM " + tableName;
             Cursor c = newDB.rawQuery(q, null);
 
+            int count = c.getCount();
+
+
             if (c != null ) {
                 if (c.moveToFirst()) {
                     do {
+
                         String reportNumber = c.getString(c.getColumnIndex("report_number"));
                         String condition = c.getString(c.getColumnIndex("condition"));
                         String latitude = c.getString(c.getColumnIndex("latitude"));
                         String longitude = c.getString(c.getColumnIndex("longitude"));
                         String type = c.getString(c.getColumnIndex("type"));
                         String date = c.getString(c.getColumnIndex("date"));
+                        String username = c.getString(c.getColumnIndex("username"));
 
 
 
@@ -80,29 +82,4 @@ public class ViewReportsActivity extends ListActivity {
 
     }
 
-    private void openAndQueryDatabase2() {
-        try {
-            userDBHandler = new UserDBHandler(this.getApplicationContext());
-            newDB = userDBHandler.getWritableDatabase();
-            String q = "SELECT username FROM " + tableName2;
-            Cursor c = newDB.rawQuery(q, null);
-
-            if (c != null ) {
-                if (c.moveToFirst()) {
-                    do {
-                        username = c.getString(c.getColumnIndex("username"));
-
-                    } while(c.moveToNext());{
-
-                    }
-                    ;
-                }
-            }
-        } catch (SQLiteException se ) {
-            Log.e(getClass().getSimpleName(), "Could not create or Open the database");
-        } finally {
-            newDB.close();
-        }
-
-    }
 }

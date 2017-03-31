@@ -25,6 +25,9 @@ public class RegisterActivity extends AppCompatActivity {
 
     private final AppCompatActivity activity = RegisterActivity.this;
 
+    static String loggedInUserType = "";
+
+
 
     EditText userNameEditText;
     EditText passwordEditText;
@@ -93,15 +96,22 @@ public class RegisterActivity extends AppCompatActivity {
 
             String usernameInput = userNameEditText.getText().toString();
             String passwordInput = passwordEditText.getText().toString();
+            String userType = typeSpinner.getSelectedItem().toString();
 
 
             user.set_username(usernameInput);
             user.set_password(passwordInput);
             user.set_type(typeSpinner.getSelectedItem().toString());
 
+            loggedInUserType = userType;
+
+
+
             userDBHandler.addUser(user);
 
             errorTextView.setText("Registered");
+
+            //todo transistion to login screen
 
         } else {
             errorTextView.setText("Username already exists.");

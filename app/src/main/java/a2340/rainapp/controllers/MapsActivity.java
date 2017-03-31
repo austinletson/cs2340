@@ -44,29 +44,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         place_reports();
     }
 
-//    private void place_reports(){
-//        //Retrieve reports from Report handler
-//        ArrayList<Report> reports = ReportHandler.getHandler().getReports();
-//        //Cycle through all of reports to add a marker
-//        for(Report report: reports) {
-//            //Get attributes for one report
-//            double _latitude = report.get_latitude();
-//            double _longitude = report.get_longitude();
-//            int reportNumber = report.get_reportNumber();
-//            String reportDate = report.get_reportDate();
-//            String type = report.get_type();
-//            String condition = report.get_condition();
-//
-//            //Add a marker for one report
-//            mMap.addMarker(new MarkerOptions()
-//                    .position(new LatLng(_latitude, _longitude))
-//                    .title("Date: " + reportDate)
-//                    .snippet("Condition: " + condition
-//                    + ", Type: " + type
-//                    + ", Pos: (" + _latitude + ", " + _longitude + ")"));
-//
-//        }
-//    }
+
 
     private void place_reports(){
         //Retrieve reports from Report handler
@@ -92,4 +70,3 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
     }
 }
-

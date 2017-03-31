@@ -20,16 +20,7 @@ public class PurityReport {
     private double contaminantPPM;
     private User user = new User();
 
-    /**
-     *
-     * @param _latitude lat to set
-     * @param _longitude long to set
-     * @param _user user who made reptort
-     * @param _condition condition of report
-     * @param virusPPM virus PPM to set
-     * @param contaminantPPM contaminant PPM to set
-     */
-    public PurityReport(double _latitude, double _longitude, User _user, OverallCondition _condition, double virusPPM, double contaminantPPM) {
+    public PurityReport(double _latitude, double _longitude, String _username, String _condition, double virusPPM, double contaminantPPM) {
         this._latitude = _latitude;
         this._longitude = _longitude;
         this._username = _username;
@@ -86,7 +77,7 @@ public class PurityReport {
     }
 
     public String get_username() {
-        return user.get_username();
+        return _username;
     }
 
     public void set_username(String _username) {
@@ -112,14 +103,9 @@ public class PurityReport {
 
     @Override
     public String toString() {
-        return _condition +" @(" + _latitude + ", " + _longitude +") , virusPPM:" + virusPPM +
+        return _condition + " @(" + _latitude + ", " + _longitude + ") , virusPPM:" + virusPPM +
                 ", contaminatePPM:" + contaminantPPM;
     }
-
-    /**
-     * Enum class to store condition
-     */
-    public enum OverallCondition {
-        SAFE, TREATABLE, UNSAFE
-    }
 }
+
+

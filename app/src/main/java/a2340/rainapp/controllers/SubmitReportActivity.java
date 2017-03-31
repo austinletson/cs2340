@@ -1,11 +1,8 @@
 package a2340.rainapp.controllers;
 
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteException;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -13,18 +10,14 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 
 import a2340.rainapp.R;
 import database.InputValidation;
 import model.SourceReportCondition;
 import model.SourceReportWaterType;
-import model.SourceReportWaterType;
 import database.UserDBHandler;
-import model.User;
 
-import model.SourceReportCondition;
 import model.Report;
 
 /**
@@ -42,11 +35,11 @@ public class SubmitReportActivity extends AppCompatActivity {
     TextView dateText;
     TextView typeText;
     TextView nameText;
+    TextView reportNumberView;
 
-    private String username;
     private InputValidation inputValidation;
-    private String[] arraySpinner1;
-    private String[] arraySpinner2;
+    private String[] arraySpinnerCondition;
+    private String[] arraySpinnerType;
 
     private Report sourceReport;
 
@@ -54,7 +47,6 @@ public class SubmitReportActivity extends AppCompatActivity {
 
     private UserDBHandler userDBHandler;
 
-    private ArrayList<String> sourceReports = new ArrayList<String>();
     private String tableName = userDBHandler.TABLE_USERS;
     private SQLiteDatabase newDB;
 
@@ -68,27 +60,27 @@ public class SubmitReportActivity extends AppCompatActivity {
 
         conditionSpinner = (Spinner) findViewById(R.id.waterConditionSpinner);
 
-        this.arraySpinner1 = new String[]{
+        this.arraySpinnerCondition = new String[]{
                 SourceReportCondition.WASTE, SourceReportCondition.TREATABLE_MUDDY,
                 SourceReportCondition.TREATABLE_CLEAR, SourceReportCondition.TREATABLE_POTABLE
         };
 
         ArrayAdapter<String> conditionAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item,
-                arraySpinner1);
+                arraySpinnerCondition);
         conditionAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         conditionSpinner.setAdapter(conditionAdapter);
 
 
         typeSpinner = (Spinner) findViewById(R.id.reportTypeSpinner);
 
-        this.arraySpinner2 = new String[]{
+        this.arraySpinnerType = new String[]{
                 SourceReportWaterType.BOTTLED, SourceReportWaterType.LAKE, SourceReportWaterType.SPRING,
                 SourceReportWaterType.STREAM, SourceReportWaterType.WELL, SourceReportWaterType.OTHER
         };
 
 
         ArrayAdapter<String> typeAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item,
-                arraySpinner2);
+                arraySpinnerType);
         typeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         typeSpinner.setAdapter(typeAdapter);
 
@@ -108,9 +100,8 @@ public class SubmitReportActivity extends AppCompatActivity {
         SimpleDateFormat ft = new SimpleDateFormat("E yyyy.MM.dd");
         dateText.setText(ft.format(Calendar.getInstance().getTime()));
 
-        openAndQueryDatabase();
 
-        nameText.setText(username);
+        nameText.setText(LoginActivity.loggedInUser);
 
         typeText = (TextView) findViewById(R.id.typeLabel);
     }
@@ -134,9 +125,6 @@ public class SubmitReportActivity extends AppCompatActivity {
 
     private void postDataToSQLite() {
 
-        User user = new User();
-        String username = user.get_username();
-        System.out.println(username);
 
         double latitude = Double.parseDouble(latEdit.getText().toString());
         double longitude = Double.parseDouble(longEdit.getText().toString());
@@ -161,35 +149,13 @@ public class SubmitReportActivity extends AppCompatActivity {
         sourceReport.set_type(typeSpinner.getSelectedItem().toString());
         sourceReport.set_condition(conditionSpinner.getSelectedItem().toString());
         sourceReport.set_reportDate(date);
-        sourceReport.set_username(username);
+        sourceReport.set_username(LoginActivity.loggedInUser);
 
         userDBHandler.addSourceReport(sourceReport);
 
         errorView.setText("Report submitted");
 
 
-
-    }
-
-    private void openAndQueryDatabase() {
-        try {
-            userDBHandler = new UserDBHandler(this.getApplicationContext());
-            newDB = userDBHandler.getWritableDatabase();
-            String q = "SELECT username FROM " + tableName;
-            Cursor c = newDB.rawQuery(q, null);
-
-            if (c != null ) {
-                if (c.moveToFirst()) {
-                    username = c.getString(c.getColumnIndex("username"));
-
-
-                }
-            }
-        } catch (SQLiteException se ) {
-            Log.e(getClass().getSimpleName(), "Could not create or Open the database");
-        } finally {
-            newDB.close();
-        }
 
     }
 }

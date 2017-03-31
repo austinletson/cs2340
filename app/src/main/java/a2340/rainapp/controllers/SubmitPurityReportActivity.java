@@ -35,7 +35,7 @@ public class SubmitPurityReportActivity extends AppCompatActivity {
     TextView dateText;
     private UserDBHandler userDBHandler;
     private InputValidation inputValidation;
-    private String[] arraySpinner;
+    private String[] arraySpinnerCondition;
 
     private PurityReport purityReport;
 
@@ -47,20 +47,17 @@ public class SubmitPurityReportActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.submit_water_purity_report_page);
 
-        //Set up automatic information displays
-//        SimpleDateFormat ft = new SimpleDateFormat("E yyyy.MM.dd");
-//        dateText.setText(ft.format(Calendar.getInstance().getTime()));
 
 
         //Set up condition spinner
         conditionSpinner = (Spinner) findViewById(R.id.purityConditionSpinner);
 
-        this.arraySpinner = new String[]{
+        this.arraySpinnerCondition = new String[]{
                 PurityReportCondition.SAFE, PurityReportCondition.TREATABLE, PurityReportCondition.UNSAFE
         };
 
         ArrayAdapter<String> conditionAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item,
-                arraySpinner);
+                arraySpinnerCondition);
         conditionAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         conditionSpinner.setAdapter(conditionAdapter);
 
@@ -103,10 +100,6 @@ public class SubmitPurityReportActivity extends AppCompatActivity {
 
     private void postDataToSQLite() {
 
-        User user = new User();
-        String username = user.get_username();
-        System.out.println(username);
-
         double latitude = Double.parseDouble(latEdit.getText().toString());
         double longitude = Double.parseDouble(longEdit.getText().toString());
         double virusPPM = Double.parseDouble(virusEdit.getText().toString());
@@ -140,17 +133,20 @@ public class SubmitPurityReportActivity extends AppCompatActivity {
 
 
 
-        //purityReport.set_username(user.get_username());
         purityReport.set_latitude(latitude);
         purityReport.set_longitude(longitude);
         purityReport.set_virusPPM(virusPPM);
         purityReport.set_contaminantPPM(contaminatePPM);
         purityReport.set_condition(conditionSpinner.getSelectedItem().toString());
         purityReport.set_reportDate(date);
+        purityReport.set_username(LoginActivity.loggedInUser);
 
         userDBHandler.addPurityReport(purityReport);
 
         errorView.setText("Report submitted");
+
+
+
 
 
 

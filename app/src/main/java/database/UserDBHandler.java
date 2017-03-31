@@ -1,12 +1,14 @@
 package database;
 
+import a2340.rainapp.controllers.LoginActivity;
+
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.database.sqlite.SQLiteException;
 import android.content.ContentValues;
 import android.database.Cursor;
-import android.util.Log;
 
 
 import java.util.ArrayList;
@@ -53,8 +55,6 @@ public class UserDBHandler extends SQLiteOpenHelper {
     public static final String COLUMN_LONGITUDE_SR = "longitude";
     public static final String COLUMN_TYPE = "type";
     public static final String COLUMN_CONDITION_SR = "condition";
-
-
 
 
     private static final String TABLE_CREATE_USER = "CREATE TABLE " + TABLE_USERS + " (" +
@@ -133,7 +133,8 @@ public class UserDBHandler extends SQLiteOpenHelper {
         db.insert(TABLE_USERS, null, values);
         db.close();
     }
-    public List<User> getAllUser() {
+
+    public List<User> getAllUsers() {
         // array of columns to fetch
         String[] columns = {
                 COLUMN_ID,
@@ -191,22 +192,120 @@ public class UserDBHandler extends SQLiteOpenHelper {
         return userList;
     }
 
-    public void updateUser(User user) {
+    public String getUserEmail(String username) {
+
         SQLiteDatabase db = this.getWritableDatabase();
 
-        ContentValues values = new ContentValues();
-        values.put(COLUMN_USERNAME, user.get_username());
-        values.put(COLUMN_PASSWORD, user.get_password());
-        values.put(COLUMN_USERTYPE, user.get_type());
-        values.put(COLUMN_NAME, user.get_name());
-        values.put(COLUMN_EMAIL, user.get_email());
-        values.put(COLUMN_ADDRESS, user.get_address());
-        values.put(COLUMN_TITLE, user.get_title());
+        Cursor cursor = db.rawQuery("SELECT * FROM users WHERE username = '" + username + "'", null);
 
-        // updating row
-        db.update(TABLE_USERS, values, COLUMN_ID + " = ?",
-                new String[]{String.valueOf(user.get_id())});
+        if (cursor.moveToFirst()) {
+            do {
+
+                String email = cursor.getString(cursor.getColumnIndex(COLUMN_EMAIL));
+
+                return cursor.getString(cursor.getColumnIndex(COLUMN_EMAIL));
+
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
         db.close();
+
+        //This should never happen
+        return "";
+    }
+
+    public String getUserAddress(String username) {
+
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT * FROM users WHERE username = '" + username + "'", null);
+
+        if (cursor.moveToFirst()) {
+            do {
+
+                String address = cursor.getString(cursor.getColumnIndex(COLUMN_ADDRESS));
+
+                return cursor.getString(cursor.getColumnIndex(COLUMN_ADDRESS));
+
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        db.close();
+
+        //This should never happen
+        return "";
+    }
+
+    public String getUserTitle(String username) {
+
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT * FROM users WHERE username = '" + username + "'", null);
+
+        if (cursor.moveToFirst()) {
+            do {
+
+                String address = cursor.getString(cursor.getColumnIndex(COLUMN_TITLE));
+
+                return cursor.getString(cursor.getColumnIndex(COLUMN_TITLE));
+
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        db.close();
+
+        //This should never happen
+        return "";
+    }
+
+    public String getUserType(String username) {
+
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT * FROM users WHERE username = '" + username + "'", null);
+
+        if (cursor.moveToFirst()) {
+            do {
+
+                String type = cursor.getString(cursor.getColumnIndex(COLUMN_USERTYPE));
+
+                return cursor.getString(cursor.getColumnIndex(COLUMN_USERTYPE));
+
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        db.close();
+
+        //This should never happen
+        return "";
+    }
+
+    public boolean updateUser(String username, String email, String address, String title) {
+
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        String updateUserInfo = "UPDATE users SET email = '" + email + "'," +
+                "address = '" + address + "'," +
+                "title = '" + title + "' WHERE username = '"
+                + username + "'";
+
+        try {
+
+
+            db.execSQL(updateUserInfo);
+
+            return true;
+        } catch (SQLiteException e) {
+            e.printStackTrace();
+
+        }
+
+        db.close();
+        return false;
     }
 
     public void deleteUser(User user) {
@@ -295,7 +394,6 @@ public class UserDBHandler extends SQLiteOpenHelper {
 
     public void addPurityReport(PurityReport report) {
         SQLiteDatabase db = this.getWritableDatabase();
-        db.execSQL("PRAGMA foreign_keys = ON;");
 
 
         ContentValues values = new ContentValues();
@@ -332,12 +430,8 @@ public class UserDBHandler extends SQLiteOpenHelper {
 
         SQLiteDatabase db = this.getReadableDatabase();
 
-        // query the user table
-        /**
-         * Here query function is used to fetch records from user table this function works like we use sql query.
-         * SQL query equivalent to this query function is
-         * SELECT user_id,user_name,user_email,user_password FROM user ORDER BY user_name;
-         */
+        // query the purity report table
+
         Cursor cursor = db.query(TABLE_USERS, //Table to query
                 columns,    //columns to return
                 null,        //columns for the WHERE clause
@@ -351,9 +445,8 @@ public class UserDBHandler extends SQLiteOpenHelper {
         if (cursor.moveToFirst()) {
             do {
                 PurityReport purityReport = new PurityReport();
-                User user = new User();
-                purityReport.set_reportNumber(Integer.parseInt(cursor.getString(cursor.getColumnIndex(COLUMN_NO_PR))));
-                user.set_username(cursor.getString(cursor.getColumnIndex(COLUMN_USERNAME_PR)));
+                //purityReport.set_reportNumber(Integer.parseInt(cursor.getString(cursor.getColumnIndex(COLUMN_NO_PR))));
+                purityReport.set_username(cursor.getString(cursor.getColumnIndex(COLUMN_USERNAME_PR)));
                 purityReport.set_reportDate(cursor.getString(cursor.getColumnIndex(COLUMN_PR_DATE)));
                 purityReport.set_latitude(Integer.parseInt(cursor.getString(cursor.getColumnIndex(COLUMN_LATITUDE_PR))));
                 purityReport.set_longitude(Integer.parseInt(cursor.getString(cursor.getColumnIndex(COLUMN_LONGITUDE_PR))));
@@ -361,47 +454,22 @@ public class UserDBHandler extends SQLiteOpenHelper {
                 purityReport.set_virusPPM(Integer.parseInt(cursor.getString(cursor.getColumnIndex(COLUMN_VIRUSPPM))));
                 purityReport.set_contaminantPPM(Integer.parseInt(cursor.getString(cursor.getColumnIndex(COLUMN_CONTAMINANTPPM))));
 
-                // Adding user record to list
                 purityReportList.add(purityReport);
             } while (cursor.moveToNext());
         }
         cursor.close();
         db.close();
 
-        // return user list
+        // return purity report list
         return purityReportList;
     }
 
-    /**
-     *
-     * @param purityReport
-     */
-
-    public void updatePurity(PurityReport purityReport) {
-        User user = new User();
-        SQLiteDatabase db = this.getWritableDatabase();
-
-        ContentValues values = new ContentValues();
-        values.put(COLUMN_USERNAME_PR, user.get_username());
-        values.put(COLUMN_PR_DATE, purityReport.get_reportDate());
-        values.put(COLUMN_LATITUDE_PR, purityReport.get_latitude());
-        values.put(COLUMN_LONGITUDE_PR, purityReport.get_longitude());
-        values.put(COLUMN_CONDITION_PR, purityReport.get_condition());
-        values.put(COLUMN_VIRUSPPM, purityReport.get_virusPPM());
-        values.put(COLUMN_CONTAMINANTPPM, purityReport.get_contaminantPPM());
-
-        // updating row
-        db.update(TABLE_USERS, values, COLUMN_ID + " = ?",
-                new String[]{String.valueOf(purityReport.get_reportNumber())});
-        db.close();
-    }
 
     public void addSourceReport(Report report) {
         SQLiteDatabase db = this.getWritableDatabase();
-        User user = new User();
 
         ContentValues values = new ContentValues();
-        values.put(COLUMN_USERNAME_SR, user.get_username());
+        values.put(COLUMN_USERNAME_SR, report.get_username());
         values.put(COLUMN_SR_DATE, report.get_reportDate());
         values.put(COLUMN_LATITUDE_SR, report.get_latitude());
         values.put(COLUMN_LONGITUDE_SR, report.get_longitude());
@@ -431,12 +499,7 @@ public class UserDBHandler extends SQLiteOpenHelper {
 
         SQLiteDatabase db = this.getReadableDatabase();
 
-        // query the user table
-        /**
-         * Here query function is used to fetch records from user table this function works like we use sql query.
-         * SQL query equivalent to this query function is
-         * SELECT user_id,user_name,user_email,user_password FROM user ORDER BY user_name;
-         */
+
         Cursor cursor = db.query(TABLE_SOURCE_REPORTS, //Table to query
                 columns,    //columns to return
                 null,        //columns for the WHERE clause
@@ -450,9 +513,8 @@ public class UserDBHandler extends SQLiteOpenHelper {
         if (cursor.moveToFirst()) {
             do {
                 Report sourceReport = new Report();
-                User user = new User();
                 //sourceReport.set_reportNumber(Integer.parseInt(cursor.getString(cursor.getColumnIndex(COLUMN_NO_SR))));
-                user.set_username(cursor.getString(cursor.getColumnIndex(COLUMN_USERNAME_PR)));
+                sourceReport.set_username(cursor.getString(cursor.getColumnIndex(COLUMN_USERNAME_PR)));
                 sourceReport.set_reportDate(cursor.getString(cursor.getColumnIndex(COLUMN_PR_DATE)));
                 sourceReport.set_latitude(Double.parseDouble(cursor.getString(cursor.getColumnIndex(COLUMN_LATITUDE_PR))));
                 sourceReport.set_longitude(Double.parseDouble(cursor.getString(cursor.getColumnIndex(COLUMN_LONGITUDE_PR))));
@@ -468,26 +530,5 @@ public class UserDBHandler extends SQLiteOpenHelper {
         // return sourceReport list
         return SourceReportList;
     }
-
-    public void updateSourceReport(Report sourceReport) {
-        User user = new User();
-        SQLiteDatabase db = this.getWritableDatabase();
-
-        ContentValues values = new ContentValues();
-        //values.put(COLUMN_USERNAME_SR, user.get_username());
-        values.put(COLUMN_SR_DATE, sourceReport.get_reportDate());
-        values.put(COLUMN_LATITUDE_SR, sourceReport.get_latitude());
-        values.put(COLUMN_LONGITUDE_SR, sourceReport.get_longitude());
-        values.put(COLUMN_CONDITION_SR, sourceReport.get_condition());
-        values.put(COLUMN_TYPE, sourceReport.get_type());
-
-        // updating row
-        db.update(TABLE_USERS, values, COLUMN_ID + " = ?",
-                new String[]{String.valueOf(sourceReport.get_reportNumber())});
-        db.close();
-    }
-
-
-
-
 }
+

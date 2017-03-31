@@ -2,6 +2,7 @@ package a2340.rainapp.controllers;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -27,10 +28,12 @@ public class ProfileActivity extends AppCompatActivity {
     private EditText titleEdit;
     private TextView alertTextView;
 
+
+
     private InputValidation inputValidation;
     private UserDBHandler userDBHandler;
 
-    private static final String SELECT_SQL = "SELECT email, address, title FROM users";
+    private static final String SELECT_SQL = "SELECT email, address, title FROM users WHERE username = " + LoginActivity.loggedInUser;
 
     private User user;
     private Cursor c;
@@ -56,10 +59,47 @@ public class ProfileActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (LoginActivity.loggedInUserEmail != null && LoginActivity.loggedInUserEmail.length() > 0 ) {
+            emailEdit.setHint(LoginActivity.loggedInUserEmail);
+
+        }
+
+        if (LoginActivity.loggedInUserAddress != null && LoginActivity.loggedInUserAddress.length() > 0) {
+            addressEdit.setHint(LoginActivity.loggedInUserAddress);
+
+        }
+
+        if (LoginActivity.loggedInUserTitle != null && LoginActivity.loggedInUserTitle.length() > 0) {
+            titleEdit.setHint(LoginActivity.loggedInUserTitle);
+
+        }
+    }
+
     private void initViews() {
         emailEdit = (EditText) findViewById(R.id.profile_emailEdit);
         addressEdit = (EditText) findViewById(R.id.profile_addressEdit);
         titleEdit = (EditText) findViewById(R.id.profile_titleEdit);
+        alertTextView = (TextView) findViewById(R.id.profileAlertView);
+
+
+        if (LoginActivity.loggedInUserEmail != null && LoginActivity.loggedInUserEmail.length() > 0 ) {
+            emailEdit.setHint(LoginActivity.loggedInUserEmail);
+
+        }
+
+        if (LoginActivity.loggedInUserAddress != null && LoginActivity.loggedInUserAddress.length() > 0) {
+            addressEdit.setHint(LoginActivity.loggedInUserAddress);
+
+        }
+
+        if (LoginActivity.loggedInUserTitle != null && LoginActivity.loggedInUserTitle.length() > 0) {
+            titleEdit.setHint(LoginActivity.loggedInUserTitle);
+
+        }
+
     }
 
     private void initObjects() {
@@ -75,6 +115,7 @@ public class ProfileActivity extends AppCompatActivity {
      */
     public void onUpdatePressed (View view) {
         postDataToSQLite();
+        userDBHandler.getAllUsers();
 
     }
 
@@ -91,19 +132,22 @@ public class ProfileActivity extends AppCompatActivity {
             alertTextView.setText("Your information has been saved.");
         }
 
+
+
         String addressInput = addressEdit.getText().toString();
         String emailInput = emailEdit.getText().toString();
         String titleInput = titleEdit.getText().toString();
 
+        boolean updateSuccessful = userDBHandler.updateUser(LoginActivity.loggedInUser, emailInput, addressInput, titleInput);
 
-        user.set_address(addressInput);
-        user.set_email(emailInput);
-        user.set_title(titleInput);
+        if(updateSuccessful) {
+            LoginActivity.loggedInUserEmail = emailInput;
+            LoginActivity.loggedInUserAddress = addressInput;
+            LoginActivity.loggedInUserTitle = titleInput;
+        }
 
-        userDBHandler.addUser(user);
 
     }
 
 
 }
-
