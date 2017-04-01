@@ -57,6 +57,8 @@ public class UserDBHandler extends SQLiteOpenHelper {
     public static final String COLUMN_CONDITION_SR = "condition";
 
 
+
+
     private static final String TABLE_CREATE_USER = "CREATE TABLE " + TABLE_USERS + " (" +
             COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
             COLUMN_USERNAME + " TEXT," +
@@ -133,7 +135,6 @@ public class UserDBHandler extends SQLiteOpenHelper {
         db.insert(TABLE_USERS, null, values);
         db.close();
     }
-
     public List<User> getAllUsers() {
         // array of columns to fetch
         String[] columns = {
@@ -196,7 +197,7 @@ public class UserDBHandler extends SQLiteOpenHelper {
 
         SQLiteDatabase db = this.getWritableDatabase();
 
-        Cursor cursor = db.rawQuery("SELECT * FROM users WHERE username = '" + username + "'", null);
+        Cursor cursor = db.rawQuery("SELECT * FROM users WHERE username = '" + username + "'",null);
 
         if (cursor.moveToFirst()) {
             do {
@@ -219,7 +220,7 @@ public class UserDBHandler extends SQLiteOpenHelper {
 
         SQLiteDatabase db = this.getWritableDatabase();
 
-        Cursor cursor = db.rawQuery("SELECT * FROM users WHERE username = '" + username + "'", null);
+        Cursor cursor = db.rawQuery("SELECT * FROM users WHERE username = '" + username + "'",null);
 
         if (cursor.moveToFirst()) {
             do {
@@ -242,7 +243,7 @@ public class UserDBHandler extends SQLiteOpenHelper {
 
         SQLiteDatabase db = this.getWritableDatabase();
 
-        Cursor cursor = db.rawQuery("SELECT * FROM users WHERE username = '" + username + "'", null);
+        Cursor cursor = db.rawQuery("SELECT * FROM users WHERE username = '" + username + "'",null);
 
         if (cursor.moveToFirst()) {
             do {
@@ -265,7 +266,7 @@ public class UserDBHandler extends SQLiteOpenHelper {
 
         SQLiteDatabase db = this.getWritableDatabase();
 
-        Cursor cursor = db.rawQuery("SELECT * FROM users WHERE username = '" + username + "'", null);
+        Cursor cursor = db.rawQuery("SELECT * FROM users WHERE username = '" + username + "'",null);
 
         if (cursor.moveToFirst()) {
             do {
@@ -299,7 +300,8 @@ public class UserDBHandler extends SQLiteOpenHelper {
             db.execSQL(updateUserInfo);
 
             return true;
-        } catch (SQLiteException e) {
+        }
+        catch(SQLiteException e) {
             e.printStackTrace();
 
         }
@@ -432,7 +434,7 @@ public class UserDBHandler extends SQLiteOpenHelper {
 
         // query the purity report table
 
-        Cursor cursor = db.query(TABLE_USERS, //Table to query
+        Cursor cursor = db.query(TABLE_PURITY_REPORTS, //Table to query
                 columns,    //columns to return
                 null,        //columns for the WHERE clause
                 null,        //The values for the WHERE clause
@@ -448,11 +450,11 @@ public class UserDBHandler extends SQLiteOpenHelper {
                 //purityReport.set_reportNumber(Integer.parseInt(cursor.getString(cursor.getColumnIndex(COLUMN_NO_PR))));
                 purityReport.set_username(cursor.getString(cursor.getColumnIndex(COLUMN_USERNAME_PR)));
                 purityReport.set_reportDate(cursor.getString(cursor.getColumnIndex(COLUMN_PR_DATE)));
-                purityReport.set_latitude(Integer.parseInt(cursor.getString(cursor.getColumnIndex(COLUMN_LATITUDE_PR))));
-                purityReport.set_longitude(Integer.parseInt(cursor.getString(cursor.getColumnIndex(COLUMN_LONGITUDE_PR))));
+                purityReport.set_latitude(Double.parseDouble(cursor.getString(cursor.getColumnIndex(COLUMN_LATITUDE_PR))));
+                purityReport.set_longitude(Double.parseDouble(cursor.getString(cursor.getColumnIndex(COLUMN_LONGITUDE_PR))));
                 purityReport.set_condition(cursor.getString(cursor.getColumnIndex(COLUMN_CONDITION_PR)));
-                purityReport.set_virusPPM(Integer.parseInt(cursor.getString(cursor.getColumnIndex(COLUMN_VIRUSPPM))));
-                purityReport.set_contaminantPPM(Integer.parseInt(cursor.getString(cursor.getColumnIndex(COLUMN_CONTAMINANTPPM))));
+                purityReport.set_virusPPM(Double.parseDouble(cursor.getString(cursor.getColumnIndex(COLUMN_VIRUSPPM))));
+                purityReport.set_contaminantPPM(Double.parseDouble(cursor.getString(cursor.getColumnIndex(COLUMN_CONTAMINANTPPM))));
 
                 purityReportList.add(purityReport);
             } while (cursor.moveToNext());
@@ -463,6 +465,7 @@ public class UserDBHandler extends SQLiteOpenHelper {
         // return purity report list
         return purityReportList;
     }
+
 
 
     public void addSourceReport(Report report) {
@@ -530,5 +533,5 @@ public class UserDBHandler extends SQLiteOpenHelper {
         // return sourceReport list
         return SourceReportList;
     }
-}
 
+}

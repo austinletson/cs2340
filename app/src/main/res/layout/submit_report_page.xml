@@ -63,15 +63,15 @@
         android:fontFamily="sans-serif" />
 
     <Spinner
+        android:id="@+id/reportTypeSpinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/reportTypeSpinner"
-        android:layout_marginBottom="78dp"
         android:layout_above="@+id/submit"
-        android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_toRightOf="@+id/waterConditionLabel"
-        android:layout_toEndOf="@+id/waterConditionLabel" />
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="78dp"
+        android:layout_toEndOf="@+id/waterConditionLabel"
+        android:layout_toRightOf="@+id/waterConditionLabel" />
 
     <TextView
         android:text="Water Location Address:"

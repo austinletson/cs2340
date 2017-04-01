@@ -9,7 +9,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import a2340.rainapp.R;
-import model.User;
 import model.UserHandler;
 import model.UserType;
 
@@ -79,8 +78,8 @@ public class MainApplicationScreenActivity extends AppCompatActivity {
      * @param view
      */
     public void viewPurityReportsPressed(View view) {
-        if (RegisterActivity.loggedInUserType == UserType.WORKER ||
-                RegisterActivity.loggedInUserType == UserType.MANAGER){
+        if (LoginActivity.loggedInUserType.equals(UserType.WORKER) ||
+                LoginActivity.loggedInUserType.equals(UserType.MANAGER)){
             Intent intent = new Intent(this, ViewWaterPurityReportsActivity.class);
             startActivity(intent);
         } else {
@@ -107,6 +106,25 @@ public class MainApplicationScreenActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-
-
+    /**
+     * called when view history graph button is pressed
+     * @param view
+     */
+    public void viewHistoryGraphPressed(View view) {
+        if (LoginActivity.loggedInUserType.equals(UserType.MANAGER)) {
+            Intent intent = new Intent(this, ViewHistoryReport.class);
+            startActivity(intent);
+        } else {
+            AlertDialog alertDialog = new AlertDialog.Builder(MainApplicationScreenActivity.this).create();
+            alertDialog.setTitle("Alert");
+            alertDialog.setMessage("You do not have permission to view the history graph");
+            alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+            alertDialog.show();
+        }
+    }
 }

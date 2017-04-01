@@ -25,7 +25,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     private final AppCompatActivity activity = RegisterActivity.this;
 
-    static String loggedInUserType = "";
+    //static String loggedInUserType = "";
 
 
 
@@ -103,7 +103,7 @@ public class RegisterActivity extends AppCompatActivity {
             user.set_password(passwordInput);
             user.set_type(typeSpinner.getSelectedItem().toString());
 
-            loggedInUserType = userType;
+            //loggedInUserType = userType;
 
 
 

@@ -56,7 +56,7 @@ public class SubmitPurityReportActivity extends AppCompatActivity {
                 PurityReportCondition.SAFE, PurityReportCondition.TREATABLE, PurityReportCondition.UNSAFE
         };
 
-        ArrayAdapter<String> conditionAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item,
+        ArrayAdapter<String> conditionAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item,
                 arraySpinnerCondition);
         conditionAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         conditionSpinner.setAdapter(conditionAdapter);

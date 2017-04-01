@@ -63,7 +63,7 @@
 
     <EditText
         android:id="@+id/contaminantPPMEditText"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/contaminantPPMTextView"
         android:layout_alignBottom="@+id/contaminantPPMTextView"

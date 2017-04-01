@@ -27,6 +27,7 @@ public class LoginActivity extends AppCompatActivity {
     static String loggedInUserEmail = "";
     static String loggedInUserAddress = "";
     static String loggedInUserTitle = "";
+    static String loggedInUserType = "";
 
     private InputValidation inputValidation;
     private UserDBHandler userDBHandler;
@@ -82,6 +83,8 @@ public class LoginActivity extends AppCompatActivity {
             loggedInUserEmail = userDBHandler.getUserEmail(LoginActivity.loggedInUser);
             loggedInUserAddress = userDBHandler.getUserAddress(LoginActivity.loggedInUser);
             loggedInUserTitle = userDBHandler.getUserTitle(LoginActivity.loggedInUser);
+
+            loggedInUserType = userDBHandler.getUserType(LoginActivity.loggedInUser);
 
 
 

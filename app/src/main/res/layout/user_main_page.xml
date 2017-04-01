@@ -39,14 +39,12 @@
         android:id="@+id/waterAvailButton"
         android:textSize="24sp"
         android:onClick="waterAvailPressed"
-        android:layout_marginRight="49dp"
-        android:layout_marginEnd="49dp"
         android:layout_above="@+id/viewProfileButton"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignLeft="@+id/viewReportsButton"
+        android:layout_alignStart="@+id/viewReportsButton" />
 
     <Button
-        android:text="Submit Report"
+        android:text="Submit Source Report"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/submitReportButton"
@@ -59,7 +57,7 @@
         android:layout_marginTop="26dp" />
 
     <Button
-        android:text="View Reports"
+        android:text="View Source Reports"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/viewReportsButton"
@@ -87,6 +85,16 @@
         android:textSize="24sp"
         android:onClick="viewPurityReportsPressed"
         android:layout_marginBottom="57dp"
+        android:layout_above="@+id/waterAvailButton"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/viewHistoryGraph"
+        android:textSize="24sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="viewHistoryGraphPressed"
+        android:text="view History Graph"
         android:layout_above="@+id/waterAvailButton"
         android:layout_centerHorizontal="true" />
 
