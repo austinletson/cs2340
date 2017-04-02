@@ -21,7 +21,7 @@ import database.UserDBHandler;
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
-    private UserDBHandler db = new UserDBHandler(MapsActivity.this);;
+    private UserDBHandler db = new UserDBHandler(MapsActivity.this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +56,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             //Get attributes for one report
             double _latitude = report.get_latitude();
             double _longitude = report.get_longitude();
-            long reportNumber = report.get_reportNumber();
             String reportDate = report.get_reportDate();
             String type = report.get_type();
             String condition = report.get_condition();
@@ -80,7 +79,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             //Get attributes for one report
             double _latitude = report.get_latitude();
             double _longitude = report.get_longitude();
-            long reportNumber = report.get_reportNumber();
             String reportDate = report.get_reportDate();
             double virusPPM = report.get_virusPPM();
             double contaminantPPM = report.get_contaminantPPM();
