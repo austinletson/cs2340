@@ -1,7 +1,5 @@
 package webapplication
 
-import com.sun.org.apache.regexp.internal.RE
-
 class User {
     String username
     String password
@@ -14,5 +12,12 @@ class User {
     static hasMany = [reports: Report, purityReports: PurityReport]
 
     static constraints = {
+        username()
+        title()
+        name()
+        address()
+        email(email: true)
+        type(inList: ["Manager", "User", "Administrator", "Worker"])
+        password()
     }
 }

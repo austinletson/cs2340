@@ -1,7 +1,7 @@
 package webapplication
 
 class Report {
-    String reportDate
+    Date reportDate
     Integer reportNumber
     String userName
     Double latitude
