@@ -77,8 +77,6 @@ public class ReportHandler {
 
     private ReportHandler() {
         handler = this;
-//        reports.add(new Report(1, 1, new User("a", "a", User.UserType.ADMIN), Report.Type.BOTTLED, Report.Condition.POTABLE));
-//        purityReports.add(new PurityReport(1, 1, new User("a", "a", UserType.ADMINISTRATOR), PurityReport.OverallCondition.SAFE, 1, 1));
     }
 
     /**

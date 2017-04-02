@@ -27,8 +27,7 @@ public class PurityReport {
         this._condition = _condition;
         this.virusPPM = virusPPM;
         this.contaminantPPM = contaminantPPM;
-        _reportDate = _reportDate;
-        _reportNumber = _reportNumber;
+
     }
 
     public PurityReport() {
@@ -47,7 +46,7 @@ public class PurityReport {
 
     /**
      * sets the latitude
-     * @param _latitude
+     * @param _latitude latitude
      */
     public void set_latitude(double _latitude) {
         this._latitude = _latitude;
@@ -64,7 +63,7 @@ public class PurityReport {
 
     /**
      * sets the longitude
-     * @param _longitude
+     * @param _longitude longitude
      */
     public void set_longitude(double _longitude) {
         this._longitude = _longitude;
@@ -84,7 +83,7 @@ public class PurityReport {
 
     /**
      * sets the date of the purity report
-     * @param _reportDate
+     * @param _reportDate date of report submission
      */
     public void set_reportDate(String _reportDate) {
         this._reportDate = Calendar.getInstance().getTime();
@@ -101,7 +100,7 @@ public class PurityReport {
 
     /**
      * sets the virusPPM of the purity report
-     * @param virusPPM
+     * @param virusPPM virusPPM
      */
     public void set_virusPPM(double virusPPM) {
         this.virusPPM = virusPPM;
@@ -119,7 +118,7 @@ public class PurityReport {
 
     /**
      * sets the contaminantPPM
-     * @param contaminantPPM
+     * @param contaminantPPM contaminantPPM
      */
     public void set_contaminantPPM(double contaminantPPM) {
         this.contaminantPPM = contaminantPPM;
@@ -137,7 +136,7 @@ public class PurityReport {
 
     /**
      * sets the user's username
-     * @param _username
+     * @param _username username
      */
     public void set_username(String _username) {
         this._username = _username;
@@ -154,7 +153,7 @@ public class PurityReport {
 
     /**
      * sets the condition of the water
-     * @param _condition
+     * @param _condition condition
      */
     public void set_condition(String _condition) {
         this._condition = _condition;

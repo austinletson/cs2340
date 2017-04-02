@@ -1,7 +1,5 @@
 package model;
 
-import java.util.ArrayList;
-import model.UserType;
 
 /**
  * Created by austinletson on 2/14/17.
