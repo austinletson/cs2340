@@ -79,6 +79,8 @@ public class PurityReport {
         return _reportDate.toString();
     }
 
+    public Date get_reportDateAsDate() {return _reportDate;}
+
 
     /**
      * sets the date of the purity report
