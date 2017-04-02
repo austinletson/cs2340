@@ -2,7 +2,6 @@ package a2340.rainapp.controllers;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -10,8 +9,6 @@ import a2340.rainapp.R;
 import database.InputValidation;
 import model.User;
 import database.UserDBHandler;
-
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 
@@ -36,13 +33,11 @@ public class ProfileActivity extends AppCompatActivity {
     private static final String SELECT_SQL = "SELECT email, address, title FROM users WHERE username = " + LoginActivity.loggedInUser;
 
     private User user;
-    private Cursor c;
     private SQLiteDatabase db;
 
     private final AppCompatActivity activity = ProfileActivity.this;
 
     private String tableName = userDBHandler.TABLE_USERS;
-    private ArrayList<String> profileInfo = new ArrayList<String>();
 
 
 

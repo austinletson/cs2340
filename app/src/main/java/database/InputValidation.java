@@ -23,6 +23,14 @@ public class InputValidation {
         this.context = context;
     }
 
+
+    /**
+     * checks whether the input edit text is filled
+     * @param editText
+     * @param alertTextView
+     * @param message
+     * @return
+     */
     public boolean isEditTextFilled(EditText editText, TextView alertTextView, String message) {
         String value = editText.getText().toString().trim();
         if (value.isEmpty()) {

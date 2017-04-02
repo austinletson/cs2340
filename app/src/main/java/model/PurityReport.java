@@ -35,67 +35,143 @@ public class PurityReport {
 
     }
 
+
+    /**
+     * gets the latitude
+     * @return  the latitude
+     */
     public double get_latitude() {
         return _latitude;
     }
 
+
+    /**
+     * sets the latitude
+     * @param _latitude
+     */
     public void set_latitude(double _latitude) {
         this._latitude = _latitude;
     }
 
+    /**
+     * gets the longitude
+     * @return the longitude
+     */
     public double get_longitude() {
         return _longitude;
     }
 
+
+    /**
+     * sets the longitude
+     * @param _longitude
+     */
     public void set_longitude(double _longitude) {
         this._longitude = _longitude;
     }
 
+
+    /**
+     * gets the date of the submitted purity report
+     * @return the date of the submitted purity report
+     */
     public String get_reportDate() {
         return _reportDate.toString();
     }
 
+
+    /**
+     * sets the date of the purity report
+     * @param _reportDate
+     */
     public void set_reportDate(String _reportDate) {
         this._reportDate = Calendar.getInstance().getTime();
     }
 
-
+    /**
+     * gets the virusPPM of purity report
+     * @return the virusPPM
+     */
     public double get_virusPPM() {
         return virusPPM;
     }
 
+
+    /**
+     * sets the virusPPM of the purity report
+     * @param virusPPM
+     */
     public void set_virusPPM(double virusPPM) {
         this.virusPPM = virusPPM;
     }
 
+
+    /**
+     * gets the contaminantPPM of the purity report
+     * @return the contaminantPPM
+     */
     public double get_contaminantPPM() {
         return contaminantPPM;
     }
 
+
+    /**
+     * sets the contaminantPPM
+     * @param contaminantPPM
+     */
     public void set_contaminantPPM(double contaminantPPM) {
         this.contaminantPPM = contaminantPPM;
     }
 
+
+    /**
+     * gets the username of
+     * @return the current user's username
+     */
     public String get_username() {
         return _username;
     }
 
+
+    /**
+     * sets the user's username
+     * @param _username
+     */
     public void set_username(String _username) {
         this._username = _username;
     }
 
+    /**
+     * gets the condition of the water
+     * @return the condition of the water
+     */
     public String get_condition() {
         return _condition;
     }
 
+
+    /**
+     * sets the condition of the water
+     * @param _condition
+     */
     public void set_condition(String _condition) {
         this._condition = _condition;
     }
 
+
+    /**
+     * gets the number of the report
+     * @return the number of the report
+     */
     public long get_reportNumber() {
         return _reportNumber;
     }
 
+
+    /**
+     * sets the number of the srouce report
+     * @param _reportNumber
+     */
     public void set_reportNumber(long _reportNumber) {
         this._reportNumber = _reportNumber;
     }

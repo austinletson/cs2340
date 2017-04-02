@@ -120,10 +120,10 @@ public class SubmitReportActivity extends AppCompatActivity {
      * @param view
      */
     public void submit(View view) {
-        postDataToSQLite();
+        storeSourceReportData();
     }
 
-    private void postDataToSQLite() {
+    private void storeSourceReportData() {
 
 
         double latitude = Double.parseDouble(latEdit.getText().toString());
