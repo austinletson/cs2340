@@ -26,10 +26,10 @@ public class InputValidation {
 
     /**
      * checks whether the input edit text is filled
-     * @param editText
-     * @param alertTextView
-     * @param message
-     * @return
+     * @param editText editText
+     * @param alertTextView alertTextView
+     * @param message message
+     * @return false if not filled, true otherwise
      */
     public boolean isEditTextFilled(EditText editText, TextView alertTextView, String message) {
         String value = editText.getText().toString().trim();

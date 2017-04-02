@@ -120,7 +120,7 @@ public class UserDBHandler extends SQLiteOpenHelper {
 
     /**
      * adds a new user to the database
-     * @param user user 
+     * @param user user
      */
     public void addUser(User user) {
         SQLiteDatabase db = this.getWritableDatabase();
