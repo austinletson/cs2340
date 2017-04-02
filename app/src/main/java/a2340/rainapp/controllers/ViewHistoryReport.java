@@ -1,7 +1,9 @@
 package a2340.rainapp.controllers;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -70,6 +72,7 @@ public class ViewHistoryReport extends AppCompatActivity {
         String spinnerValue = spinner.getSelectedItem().toString();
 
         ArrayList<DataPoint> dataPoints = new ArrayList<>();
+        boolean areThereReports = false;
         for (PurityReport report: reports) {
 
             //Grab year from report date
@@ -80,6 +83,7 @@ public class ViewHistoryReport extends AppCompatActivity {
             if (report.get_latitude() == latitude
                     && report.get_longitude() == longitude
                     && reportYear == year){
+                areThereReports = true;
                 if (spinnerValue.equals("Virus")) {
                     dataPoints.add(new DataPoint(cal.get(Calendar.MONTH), report.get_virusPPM()));
                 } else if(spinnerValue.equals("Contaminant")) {
@@ -88,9 +92,22 @@ public class ViewHistoryReport extends AppCompatActivity {
             }
         }
 
-        //convert to array and display graph
-        DataPoint[] dataPointsAsArray = new DataPoint[dataPoints.size()];
-        dataPointsAsArray = dataPoints.toArray(dataPointsAsArray);
-        graphView.addSeries(new LineGraphSeries<>(dataPointsAsArray));
+        if (areThereReports) {
+            //convert to array and display graph
+            DataPoint[] dataPointsAsArray = new DataPoint[dataPoints.size()];
+            dataPointsAsArray = dataPoints.toArray(dataPointsAsArray);
+            graphView.addSeries(new LineGraphSeries<>(dataPointsAsArray));
+        } else {
+            AlertDialog alertDialog = new AlertDialog.Builder(ViewHistoryReport.this).create();
+            alertDialog.setTitle("Alert");
+            alertDialog.setMessage("You do not have permission to view purity reports");
+            alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+            alertDialog.show();
+        }
     }
 }
