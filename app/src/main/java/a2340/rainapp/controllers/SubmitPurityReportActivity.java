@@ -16,7 +16,6 @@ import database.InputValidation;
 import model.PurityReport;
 import database.UserDBHandler;
 import model.PurityReportCondition;
-import model.User;
 
 
 
@@ -95,10 +94,10 @@ public class SubmitPurityReportActivity extends AppCompatActivity {
      * @param view
      */
     public void submit(View view) {
-        postDataToSQLite();
+        storePurityReportData();
     }
 
-    private void postDataToSQLite() {
+    private void storePurityReportData() {
 
         double latitude = Double.parseDouble(latEdit.getText().toString());
         double longitude = Double.parseDouble(longEdit.getText().toString());

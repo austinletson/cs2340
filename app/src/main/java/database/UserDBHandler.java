@@ -106,7 +106,6 @@ public class UserDBHandler extends SQLiteOpenHelper {
         db.execSQL(TABLE_CREATE_USER);
         db.execSQL(TABLE_CREATE_PURITY_REPORTS);
         db.execSQL(TABLE_CREATE_SOURCE_REPORTS);
-        //db.execSQL(TABLE_CREATE_PURITYREPORTS);
 
     }
 
@@ -135,6 +134,11 @@ public class UserDBHandler extends SQLiteOpenHelper {
         db.insert(TABLE_USERS, null, values);
         db.close();
     }
+
+    /**
+     * gets a list of all users stored in the database
+     * @return a list of all users stored in database
+     */
     public List<User> getAllUsers() {
         // array of columns to fetch
         String[] columns = {
@@ -154,12 +158,7 @@ public class UserDBHandler extends SQLiteOpenHelper {
 
         SQLiteDatabase db = this.getReadableDatabase();
 
-        // query the user table
-        /**
-         * Here query function is used to fetch records from user table this function works like we use sql query.
-         * SQL query equivalent to this query function is
-         * SELECT user_id,user_name,user_email,user_password FROM user ORDER BY user_name;
-         */
+
         Cursor cursor = db.query(TABLE_USERS, //Table to query
                 columns,    //columns to return
                 null,        //columns for the WHERE clause
@@ -193,6 +192,12 @@ public class UserDBHandler extends SQLiteOpenHelper {
         return userList;
     }
 
+
+    /**
+     * gets the email of the current user
+     * @param username
+     * @return the email of the current user
+     */
     public String getUserEmail(String username) {
 
         SQLiteDatabase db = this.getWritableDatabase();
@@ -216,6 +221,11 @@ public class UserDBHandler extends SQLiteOpenHelper {
         return "";
     }
 
+    /**
+     * gets the current user's address
+     * @param username
+     * @return the address of the current user
+     */
     public String getUserAddress(String username) {
 
         SQLiteDatabase db = this.getWritableDatabase();
@@ -239,6 +249,12 @@ public class UserDBHandler extends SQLiteOpenHelper {
         return "";
     }
 
+
+    /**
+     * gets the current user's title
+     * @param username
+     * @return the title of the current user
+     */
     public String getUserTitle(String username) {
 
         SQLiteDatabase db = this.getWritableDatabase();
@@ -262,6 +278,11 @@ public class UserDBHandler extends SQLiteOpenHelper {
         return "";
     }
 
+    /**
+     * gets the current user's type
+     * @param username
+     * @return the type of the current user
+     */
     public String getUserType(String username) {
 
         SQLiteDatabase db = this.getWritableDatabase();
@@ -285,6 +306,14 @@ public class UserDBHandler extends SQLiteOpenHelper {
         return "";
     }
 
+    /**
+     * updates the user's information
+     * @param username
+     * @param email
+     * @param address
+     * @param title
+     * @return true if user's information is updated, false otherwise
+     */
     public boolean updateUser(String username, String email, String address, String title) {
 
         SQLiteDatabase db = this.getWritableDatabase();
@@ -310,6 +339,10 @@ public class UserDBHandler extends SQLiteOpenHelper {
         return false;
     }
 
+    /**
+     * deletes user from the database
+     * @param user
+     */
     public void deleteUser(User user) {
         SQLiteDatabase db = this.getWritableDatabase();
         // delete user record by id
@@ -318,6 +351,12 @@ public class UserDBHandler extends SQLiteOpenHelper {
         db.close();
     }
 
+
+    /**
+     * checks whether the username is taken
+     * @param username
+     * @return true if username is taken, false otherwise
+     */
     public boolean checkUser(String username) {
 
         // array of columns to fetch
@@ -332,12 +371,7 @@ public class UserDBHandler extends SQLiteOpenHelper {
         // selection argument
         String[] selectionArgs = {username};
 
-        // query user table with condition
-        /**
-         * Here query function is used to fetch records from user table this function works like we use sql query.
-         * SQL query equivalent to this query function is
-         * SELECT user_id FROM user WHERE user_email = 'jack@androidtutorialshub.com';
-         */
+
         Cursor cursor = db.query(TABLE_USERS, //Table to query
                 columns,                    //columns to return
                 selection,                  //columns for the WHERE clause
@@ -356,6 +390,13 @@ public class UserDBHandler extends SQLiteOpenHelper {
         return false;
     }
 
+
+    /**
+     * checks whether the user is stored in the database
+     * @param username
+     * @param password
+     * @return true if user already exists, false otherwise
+     */
     public boolean checkUser(String username, String password) {
 
         // array of columns to fetch
@@ -369,12 +410,7 @@ public class UserDBHandler extends SQLiteOpenHelper {
         // selection arguments
         String[] selectionArgs = {username, password};
 
-        // query user table with conditions
-        /**
-         * Here query function is used to fetch records from user table this function works like we use sql query.
-         * SQL query equivalent to this query function is
-         * SELECT user_id FROM user WHERE user_email = 'jack@androidtutorialshub.com' AND user_password = 'qwerty';
-         */
+
         Cursor cursor = db.query(TABLE_USERS, //Table to query
                 columns,                    //columns to return
                 selection,                  //columns for the WHERE clause
@@ -394,6 +430,11 @@ public class UserDBHandler extends SQLiteOpenHelper {
         return false;
     }
 
+
+    /**
+     * adds a purity report to the database
+     * @param report
+     */
     public void addPurityReport(PurityReport report) {
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -413,6 +454,10 @@ public class UserDBHandler extends SQLiteOpenHelper {
         db.close();
     }
 
+    /**
+     * gets a list of all purity reports
+     * @return a list of all purity reports
+     */
     public List<PurityReport> getAllPurityReports() {
         // array of columns to fetch
         String[] columns = {
@@ -447,7 +492,6 @@ public class UserDBHandler extends SQLiteOpenHelper {
         if (cursor.moveToFirst()) {
             do {
                 PurityReport purityReport = new PurityReport();
-                //purityReport.set_reportNumber(Integer.parseInt(cursor.getString(cursor.getColumnIndex(COLUMN_NO_PR))));
                 purityReport.set_username(cursor.getString(cursor.getColumnIndex(COLUMN_USERNAME_PR)));
                 purityReport.set_reportDate(cursor.getString(cursor.getColumnIndex(COLUMN_PR_DATE)));
                 purityReport.set_latitude(Double.parseDouble(cursor.getString(cursor.getColumnIndex(COLUMN_LATITUDE_PR))));
@@ -467,7 +511,10 @@ public class UserDBHandler extends SQLiteOpenHelper {
     }
 
 
-
+    /**
+     * adds a source report to the database
+     * @param report
+     */
     public void addSourceReport(Report report) {
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -485,6 +532,10 @@ public class UserDBHandler extends SQLiteOpenHelper {
         db.close();
     }
 
+    /**
+     * gets a list of all source reports
+     * @return a list of all source reports
+     */
     public List<Report> getAllSourceReports() {
         // array of columns to fetch
         String[] columns = {
@@ -515,9 +566,7 @@ public class UserDBHandler extends SQLiteOpenHelper {
         // Traversing through all rows and adding to list
         if (cursor.moveToFirst()) {
             do {
-                Report sourceReport = new Report();
-                //sourceReport.set_reportNumber(Integer.parseInt(cursor.getString(cursor.getColumnIndex(COLUMN_NO_SR))));
-                sourceReport.set_username(cursor.getString(cursor.getColumnIndex(COLUMN_USERNAME_PR)));
+                Report sourceReport = new Report();sourceReport.set_username(cursor.getString(cursor.getColumnIndex(COLUMN_USERNAME_PR)));
                 sourceReport.set_reportDate(cursor.getString(cursor.getColumnIndex(COLUMN_PR_DATE)));
                 sourceReport.set_latitude(Double.parseDouble(cursor.getString(cursor.getColumnIndex(COLUMN_LATITUDE_PR))));
                 sourceReport.set_longitude(Double.parseDouble(cursor.getString(cursor.getColumnIndex(COLUMN_LONGITUDE_PR))));

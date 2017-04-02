@@ -33,7 +33,7 @@ public class ViewWaterPurityReportsActivity extends ListActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        openAndQueryDatabase();
+        populatePurityReports();
 
         displayResultList();
 
@@ -45,7 +45,7 @@ public class ViewWaterPurityReportsActivity extends ListActivity {
         getListView().setTextFilterEnabled(true);
 
     }
-    private void openAndQueryDatabase() {
+    private void populatePurityReports() {
         try {
             userDBHandler = new UserDBHandler(this.getApplicationContext());
             newDB = userDBHandler.getWritableDatabase();
