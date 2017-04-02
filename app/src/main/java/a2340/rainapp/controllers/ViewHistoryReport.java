@@ -16,8 +16,10 @@ import com.jjoe64.graphview.series.LineGraphSeries;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 import a2340.rainapp.R;
+import database.UserDBHandler;
 import model.PurityReport;
 import model.ReportHandler;
 
@@ -63,7 +65,8 @@ public class ViewHistoryReport extends AppCompatActivity {
      * @param view
      */
     public void historyButtonPressed(View view) {
-        ArrayList<PurityReport> reports = ReportHandler.getHandler().getPurityReports();
+        UserDBHandler dbHandler = new UserDBHandler(this.getApplicationContext());
+        List<PurityReport> reports = dbHandler.getAllPurityReports();
 
         //Get data
         int year = Integer.parseInt(dateEditText.getText().toString());
