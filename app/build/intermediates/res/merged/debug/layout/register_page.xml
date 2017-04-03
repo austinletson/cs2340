@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView
+        android:text="Username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="44dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="87dp"
+        android:id="@+id/usernameLabel"
+        android:textSize="24sp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:layout_below="@+id/usernameLabel"
+        android:layout_alignLeft="@+id/usernameLabel"
+        android:layout_alignStart="@+id/usernameLabel"
+        android:layout_marginTop="14dp"
+        android:id="@+id/register_usernameEdit"
+        android:textSize="24sp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:layout_below="@+id/register_usernameEdit"
+        android:layout_alignLeft="@+id/register_usernameEdit"
+        android:layout_alignStart="@+id/register_usernameEdit"
+        android:layout_marginTop="73dp"
+        android:id="@+id/register_passwordEdit"
+        android:layout_alignRight="@+id/register_usernameEdit"
+        android:layout_alignEnd="@+id/register_usernameEdit" />
+
+    <TextView
+        android:text="Password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="19dp"
+        android:id="@+id/passwordLabel"
+        android:textSize="24sp"
+        android:layout_below="@+id/register_usernameEdit"
+        android:layout_alignLeft="@+id/register_usernameEdit"
+        android:layout_alignStart="@+id/register_usernameEdit" />
+
+    <Button
+        android:text="Register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/registerButton"
+        android:textSize="24sp"
+        android:onClick="onRegisterPressed"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="43dp" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:id="@+id/register_typeSpinner"
+        android:layout_above="@+id/registerButton"
+        android:layout_toRightOf="@+id/usernameLabel"
+        android:layout_toEndOf="@+id/usernameLabel" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/register_nameEdit"
+        android:textAlignment="center"
+        android:hint="Name"
+        android:layout_below="@+id/register_errorTextView"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/register_errorTextView"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="12dp" />
+
+    <TextView
+        android:text="Type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/typeLabel"
+        android:textSize="24sp"
+        android:layout_alignBottom="@+id/register_typeSpinner"
+        android:layout_toLeftOf="@+id/register_nameEdit"
+        android:layout_toStartOf="@+id/register_nameEdit" />
+
+</RelativeLayout>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView
+        android:text="Main Page"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/mainPageLabel"
+        android:textSize="30sp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:text="Logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/logoutButton"
+        android:textSize="24sp"
+        android:onClick="logoutPressed"
+        android:layout_marginBottom="11dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:text="View Profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/viewProfileButton"
+        android:textSize="24sp"
+        android:onClick="editProfPressed"
+        android:layout_above="@+id/logoutButton"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:text="Water Availability"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/waterAvailButton"
+        android:textSize="24sp"
+        android:onClick="waterAvailPressed"
+        android:layout_above="@+id/viewProfileButton"
+        android:layout_alignLeft="@+id/viewReportsButton"
+        android:layout_alignStart="@+id/viewReportsButton" />
+
+    <Button
+        android:text="Submit Source Report"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/submitReportButton"
+        android:elevation="0dp"
+        android:textSize="24sp"
+        android:onClick="submitReportPressed"
+        android:layout_below="@+id/mainPageLabel"
+        android:layout_alignRight="@+id/viewReportsButton"
+        android:layout_alignEnd="@+id/viewReportsButton"
+        android:layout_marginTop="26dp" />
+
+    <Button
+        android:text="View Source Reports"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/viewReportsButton"
+        android:textSize="24sp"
+        android:onClick="viewReportsPressed"
+        android:layout_below="@+id/submitReportButton"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:text="Submit Purity Report"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/submitPurityReports"
+        android:elevation="0dp"
+        android:textSize="24sp"
+        android:onClick="submitPurityReportPressed"
+        android:layout_above="@+id/viewPurityReports"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:text="View Purity Reports"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/viewPurityReports"
+        android:textSize="24sp"
+        android:onClick="viewPurityReportsPressed"
+        android:layout_marginBottom="57dp"
+        android:layout_above="@+id/waterAvailButton"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/viewHistoryGraph"
+        android:textSize="24sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="viewHistoryGraphPressed"
+        android:text="view History Graph"
+        android:layout_above="@+id/waterAvailButton"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>

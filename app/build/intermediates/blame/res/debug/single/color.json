@@ -1,0 +1,98 @@
+[
+    {
+        "merged": "/Users/cpettiford/Desktop/respositories/CS2340/cs2340/app/build/intermediates/res/merged/debug/color/wallet_primary_text_holo_light.xml",
+        "source": "/Users/cpettiford/.android/build-cache/5f89fc37f63dee0020f38d01d7b104987b9ef1b1/output/res/color/wallet_primary_text_holo_light.xml"
+    },
+    {
+        "merged": "/Users/cpettiford/Desktop/respositories/CS2340/cs2340/app/build/intermediates/res/merged/debug/color/abc_search_url_text.xml",
+        "source": "/Users/cpettiford/.android/build-cache/89997b616b977c5cc2678aafc7e8d2de2e56b304/output/res/color/abc_search_url_text.xml"
+    },
+    {
+        "merged": "/Users/cpettiford/Desktop/respositories/CS2340/cs2340/app/build/intermediates/res/merged/debug/color/common_google_signin_btn_text_light.xml",
+        "source": "/Users/cpettiford/.android/build-cache/18fef25ce30ae90312de38ecef6ae5e3f89b04ea/output/res/color/common_google_signin_btn_text_light.xml"
+    },
+    {
+        "merged": "/Users/cpettiford/Desktop/respositories/CS2340/cs2340/app/build/intermediates/res/merged/debug/color/common_google_signin_btn_text_dark.xml",
+        "source": "/Users/cpettiford/.android/build-cache/18fef25ce30ae90312de38ecef6ae5e3f89b04ea/output/res/color/common_google_signin_btn_text_dark.xml"
+    },
+    {
+        "merged": "/Users/cpettiford/Desktop/respositories/CS2340/cs2340/app/build/intermediates/res/merged/debug/color/abc_btn_colored_text_material.xml",
+        "source": "/Users/cpettiford/.android/build-cache/89997b616b977c5cc2678aafc7e8d2de2e56b304/output/res/color/abc_btn_colored_text_material.xml"
+    },
+    {
+        "merged": "/Users/cpettiford/Desktop/respositories/CS2340/cs2340/app/build/intermediates/res/merged/debug/color/abc_primary_text_material_light.xml",
+        "source": "/Users/cpettiford/.android/build-cache/89997b616b977c5cc2678aafc7e8d2de2e56b304/output/res/color/abc_primary_text_material_light.xml"
+    },
+    {
+        "merged": "/Users/cpettiford/Desktop/respositories/CS2340/cs2340/app/build/intermediates/res/merged/debug/color/abc_hint_foreground_material_dark.xml",
+        "source": "/Users/cpettiford/.android/build-cache/89997b616b977c5cc2678aafc7e8d2de2e56b304/output/res/color/abc_hint_foreground_material_dark.xml"
+    },
+    {
+        "merged": "/Users/cpettiford/Desktop/respositories/CS2340/cs2340/app/build/intermediates/res/merged/debug/color/abc_primary_text_material_dark.xml",
+        "source": "/Users/cpettiford/.android/build-cache/89997b616b977c5cc2678aafc7e8d2de2e56b304/output/res/color/abc_primary_text_material_dark.xml"
+    },
+    {
+        "merged": "/Users/cpettiford/Desktop/respositories/CS2340/cs2340/app/build/intermediates/res/merged/debug/color/abc_tint_switch_thumb.xml",
+        "source": "/Users/cpettiford/.android/build-cache/89997b616b977c5cc2678aafc7e8d2de2e56b304/output/res/color/abc_tint_switch_thumb.xml"
+    },
+    {
+        "merged": "/Users/cpettiford/Desktop/respositories/CS2340/cs2340/app/build/intermediates/res/merged/debug/color/abc_primary_text_disable_only_material_dark.xml",
+        "source": "/Users/cpettiford/.android/build-cache/89997b616b977c5cc2678aafc7e8d2de2e56b304/output/res/color/abc_primary_text_disable_only_material_dark.xml"
+    },
+    {
+        "merged": "/Users/cpettiford/Desktop/respositories/CS2340/cs2340/app/build/intermediates/res/merged/debug/color/abc_tint_default.xml",
+        "source": "/Users/cpettiford/.android/build-cache/89997b616b977c5cc2678aafc7e8d2de2e56b304/output/res/color/abc_tint_default.xml"
+    },
+    {
+        "merged": "/Users/cpettiford/Desktop/respositories/CS2340/cs2340/app/build/intermediates/res/merged/debug/color/switch_thumb_material_light.xml",
+        "source": "/Users/cpettiford/.android/build-cache/89997b616b977c5cc2678aafc7e8d2de2e56b304/output/res/color/switch_thumb_material_light.xml"
+    },
+    {
+        "merged": "/Users/cpettiford/Desktop/respositories/CS2340/cs2340/app/build/intermediates/res/merged/debug/color/abc_tint_edittext.xml",
+        "source": "/Users/cpettiford/.android/build-cache/89997b616b977c5cc2678aafc7e8d2de2e56b304/output/res/color/abc_tint_edittext.xml"
+    },
+    {
+        "merged": "/Users/cpettiford/Desktop/respositories/CS2340/cs2340/app/build/intermediates/res/merged/debug/color/abc_tint_switch_track.xml",
+        "source": "/Users/cpettiford/.android/build-cache/89997b616b977c5cc2678aafc7e8d2de2e56b304/output/res/color/abc_tint_switch_track.xml"
+    },
+    {
+        "merged": "/Users/cpettiford/Desktop/respositories/CS2340/cs2340/app/build/intermediates/res/merged/debug/color/wallet_secondary_text_holo_dark.xml",
+        "source": "/Users/cpettiford/.android/build-cache/5f89fc37f63dee0020f38d01d7b104987b9ef1b1/output/res/color/wallet_secondary_text_holo_dark.xml"
+    },
+    {
+        "merged": "/Users/cpettiford/Desktop/respositories/CS2340/cs2340/app/build/intermediates/res/merged/debug/color/abc_hint_foreground_material_light.xml",
+        "source": "/Users/cpettiford/.android/build-cache/89997b616b977c5cc2678aafc7e8d2de2e56b304/output/res/color/abc_hint_foreground_material_light.xml"
+    },
+    {
+        "merged": "/Users/cpettiford/Desktop/respositories/CS2340/cs2340/app/build/intermediates/res/merged/debug/color/switch_thumb_material_dark.xml",
+        "source": "/Users/cpettiford/.android/build-cache/89997b616b977c5cc2678aafc7e8d2de2e56b304/output/res/color/switch_thumb_material_dark.xml"
+    },
+    {
+        "merged": "/Users/cpettiford/Desktop/respositories/CS2340/cs2340/app/build/intermediates/res/merged/debug/color/abc_secondary_text_material_dark.xml",
+        "source": "/Users/cpettiford/.android/build-cache/89997b616b977c5cc2678aafc7e8d2de2e56b304/output/res/color/abc_secondary_text_material_dark.xml"
+    },
+    {
+        "merged": "/Users/cpettiford/Desktop/respositories/CS2340/cs2340/app/build/intermediates/res/merged/debug/color/abc_tint_spinner.xml",
+        "source": "/Users/cpettiford/.android/build-cache/89997b616b977c5cc2678aafc7e8d2de2e56b304/output/res/color/abc_tint_spinner.xml"
+    },
+    {
+        "merged": "/Users/cpettiford/Desktop/respositories/CS2340/cs2340/app/build/intermediates/res/merged/debug/color/abc_primary_text_disable_only_material_light.xml",
+        "source": "/Users/cpettiford/.android/build-cache/89997b616b977c5cc2678aafc7e8d2de2e56b304/output/res/color/abc_primary_text_disable_only_material_light.xml"
+    },
+    {
+        "merged": "/Users/cpettiford/Desktop/respositories/CS2340/cs2340/app/build/intermediates/res/merged/debug/color/abc_tint_btn_checkable.xml",
+        "source": "/Users/cpettiford/.android/build-cache/89997b616b977c5cc2678aafc7e8d2de2e56b304/output/res/color/abc_tint_btn_checkable.xml"
+    },
+    {
+        "merged": "/Users/cpettiford/Desktop/respositories/CS2340/cs2340/app/build/intermediates/res/merged/debug/color/abc_btn_colored_borderless_text_material.xml",
+        "source": "/Users/cpettiford/.android/build-cache/89997b616b977c5cc2678aafc7e8d2de2e56b304/output/res/color/abc_btn_colored_borderless_text_material.xml"
+    },
+    {
+        "merged": "/Users/cpettiford/Desktop/respositories/CS2340/cs2340/app/build/intermediates/res/merged/debug/color/abc_secondary_text_material_light.xml",
+        "source": "/Users/cpettiford/.android/build-cache/89997b616b977c5cc2678aafc7e8d2de2e56b304/output/res/color/abc_secondary_text_material_light.xml"
+    },
+    {
+        "merged": "/Users/cpettiford/Desktop/respositories/CS2340/cs2340/app/build/intermediates/res/merged/debug/color/abc_tint_seek_thumb.xml",
+        "source": "/Users/cpettiford/.android/build-cache/89997b616b977c5cc2678aafc7e8d2de2e56b304/output/res/color/abc_tint_seek_thumb.xml"
+    }
+]

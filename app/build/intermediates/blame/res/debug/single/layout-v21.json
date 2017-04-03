@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "/Users/cpettiford/Desktop/respositories/CS2340/cs2340/app/build/intermediates/res/merged/debug/layout-v21/notification_template_icon_group.xml",
+        "source": "/Users/cpettiford/.android/build-cache/89997b616b977c5cc2678aafc7e8d2de2e56b304/output/res/layout-v21/notification_template_icon_group.xml"
+    },
+    {
+        "merged": "/Users/cpettiford/Desktop/respositories/CS2340/cs2340/app/build/intermediates/res/merged/debug/layout-v21/notification_action.xml",
+        "source": "/Users/cpettiford/.android/build-cache/89997b616b977c5cc2678aafc7e8d2de2e56b304/output/res/layout-v21/notification_action.xml"
+    },
+    {
+        "merged": "/Users/cpettiford/Desktop/respositories/CS2340/cs2340/app/build/intermediates/res/merged/debug/layout-v21/notification_action_tombstone.xml",
+        "source": "/Users/cpettiford/.android/build-cache/89997b616b977c5cc2678aafc7e8d2de2e56b304/output/res/layout-v21/notification_action_tombstone.xml"
+    },
+    {
+        "merged": "/Users/cpettiford/Desktop/respositories/CS2340/cs2340/app/build/intermediates/res/merged/debug/layout-v21/notification_template_custom_big.xml",
+        "source": "/Users/cpettiford/.android/build-cache/89997b616b977c5cc2678aafc7e8d2de2e56b304/output/res/layout-v21/notification_template_custom_big.xml"
+    },
+    {
+        "merged": "/Users/cpettiford/Desktop/respositories/CS2340/cs2340/app/build/intermediates/res/merged/debug/layout-v21/place_autocomplete_fragment.xml",
+        "source": "/Users/cpettiford/.android/build-cache/73cc33d3117cd807604754004474a687121bb3d4/output/res/layout-v21/place_autocomplete_fragment.xml"
+    }
+]

@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/Users/cpettiford/Desktop/respositories/CS2340/cs2340/app/build/intermediates/res/merged/debug/interpolator/mr_fast_out_slow_in.xml",
+        "source": "/Users/cpettiford/.android/build-cache/de4ce93a948dca205333642e91a7f4031658c0f2/output/res/interpolator/mr_fast_out_slow_in.xml"
+    },
+    {
+        "merged": "/Users/cpettiford/Desktop/respositories/CS2340/cs2340/app/build/intermediates/res/merged/debug/interpolator/mr_linear_out_slow_in.xml",
+        "source": "/Users/cpettiford/.android/build-cache/de4ce93a948dca205333642e91a7f4031658c0f2/output/res/interpolator/mr_linear_out_slow_in.xml"
+    }
+]

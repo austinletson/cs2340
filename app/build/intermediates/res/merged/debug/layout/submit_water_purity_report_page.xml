@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/purityDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Time"
+        android:inputType="time"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:id="@+id/editText2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Date"
+        android:inputType="date"
+        android:textSize="20dp"
+        android:layout_alignBaseline="@+id/purityDate"
+        android:layout_alignBottom="@+id/purityDate"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="Report Number"
+        android:text=""
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="13dp"
+        android:layout_marginEnd="13dp"
+        android:layout_marginBottom="12dp" />
+
+    <TextView
+        android:id="@+id/virusPPMTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Virus PPM"
+        android:textSize="15dp"
+        android:layout_alignBaseline="@+id/virusPPMEditText"
+        android:layout_alignBottom="@+id/virusPPMEditText"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/contaminantPPMTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Contaminant PPM"
+        android:layout_marginBottom="39dp"
+        android:textSize="15dp"
+        android:layout_above="@+id/submitButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:id="@+id/contaminantPPMEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/contaminantPPMTextView"
+        android:layout_alignBottom="@+id/contaminantPPMTextView"
+        android:layout_alignLeft="@+id/virusPPMEditText"
+        android:layout_alignStart="@+id/virusPPMEditText"
+        android:ems="10"
+        android:hint="0"
+        android:inputType="number" />
+
+    <TextView
+        android:id="@+id/waterLocationText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Water Location"
+        android:layout_below="@+id/purityDate"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textSize="20dp"/>
+
+    <TextView
+        android:id="@+id/latitudeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Latitude"
+        android:textSize="20dp"
+        android:layout_alignBaseline="@+id/purityLatitudeDecimal"
+        android:layout_alignBottom="@+id/purityLatitudeDecimal"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/longitudeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Longitude"
+        android:textSize="20dp"
+        android:layout_alignBaseline="@+id/purityLongitudeDecimal"
+        android:layout_alignBottom="@+id/purityLongitudeDecimal"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:id="@+id/purityLatitudeDecimal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/waterLocationText"
+        android:layout_toEndOf="@+id/longitudeText"
+        android:ems="10"
+        android:hint="0.00"
+        android:inputType="numberDecimal"
+        android:layout_alignLeft="@+id/purityDate"
+        android:layout_alignStart="@+id/purityDate" />
+
+    <EditText
+        android:id="@+id/purityLongitudeDecimal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/purityLatitudeDecimal"
+        android:layout_alignRight="@+id/purityLatitudeDecimal"
+        android:layout_below="@+id/purityLatitudeDecimal"
+        android:ems="10"
+        android:hint="0.00"
+        android:inputType="numberDecimal" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/virusPPMEditText"
+        android:layout_marginBottom="41dp"
+        android:id="@+id/purityConditionSpinner"
+        android:layout_toEndOf="@+id/textView" />
+
+    <TextView
+        android:text="Condition"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/purityConditionSpinner"
+        android:id="@+id/textView"
+        android:layout_toLeftOf="@+id/purityLongitudeDecimal"
+        android:layout_alignTop="@+id/purityConditionSpinner"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textSize="20dp"/>
+
+    <TextView
+        android:id="@+id/purityErrorText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:contentDescription="Name of Worker"
+        android:layout_alignBaseline="@+id/textView2"
+        android:layout_alignBottom="@+id/textView2"
+        android:layout_toLeftOf="@+id/textView2"
+        android:layout_toStartOf="@+id/textView2"
+        android:layout_marginRight="53dp"
+        android:layout_marginEnd="53dp" />
+
+    <EditText
+        android:id="@+id/virusPPMEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="0"
+        android:inputType="number"
+        android:layout_above="@+id/contaminantPPMEditText"
+        android:layout_alignRight="@+id/textView2"
+        android:layout_alignEnd="@+id/textView2"
+        android:layout_marginBottom="52dp"/>
+
+    <Button
+        android:text="Submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/purityErrorText"
+        android:layout_alignLeft="@+id/contaminantPPMEditText"
+        android:layout_alignStart="@+id/contaminantPPMEditText"
+        android:id="@+id/submitButton"
+        android:onClick="submit"/>
+
+</RelativeLayout>
