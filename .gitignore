@@ -1,10 +1,10 @@
 *.iml
-.gradle
-/local.properties
-/.idea/workspace.xml
-/.idea/libraries
+Android\ Application/.gradle
+/Android\ Application/local.properties
+/Android\ Application/.idea/workspace.xml
+/Android\ Application/.idea/libraries
 .DS_Store
-/build
-/captures
-.externalNativeBuild
-/.idea
+/Android\ Application/build
+/Android\ Application/captures
+/Android\ Application/.externalNativeBuild
+/Android\ Application/.idea
