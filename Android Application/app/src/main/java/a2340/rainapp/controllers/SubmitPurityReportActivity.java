@@ -142,6 +142,8 @@ public class SubmitPurityReportActivity extends AppCompatActivity {
 
         userDBHandler.addPurityReport(purityReport);
 
+        userDBHandler.dummyPurityReport("bob", "12/23/2017", 20, 30, 10, 15, PurityReportCondition.SAFE);
+
         errorView.setText("Report submitted");
 
 

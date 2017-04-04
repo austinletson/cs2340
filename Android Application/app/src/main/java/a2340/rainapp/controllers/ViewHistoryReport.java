@@ -21,7 +21,8 @@ import java.util.List;
 import a2340.rainapp.R;
 import database.UserDBHandler;
 import model.PurityReport;
-import model.ReportHandler;
+import model.PurityReportCondition;
+import database.UserDBHandler;
 
 
 /**
@@ -38,9 +39,13 @@ public class ViewHistoryReport extends AppCompatActivity {
     EditText latEditText;
     EditText longEditText;
 
+    private final AppCompatActivity activity = ViewHistoryReport.this;
+
+
 
     @Override
     public void onCreate(Bundle savedInstanceState){
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.water_quality_history_graph);
         graphView = (GraphView) findViewById(R.id.graph);

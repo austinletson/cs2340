@@ -460,7 +460,6 @@ public class UserDBHandler extends SQLiteOpenHelper {
 
     /**
      * adds dummy data for purity reports
-     * @param report report
      * @param username username
      * @param date date
      * @param latitude latitude
@@ -469,20 +468,20 @@ public class UserDBHandler extends SQLiteOpenHelper {
      * @param contaminantPPM contaminantPPM
      * @param condition condition
      */
-    public void dummyPurityReport(PurityReport report, String username, String date,
+    public void dummyPurityReport(String username, String date,
                                               double latitude, double longitude,
                                               double virusPPM, double contaminantPPM,
                                               String condition) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        values.put(COLUMN_USERNAME_PR, report.set_username());
-        values.put(COLUMN_PR_DATE, report.set_reportDate());
-        values.put(COLUMN_LATITUDE_PR, report.set_latitude());
-        values.put(COLUMN_LONGITUDE_PR, report.set_longitude());
-        values.put(COLUMN_CONDITION_PR, report.set_condition());
-        values.put(COLUMN_VIRUSPPM, report.set_virusPPM());
-        values.put(COLUMN_CONTAMINANTPPM, report.set_contaminantPPM());
+        values.put(COLUMN_USERNAME_PR, username);
+        values.put(COLUMN_PR_DATE, date);
+        values.put(COLUMN_LATITUDE_PR, latitude);
+        values.put(COLUMN_LONGITUDE_PR, longitude);
+        values.put(COLUMN_CONDITION_PR, condition);
+        values.put(COLUMN_VIRUSPPM, virusPPM);
+        values.put(COLUMN_CONTAMINANTPPM, contaminantPPM);
 
 
         // Inserting Row
@@ -578,18 +577,18 @@ public class UserDBHandler extends SQLiteOpenHelper {
      * @param condition condition
      * @param type type
      */
-    public void dummySourceReport(Report report, String username, String date, double latitude,
+    public void dummySourceReport(String username, String date, double latitude,
                                   double longitude, String condition, String type) {
 
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        values.put(COLUMN_USERNAME_SR, report.set_username());
-        values.put(COLUMN_SR_DATE, report.set_reportDate());
-        values.put(COLUMN_LATITUDE_SR, report.set_latitude());
-        values.put(COLUMN_LONGITUDE_SR, report.set_longitude());
-        values.put(COLUMN_CONDITION_SR, report.set_condition());
-        values.put(COLUMN_TYPE, report.set_type());
+        values.put(COLUMN_USERNAME_SR, username);
+        values.put(COLUMN_SR_DATE, date);
+        values.put(COLUMN_LATITUDE_SR, latitude);
+        values.put(COLUMN_LONGITUDE_SR, longitude);
+        values.put(COLUMN_CONDITION_SR, condition);
+        values.put(COLUMN_TYPE, type);
 
 
         // Inserting Row
