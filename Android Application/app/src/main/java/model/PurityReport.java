@@ -1,5 +1,10 @@
 package model;
 
+import android.util.Log;
+
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import model.User;
@@ -19,6 +24,7 @@ public class PurityReport {
     private double virusPPM;
     private double contaminantPPM;
     private User user = new User();
+    private DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
 
     public PurityReport(double _latitude, double _longitude, String _username, String _condition, double virusPPM, double contaminantPPM) {
         this._latitude = _latitude;
@@ -75,7 +81,7 @@ public class PurityReport {
      * @return the date of the submitted purity report
      */
     public String get_reportDate() {
-        return _reportDate.toString();
+        return df.format(_reportDate);
     }
 
     public Date get_reportDateAsDate() {return _reportDate;}
@@ -86,7 +92,11 @@ public class PurityReport {
      * @param _reportDate date of report submission
      */
     public void set_reportDate(String _reportDate) {
-        this._reportDate = Calendar.getInstance().getTime();
+        try {
+            this._reportDate = df.parse(_reportDate);
+        } catch (ParseException e) {
+            Log.d("Debug", "Unable to parse date");
+        }
     }
 
     /**

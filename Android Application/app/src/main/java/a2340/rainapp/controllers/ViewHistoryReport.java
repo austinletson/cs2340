@@ -11,11 +11,13 @@ import android.widget.EditText;
 import android.widget.Spinner;
 
 import com.jjoe64.graphview.GraphView;
+import com.jjoe64.graphview.GridLabelRenderer;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
 
 import a2340.rainapp.R;
@@ -38,6 +40,7 @@ public class ViewHistoryReport extends AppCompatActivity {
     EditText dateEditText;
     EditText latEditText;
     EditText longEditText;
+    GridLabelRenderer gridLabel;
 
     private final AppCompatActivity activity = ViewHistoryReport.this;
 
@@ -63,6 +66,27 @@ public class ViewHistoryReport extends AppCompatActivity {
         ArrayAdapter<String> typeAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, spinnerValues);
         typeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(typeAdapter);
+
+        UserDBHandler udb = new UserDBHandler(ViewHistoryReport.this);
+
+
+        gridLabel = graphView.getGridLabelRenderer();
+        gridLabel.setHorizontalAxisTitle("Month");
+        gridLabel.setVerticalAxisTitle("Virus");
+
+        udb.dummyPurityReport("bob", "7/23/2017", 10, 10, 80, 145, PurityReportCondition.SAFE);
+        udb.dummyPurityReport("bob", "8/23/2017", 10, 10, 0, 134, PurityReportCondition.SAFE);
+        udb.dummyPurityReport("bob", "9/23/2017", 10, 10, 50, 11, PurityReportCondition.SAFE);
+        udb.dummyPurityReport("bob", "10/23/2017", 10, 10, 10, 10, PurityReportCondition.SAFE);
+        udb.dummyPurityReport("bob", "11/23/2017", 10, 10, 10, 134, PurityReportCondition.SAFE);
+        udb.dummyPurityReport("bob", "12/23/2017", 10, 10, 10, 10, PurityReportCondition.SAFE);
+
+        udb.dummyPurityReport("bob", "7/23/2017", 10, 10, 70, 145, PurityReportCondition.SAFE);
+        udb.dummyPurityReport("bob", "8/23/2017", 10, 10, 14, 134, PurityReportCondition.SAFE);
+        udb.dummyPurityReport("bob", "9/23/2017", 10, 10, 119, 11, PurityReportCondition.SAFE);
+        udb.dummyPurityReport("bob", "10/23/2017", 10, 10, 10, 10, PurityReportCondition.SAFE);
+        udb.dummyPurityReport("bob", "11/23/2017", 10, 10, 40, 134, PurityReportCondition.SAFE);
+        udb.dummyPurityReport("bob", "12/23/2017", 10, 10, 10, 10, PurityReportCondition.SAFE);
     }
 
     /**
@@ -70,6 +94,7 @@ public class ViewHistoryReport extends AppCompatActivity {
      * @param view
      */
     public void historyButtonPressed(View view) {
+        graphView.removeAllSeries();
         UserDBHandler dbHandler = new UserDBHandler(this.getApplicationContext());
         List<PurityReport> reports = dbHandler.getAllPurityReports();
 
@@ -81,7 +106,14 @@ public class ViewHistoryReport extends AppCompatActivity {
 
         ArrayList<DataPoint> dataPoints = new ArrayList<>();
         boolean areThereReports = false;
+        //Fill month average hash map with negative ones
+        HashMap<Integer, ArrayList<Double>> averageMap = new HashMap<>();
+        for (int i = 1; i <= 12; i++) {
+            averageMap.put(i, new ArrayList<Double>());
+        }
         for (PurityReport report: reports) {
+
+
 
             //Grab year from report date
             Calendar cal = Calendar.getInstance();
@@ -92,12 +124,38 @@ public class ViewHistoryReport extends AppCompatActivity {
                     && report.get_longitude() == longitude
                     && reportYear == year){
                 areThereReports = true;
+
+
                 if (spinnerValue.equals("Virus")) {
-                    dataPoints.add(new DataPoint(cal.get(Calendar.MONTH), report.get_virusPPM()));
+                    averageMap.get(cal.get(Calendar.MONTH) + 1).add(report.get_virusPPM());
                 } else if(spinnerValue.equals("Contaminant")) {
-                    dataPoints.add(new DataPoint(cal.get(Calendar.MONTH), report.get_contaminantPPM()));
+                    averageMap.get(cal.get(Calendar.MONTH) + 1).add(report.get_contaminantPPM());
                 }
+
+
+
+
+
             }
+
+
+        }
+
+        for (int i = 1; i<= 12; i++) {
+            if (averageMap.get(i).size() != 0){
+                double sum = 0;
+                for (double d: averageMap.get(i)) {
+                    sum +=d;
+                }
+                double average = sum/averageMap.get(i).size();
+                dataPoints.add(new DataPoint(i, average));
+            }
+        }
+
+        if (spinnerValue.equals("Virus")) {
+            gridLabel.setVerticalAxisTitle("Virus");
+        } else if(spinnerValue.equals("Contaminant")) {
+            gridLabel.setVerticalAxisTitle("Contaminant");
         }
 
         if (areThereReports) {
@@ -108,7 +166,7 @@ public class ViewHistoryReport extends AppCompatActivity {
         } else {
             AlertDialog alertDialog = new AlertDialog.Builder(ViewHistoryReport.this).create();
             alertDialog.setTitle("Alert");
-            alertDialog.setMessage("You do not have permission to view purity reports");
+            alertDialog.setMessage("There are no reports for this year and long/lat");
             alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
                     new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {

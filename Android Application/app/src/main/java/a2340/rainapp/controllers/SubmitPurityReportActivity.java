@@ -73,7 +73,7 @@ public class SubmitPurityReportActivity extends AppCompatActivity {
 
 
         dateText = (TextView) findViewById(R.id.purityDate);
-        SimpleDateFormat ft = new SimpleDateFormat("E yyyy.MM.dd");
+        SimpleDateFormat ft = new SimpleDateFormat("MM/dd/yyyy");
         dateText.setText(ft.format(Calendar.getInstance().getTime()));
 
         virusEdit = (EditText) findViewById(R.id.virusPPMEditText);
@@ -142,7 +142,7 @@ public class SubmitPurityReportActivity extends AppCompatActivity {
 
         userDBHandler.addPurityReport(purityReport);
 
-        userDBHandler.dummyPurityReport("bob", "12/23/2017", 20, 30, 10, 15, PurityReportCondition.SAFE);
+
 
         errorView.setText("Report submitted");
 

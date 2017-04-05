@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import a2340.rainapp.R;
+import database.UserDBHandler;
 import model.UserHandler;
 import model.UserType;
 
@@ -20,10 +21,13 @@ import a2340.rainapp.controllers.RegisterActivity;
 
 public class MainApplicationScreenActivity extends AppCompatActivity {
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_main_page);
+
 
         
     }
