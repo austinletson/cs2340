@@ -45,9 +45,8 @@ public class ViewHistoryReport extends AppCompatActivity {
     private final AppCompatActivity activity = ViewHistoryReport.this;
 
 
-
     @Override
-    public void onCreate(Bundle savedInstanceState){
+    public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.water_quality_history_graph);
@@ -57,7 +56,7 @@ public class ViewHistoryReport extends AppCompatActivity {
         longEditText = (EditText) findViewById(R.id.historyLongEdit);
 
 
-        String[] spinnerValues = new String[] {
+        String[] spinnerValues = new String[]{
                 "Virus", "Contaminant"
         };
 
@@ -91,6 +90,7 @@ public class ViewHistoryReport extends AppCompatActivity {
 
     /**
      * called when button is pressed and history needs to be generated
+     *
      * @param view
      */
     public void historyButtonPressed(View view) {
@@ -105,60 +105,29 @@ public class ViewHistoryReport extends AppCompatActivity {
         String spinnerValue = spinner.getSelectedItem().toString();
 
         ArrayList<DataPoint> dataPoints = new ArrayList<>();
-        boolean areThereReports = false;
+
         //Fill month average hash map with negative ones
-        HashMap<Integer, ArrayList<Double>> averageMap = new HashMap<>();
-        for (int i = 1; i <= 12; i++) {
-            averageMap.put(i, new ArrayList<Double>());
-        }
-        for (PurityReport report: reports) {
+        HashMap<Integer, ArrayList<Double>> averageMap = grabMap(latitude, longitude, year, reports, spinnerValue);
 
-
-
-            //Grab year from report date
-            Calendar cal = Calendar.getInstance();
-            cal.setTime(report.get_reportDateAsDate());
-            int reportYear = cal.get(Calendar.YEAR);
-
-            if (report.get_latitude() == latitude
-                    && report.get_longitude() == longitude
-                    && reportYear == year){
-                areThereReports = true;
-
-
-                if (spinnerValue.equals("Virus")) {
-                    averageMap.get(cal.get(Calendar.MONTH) + 1).add(report.get_virusPPM());
-                } else if(spinnerValue.equals("Contaminant")) {
-                    averageMap.get(cal.get(Calendar.MONTH) + 1).add(report.get_contaminantPPM());
+        if (averageMap != null) {
+            for (int i = 1; i <= 12; i++) {
+                if (averageMap.get(i).size() != 0) {
+                    double sum = 0;
+                    for (double d : averageMap.get(i)) {
+                        sum += d;
+                    }
+                    double average = sum / averageMap.get(i).size();
+                    dataPoints.add(new DataPoint(i, average));
                 }
+            }
 
-
-
-
-
+            if (spinnerValue.equals("Virus")) {
+                gridLabel.setVerticalAxisTitle("Virus");
+            } else if (spinnerValue.equals("Contaminant")) {
+                gridLabel.setVerticalAxisTitle("Contaminant");
             }
 
 
-        }
-
-        for (int i = 1; i<= 12; i++) {
-            if (averageMap.get(i).size() != 0){
-                double sum = 0;
-                for (double d: averageMap.get(i)) {
-                    sum +=d;
-                }
-                double average = sum/averageMap.get(i).size();
-                dataPoints.add(new DataPoint(i, average));
-            }
-        }
-
-        if (spinnerValue.equals("Virus")) {
-            gridLabel.setVerticalAxisTitle("Virus");
-        } else if(spinnerValue.equals("Contaminant")) {
-            gridLabel.setVerticalAxisTitle("Contaminant");
-        }
-
-        if (areThereReports) {
             //convert to array and display graph
             DataPoint[] dataPointsAsArray = new DataPoint[dataPoints.size()];
             dataPointsAsArray = dataPoints.toArray(dataPointsAsArray);
@@ -175,5 +144,39 @@ public class ViewHistoryReport extends AppCompatActivity {
                     });
             alertDialog.show();
         }
+    }
+
+    public HashMap<Integer, ArrayList<Double>> grabMap(double latitude, double longitude, int year, List<PurityReport> reports, String spinnerValue) {
+        HashMap<Integer, ArrayList<Double>> averageMap = new HashMap<>();
+        boolean areThereReports = false;
+        for (int i = 1; i <= 12; i++) {
+            averageMap.put(i, new ArrayList<Double>());
+        }
+        for (PurityReport report : reports) {
+
+
+            //Grab year from report date
+            Calendar cal = Calendar.getInstance();
+            cal.setTime(report.get_reportDateAsDate());
+            int reportYear = cal.get(Calendar.YEAR);
+
+            if (report.get_latitude() == latitude
+                    && report.get_longitude() == longitude
+                    && reportYear == year) {
+                areThereReports = true;
+
+
+                if (spinnerValue.equals("Virus")) {
+                    averageMap.get(cal.get(Calendar.MONTH) + 1).add(report.get_virusPPM());
+                } else if (spinnerValue.equals("Contaminant")) {
+                    averageMap.get(cal.get(Calendar.MONTH) + 1).add(report.get_contaminantPPM());
+                }
+
+
+            }
+
+
+        }
+        return (areThereReports) ? averageMap : null;
     }
 }
