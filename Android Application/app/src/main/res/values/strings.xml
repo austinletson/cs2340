@@ -9,10 +9,77 @@
     <string name="error_valid_username_password">Invalid username and password combination.</string>
     <string name="error_message_name">Enter Name</string>
     <string name="success_message">Registration Successful</string>
+    <string name="profile_updated_successfully">Your information has been saved</string>
     <string name="error_username_exists">Username Already Exists</string>
-    <string name="error_latitude">Enter a nonnegative latitude</string>
-    <string name="error_longitude">Enter a nonnegative longitude</string>
+    <string name="error_latitude">Enter a non-negative latitude</string>
+    <string name="error_longitude">Enter a non-negative longitude</string>
     <string name="error_virusPPM">Enter the Virus PPM</string>
     <string name="error_contaminantPPM">Enter the Contaminant PPM</string>
+    <string name="username">Username</string>
+    <string name="login">Login</string>
+    <string name="password">Password</string>
+    <string name="login_error">TextView</string>
+    <string name="create_edit_profile">Create/Edit Profile</string>
+    <string name="logout">Logout</string>
+    <string name="email">Email</string>
+    <string name="home_address">Home Address</string>
+    <string name="title">Title</string>
+    <string name="update_profile">Update</string>
+    <string name="profile_error">TextView</string>
+    <string name="name">Name</string>
+    <string name="type">Type</string>
+    <string name="register">register</string>
+    <string name="reporter">Reporter:</string>
+    <string name="water_condition">Water Condition:</string>
+    <string name="date">Date:</string>
+    <string name="water_location_address">Water Location Address:</string>
+    <string name="longitude">Longitude:</string>
+    <string name="latitude">Latitude:</string>
+    <string name="report_number">Report Number:</string>
+    <string name="submit">Submit</string>
+    <string name="type_of_water">Type of Water:</string>
+    <string name="report_decimal">0.000</string>
+    <string name="time">Time</string>
+    <string name="virusPPM">Virus PPM</string>
+    <string name="contaminantPPM">Contaminant PPM</string>
+    <string name="condition">Condition</string>
+    <string name="main_page">Main Page</string>
+    <string name="view_profile">View Profile</string>
+    <string name="water_availability">Water Availability</string>
+    <string name="submit_source_report">Submit Source Report</string>
+    <string name="view_source_reports">View Source Reports</string>
+    <string name="submit_purity_report">Submit Purity Report</string>
+    <string name="view_purity_reports">View Purity Reports</string>
+    <string name="view_history_graph">View History Graph</string>
+    <string name="year">Year</string>
+    <string name="two_thousand_year">2000</string>
+    <string name="one_hardcoded">1</string>
+    <string name="date_hardcoded">1/1/17</string>
+    <string name="zero_hardcoded">0</string>
+    <string name="successful_registration">Registered!</string>
+    <string name="report_submitted">Report Submitted!</string>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </resources>

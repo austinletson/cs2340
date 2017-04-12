@@ -8,7 +8,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Time"
+        android:hint="@string/time"
         android:inputType="time"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
@@ -18,9 +18,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Date"
+        android:hint="@string/date"
         android:inputType="date"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:layout_alignBaseline="@+id/purityDate"
         android:layout_alignBottom="@+id/purityDate"
         android:layout_alignParentLeft="true"
@@ -30,7 +30,7 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:contentDescription="Report Number"
+        android:contentDescription="@string/report_number"
         android:text=""
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
@@ -43,8 +43,8 @@
         android:id="@+id/virusPPMTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Virus PPM"
-        android:textSize="15dp"
+        android:text="@string/virusPPM"
+        android:textSize="15sp"
         android:layout_alignBaseline="@+id/virusPPMEditText"
         android:layout_alignBottom="@+id/virusPPMEditText"
         android:layout_alignParentLeft="true"
@@ -54,9 +54,9 @@
         android:id="@+id/contaminantPPMTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Contaminant PPM"
+        android:text="@string/contaminantPPM"
         android:layout_marginBottom="39dp"
-        android:textSize="15dp"
+        android:textSize="15sp"
         android:layout_above="@+id/submitButton"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -70,7 +70,7 @@
         android:layout_alignLeft="@+id/virusPPMEditText"
         android:layout_alignStart="@+id/virusPPMEditText"
         android:ems="10"
-        android:hint="0"
+        android:hint="@string/zero_hardcoded"
         android:inputType="number" />
 
     <TextView
@@ -79,11 +79,11 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Water Location"
+        android:text="@string/water_location_address"
         android:layout_below="@+id/purityDate"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:textSize="20dp"/>
+        android:textSize="20sp"/>
 
     <TextView
         android:id="@+id/latitudeText"
@@ -91,8 +91,8 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Latitude"
-        android:textSize="20dp"
+        android:text="@string/latitude"
+        android:textSize="20sp"
         android:layout_alignBaseline="@+id/purityLatitudeDecimal"
         android:layout_alignBottom="@+id/purityLatitudeDecimal"
         android:layout_alignParentLeft="true"
@@ -104,8 +104,8 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Longitude"
-        android:textSize="20dp"
+        android:text="@string/longitude"
+        android:textSize="20sp"
         android:layout_alignBaseline="@+id/purityLongitudeDecimal"
         android:layout_alignBottom="@+id/purityLongitudeDecimal"
         android:layout_alignParentLeft="true"
@@ -117,8 +117,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/waterLocationText"
         android:layout_toEndOf="@+id/longitudeText"
+        android:layout_toRightOf="@+id/longitudeText"
         android:ems="10"
-        android:hint="0.00"
+        android:hint="@string/report_decimal"
         android:inputType="numberDecimal"
         android:layout_alignLeft="@+id/purityDate"
         android:layout_alignStart="@+id/purityDate" />
@@ -131,7 +132,7 @@
         android:layout_alignRight="@+id/purityLatitudeDecimal"
         android:layout_below="@+id/purityLatitudeDecimal"
         android:ems="10"
-        android:hint="0.00"
+        android:hint="@string/report_decimal"
         android:inputType="numberDecimal" />
 
     <Spinner
@@ -143,7 +144,7 @@
         android:layout_toEndOf="@+id/textView" />
 
     <TextView
-        android:text="Condition"
+        android:text="@string/condition"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/purityConditionSpinner"
@@ -152,14 +153,14 @@
         android:layout_alignTop="@+id/purityConditionSpinner"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:textSize="20dp"/>
+        android:textSize="20sp"/>
 
     <TextView
         android:id="@+id/purityErrorText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text=""
-        android:contentDescription="Name of Worker"
+        android:contentDescription="@string/name"
         android:layout_alignBaseline="@+id/textView2"
         android:layout_alignBottom="@+id/textView2"
         android:layout_toLeftOf="@+id/textView2"
@@ -172,7 +173,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="0"
+        android:hint="@string/zero_hardcoded"
         android:inputType="number"
         android:layout_above="@+id/contaminantPPMEditText"
         android:layout_alignRight="@+id/textView2"
@@ -180,7 +181,7 @@
         android:layout_marginBottom="52dp"/>
 
     <Button
-        android:text="Submit"
+        android:text="@string/submit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/purityErrorText"

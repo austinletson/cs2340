@@ -3,7 +3,7 @@
     android:layout_width="match_parent" android:layout_height="match_parent">
 
     <TextView
-        android:text="Main Page"
+        android:text="@string/main_page"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/mainPageLabel"
@@ -12,7 +12,7 @@
         android:layout_centerHorizontal="true" />
 
     <Button
-        android:text="Logout"
+        android:text="@string/logout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/logoutButton"
@@ -23,7 +23,7 @@
         android:layout_centerHorizontal="true" />
 
     <Button
-        android:text="View Profile"
+        android:text="@string/view_profile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/viewProfileButton"
@@ -33,7 +33,7 @@
         android:layout_centerHorizontal="true" />
 
     <Button
-        android:text="Water Availability"
+        android:text="@string/water_availability"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/waterAvailButton"
@@ -44,7 +44,7 @@
         android:layout_alignStart="@+id/viewReportsButton" />
 
     <Button
-        android:text="Submit Source Report"
+        android:text="@string/submit_source_report"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/submitReportButton"
@@ -57,7 +57,7 @@
         android:layout_marginTop="26dp" />
 
     <Button
-        android:text="View Source Reports"
+        android:text="@string/view_source_reports"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/viewReportsButton"
@@ -67,7 +67,7 @@
         android:layout_centerHorizontal="true" />
 
     <Button
-        android:text="Submit Purity Report"
+        android:text="@string/submit_purity_report"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/submitPurityReports"
@@ -78,7 +78,7 @@
         android:layout_centerHorizontal="true" />
 
     <Button
-        android:text="View Purity Reports"
+        android:text="@string/view_purity_reports"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/viewPurityReports"
@@ -94,7 +94,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="viewHistoryGraphPressed"
-        android:text="view History Graph"
+        android:text="@string/view_history_graph"
         android:layout_above="@+id/waterAvailButton"
         android:layout_centerHorizontal="true" />
 

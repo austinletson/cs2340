@@ -1,22 +1,23 @@
 package database;
 
-/**
- * Created by cpettiford on 3/27/17.
- */
+
 
 import android.app.Activity;
 import android.content.Context;
-import android.text.InputType;
 import android.widget.EditText;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
 
+/**
+ * Created by cpettiford on 3/27/17.
+ * Version 1.0
+ */
+
 
 public class InputValidation {
-    private Context context;
-    private TextView alertTextView;
+    private final Context context;
 
 
     public InputValidation(Context context) {
@@ -36,8 +37,9 @@ public class InputValidation {
         if (value.isEmpty()) {
             alertTextView.setText(message);
             hideKeyboardFrom(editText);
+            return true;
         }
-        return true;
+        return false;
     }
 
 

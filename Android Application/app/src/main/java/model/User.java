@@ -3,6 +3,7 @@ package model;
 
 /**
  * Created by austinletson on 2/14/17.
+ * Version 1.0
  */
 
 public class User {
@@ -25,7 +26,7 @@ public class User {
 
     /**
      * sets email
-     * @param email
+     * @param email email
      */
     public void set_email(String email) {
         this._email = email;
@@ -33,15 +34,15 @@ public class User {
 
     /**
      * gets the address of user
-     * @return the users adress
+     * @return the users address
      */
     public String get_address() {
         return _address;
     }
 
     /**
-     * sets the adress of user
-     * @param address
+     * sets the address of user
+     * @param address address
      */
     public void set_address(String address) {
         this._address = address;
@@ -57,7 +58,7 @@ public class User {
 
     /**
      * sets the title of the user
-     * @param title
+     * @param title title
      */
     public void set_title(String title) {
         this._title = title;
@@ -73,15 +74,15 @@ public class User {
 
     /**
      * sets the type of user
-     * @param _type
+     * @param _type type
      */
     public void set_type(String _type) {
         this._type = _type;
     }
 
     /**
-     * sets the user name of the suer
-     * @param _username
+     * sets the user name of the user
+     * @param _username username
      */
     public void set_username(String _username) {
         this._username = _username;
@@ -89,14 +90,14 @@ public class User {
 
     /**
      * sets the password of the user
-     * @param _password
+     * @param _password password
      */
     public void set_password(String _password) {
         this._password = _password;
     }
 
     /**
-     * gest username of user
+     * gets username of user
      * @return user name of user
      */
     public String get_username() {
@@ -105,7 +106,7 @@ public class User {
     }
 
     public void set_name(String name) {
-        this._name = _name;
+        this._name = name;
     }
 
     public String get_name() {
@@ -122,7 +123,7 @@ public class User {
 
     /**
      * sets the id number for user
-     * @param _id
+     * @param _id id
      */
     public void set_id(long _id) {
         this._id = _id;
@@ -141,22 +142,5 @@ public class User {
 
     }
 
-    /**
-     * user constructor
-     * @param username
-     * @param password
-     * @param type
-     */
-    public User (long id, String username, String password, String type, String email, String address, String title, String name) {
-        _id = id;
-        _username = username;
-        _password = password;
-        _type = type;
-        _email = email;
-        _address = address;
-        _title = title;
-        _name = name;
-
-    }
 
 }

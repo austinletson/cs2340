@@ -2,7 +2,6 @@ package a2340.rainapp.controllers;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -21,7 +20,6 @@ import java.util.HashMap;
 import java.util.List;
 
 import a2340.rainapp.R;
-import database.UserDBHandler;
 import model.PurityReport;
 import model.PurityReportCondition;
 import database.UserDBHandler;
@@ -34,15 +32,15 @@ import database.UserDBHandler;
 public class ViewHistoryReport extends AppCompatActivity {
 
 
-    LineGraphSeries<DataPoint> series;
-    GraphView graphView;
-    Spinner spinner;
-    EditText dateEditText;
-    EditText latEditText;
-    EditText longEditText;
-    GridLabelRenderer gridLabel;
+    //LineGraphSeries<DataPoint> series;
+    private GraphView graphView;
+    private Spinner spinner;
+    private EditText dateEditText;
+    private EditText latEditText;
+    private EditText longEditText;
+    private GridLabelRenderer gridLabel;
 
-    private final AppCompatActivity activity = ViewHistoryReport.this;
+    //private final AppCompatActivity activity = ViewHistoryReport.this;
 
 
     @Override
@@ -62,7 +60,7 @@ public class ViewHistoryReport extends AppCompatActivity {
 
 
         spinner = (Spinner) findViewById(R.id.historySpinner);
-        ArrayAdapter<String> typeAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, spinnerValues);
+        ArrayAdapter<String> typeAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, spinnerValues);
         typeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(typeAdapter);
 
@@ -91,7 +89,7 @@ public class ViewHistoryReport extends AppCompatActivity {
     /**
      * called when button is pressed and history needs to be generated
      *
-     * @param view
+     * @param view view
      */
     public void historyButtonPressed(View view) {
         graphView.removeAllSeries();
@@ -146,7 +144,7 @@ public class ViewHistoryReport extends AppCompatActivity {
         }
     }
 
-    public HashMap<Integer, ArrayList<Double>> grabMap(double latitude, double longitude, int year, List<PurityReport> reports, String spinnerValue) {
+    private HashMap<Integer, ArrayList<Double>> grabMap(double latitude, double longitude, int year, List<PurityReport> reports, String spinnerValue) {
         HashMap<Integer, ArrayList<Double>> averageMap = new HashMap<>();
         boolean areThereReports = false;
         for (int i = 1; i <= 12; i++) {

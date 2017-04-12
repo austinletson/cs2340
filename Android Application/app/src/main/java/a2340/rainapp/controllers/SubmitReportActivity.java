@@ -1,6 +1,5 @@
 package a2340.rainapp.controllers;
 
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -22,24 +21,21 @@ import model.Report;
 
 /**
  * Created by austinletson on 3/1/17.
+ * Version 1.0
  */
 
 public class SubmitReportActivity extends AppCompatActivity {
 
-    EditText latEdit;
-    EditText longEdit;
+    private EditText latEdit;
+    private EditText longEdit;
 
-    Spinner conditionSpinner;
-    Spinner typeSpinner;
-    TextView errorView;
-    TextView dateText;
-    TextView typeText;
-    TextView nameText;
-    TextView reportNumberView;
+    private Spinner conditionSpinner;
+    private Spinner typeSpinner;
+    private TextView errorView;
+    private TextView dateText;
 
     private InputValidation inputValidation;
-    private String[] arraySpinnerCondition;
-    private String[] arraySpinnerType;
+
 
     private Report sourceReport;
 
@@ -47,25 +43,27 @@ public class SubmitReportActivity extends AppCompatActivity {
 
     private UserDBHandler userDBHandler;
 
-    private String tableName = userDBHandler.TABLE_USERS;
-    private SQLiteDatabase newDB;
 
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        String[] arraySpinnerCondition;
+        String[] arraySpinnerType;
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.submit_report_page);
 
 
         conditionSpinner = (Spinner) findViewById(R.id.waterConditionSpinner);
 
-        this.arraySpinnerCondition = new String[]{
+        arraySpinnerCondition = new String[]{
                 SourceReportCondition.WASTE, SourceReportCondition.TREATABLE_MUDDY,
                 SourceReportCondition.TREATABLE_CLEAR, SourceReportCondition.TREATABLE_POTABLE
         };
 
-        ArrayAdapter<String> conditionAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item,
+        ArrayAdapter<String> conditionAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item,
                 arraySpinnerCondition);
         conditionAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         conditionSpinner.setAdapter(conditionAdapter);
@@ -73,13 +71,13 @@ public class SubmitReportActivity extends AppCompatActivity {
 
         typeSpinner = (Spinner) findViewById(R.id.reportTypeSpinner);
 
-        this.arraySpinnerType = new String[]{
+        arraySpinnerType = new String[]{
                 SourceReportWaterType.BOTTLED, SourceReportWaterType.LAKE, SourceReportWaterType.SPRING,
                 SourceReportWaterType.STREAM, SourceReportWaterType.WELL, SourceReportWaterType.OTHER
         };
 
 
-        ArrayAdapter<String> typeAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item,
+        ArrayAdapter<String> typeAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item,
                 arraySpinnerType);
         typeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         typeSpinner.setAdapter(typeAdapter);
@@ -93,7 +91,7 @@ public class SubmitReportActivity extends AppCompatActivity {
         latEdit = (EditText) findViewById(R.id.latitudeText);
         longEdit = (EditText) findViewById(R.id.longitudeText);
         errorView = (TextView) findViewById(R.id.reportErrorView);
-        nameText = (TextView) findViewById(R.id.reportNameText);
+        TextView nameText = (TextView) findViewById(R.id.reportNameText);
 
 
         dateText = (TextView) findViewById(R.id.dateText);
@@ -103,7 +101,7 @@ public class SubmitReportActivity extends AppCompatActivity {
 
         nameText.setText(LoginActivity.loggedInUser);
 
-        typeText = (TextView) findViewById(R.id.typeLabel);
+        //TextView typeText = (TextView) findViewById(R.id.typeLabel);
     }
 
     private void initObjects() {
@@ -117,7 +115,7 @@ public class SubmitReportActivity extends AppCompatActivity {
     /**
      * called when the submit button is pressed
      *
-     * @param view
+     * @param view view
      */
     public void submit(View view) {
         storeSourceReportData();
@@ -130,13 +128,13 @@ public class SubmitReportActivity extends AppCompatActivity {
         double longitude = Double.parseDouble(longEdit.getText().toString());
         String date = dateText.getText().toString();
 
-        if (!inputValidation.isEditTextFilled(latEdit, errorView, getString(R.string.error_latitude))) {
+        if (inputValidation.isEditTextFilled(latEdit, errorView, getString(R.string.error_latitude))) {
             if (latitude < 0) {
                 errorView.setText(getString(R.string.error_latitude));
                 return;
             }
         }
-        if (!inputValidation.isEditTextFilled(longEdit, errorView, getString(R.string.error_longitude))) {
+        if (inputValidation.isEditTextFilled(longEdit, errorView, getString(R.string.error_longitude))) {
             if (longitude < 0) {
                 errorView.setText(getString(R.string.error_longitude));
                 return;
@@ -153,7 +151,7 @@ public class SubmitReportActivity extends AppCompatActivity {
 
         userDBHandler.addSourceReport(sourceReport);
 
-        errorView.setText("Report submitted");
+        errorView.setText(getString(R.string.report_submitted));
 
 
 

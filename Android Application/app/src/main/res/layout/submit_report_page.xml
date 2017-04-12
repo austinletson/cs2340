@@ -3,7 +3,7 @@
     android:layout_width="match_parent" android:layout_height="match_parent">
 
     <TextView
-        android:text="1"
+        android:text="@string/one_hardcoded"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/reportNumberText"
@@ -16,7 +16,7 @@
         android:layout_marginStart="20dp" />
 
     <TextView
-        android:text="Reporter:"
+        android:text="@string/reporter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/reporterNameLabel"
@@ -27,7 +27,7 @@
         android:layout_marginTop="24dp" />
 
     <TextView
-        android:text="Water Conditon:"
+        android:text="@string/water_condition"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/typeLabel"
@@ -48,7 +48,7 @@
         android:layout_marginStart="20dp" />
 
     <TextView
-        android:text="Date:"
+        android:text="@string/date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="33dp"
@@ -74,7 +74,7 @@
         android:layout_toRightOf="@+id/waterConditionLabel" />
 
     <TextView
-        android:text="Water Location Address:"
+        android:text="@string/water_location_address"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/waterLocationLabel"
@@ -85,7 +85,7 @@
         android:layout_alignStart="@+id/reporterNameLabel" />
 
     <TextView
-        android:text="Longitude:"
+        android:text="@string/longitude"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/LongitudeLabel"
@@ -97,7 +97,7 @@
         android:layout_marginStart="33dp" />
 
     <TextView
-        android:text="Latitude:"
+        android:text="@string/latitude"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/latitudeLabel"
@@ -116,13 +116,13 @@
         android:ems="10"
         android:id="@+id/latitudeText"
         android:textSize="14sp"
-        android:text="0.000"
+        android:text="@string/report_decimal"
         android:layout_below="@+id/latitudeLabel"
         android:layout_toLeftOf="@+id/reportTypeSpinner"
         android:layout_toStartOf="@+id/reportTypeSpinner" />
 
     <TextView
-        android:text="Name"
+        android:text="@string/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/reportNameText"
@@ -138,15 +138,14 @@
         android:inputType="numberDecimal"
         android:ems="10"
         android:id="@+id/longitudeText"
-        android:text="0.000"
+        android:text="@string/report_decimal"
         android:textSize="14sp"
         android:layout_below="@+id/LongitudeLabel"
-        android:layout_toRightOf="@+id/latitudeText"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
     <TextView
-        android:text="Report #:"
+        android:text="@string/report_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/reportNumberLabel"
@@ -164,7 +163,7 @@
         android:id="@+id/reportErrorView" />
 
     <TextView
-        android:text="1/1/17"
+        android:text="@string/date_hardcoded"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/dateText"
@@ -176,7 +175,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/submit"
-        android:text="Submit"
+        android:text="@string/submit"
         android:textSize="24sp"
         android:onClick="submit"
         android:layout_below="@+id/waterConditionLabel"
@@ -187,7 +186,7 @@
         android:layout_marginTop="33dp" />
 
     <TextView
-        android:text="Type of Water:"
+        android:text="@string/type_of_water"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/typeLabel"

@@ -19,25 +19,24 @@ import a2340.rainapp.R;
 
 /**
  * Created by austinletson on 2/14/17.
+ * Version 1.0
  */
 
 public class RegisterActivity extends AppCompatActivity {
 
     private final AppCompatActivity activity = RegisterActivity.this;
 
-    //static String loggedInUserType = "";
 
 
 
-    EditText userNameEditText;
-    EditText passwordEditText;
-    Spinner typeSpinner;
-    TextView errorTextView;
+    private EditText userNameEditText;
+    private EditText passwordEditText;
+    private Spinner typeSpinner;
+    private TextView errorTextView;
     private User user;
 
     private InputValidation inputValidation;
     private UserDBHandler userDBHandler;
-    private String[] arraySpinner;
 
 
     @Override
@@ -49,6 +48,8 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void initViews() {
+
+
         userNameEditText = (EditText) findViewById(R.id.register_usernameEdit);
         passwordEditText = (EditText) findViewById(R.id.register_passwordEdit);
         errorTextView = (TextView) findViewById(R.id.register_errorTextView);
@@ -57,12 +58,12 @@ public class RegisterActivity extends AppCompatActivity {
             Initialize Spinner
          */
 
-        this.arraySpinner = new String[] {
+        String[] arraySpinner = new String[] {
                 UserType.USER, UserType.WORKER, UserType.MANAGER, UserType.ADMINISTRATOR
         };
 
         typeSpinner = (Spinner) findViewById(R.id.register_typeSpinner);
-        ArrayAdapter<String> typeAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, arraySpinner);
+        ArrayAdapter<String> typeAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, arraySpinner);
         typeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         typeSpinner.setAdapter(typeAdapter);
     }
@@ -77,44 +78,41 @@ public class RegisterActivity extends AppCompatActivity {
 
     /**
      * Method called when register is pressed
-     * @param view
+     * @param view view
      */
     public void onRegisterPressed(View view){
         postDataToSQLite();
     }
 
     private void postDataToSQLite() {
-        if (!inputValidation.isEditTextFilled(userNameEditText, errorTextView, getString(R.string.error_message_username))) {
+        if (inputValidation.isEditTextFilled(userNameEditText, errorTextView, getString(R.string.error_message_username))) {
             return;
         }
-        if (!inputValidation.isEditTextFilled(passwordEditText, errorTextView, getString(R.string.error_message_password))) {
+        if (inputValidation.isEditTextFilled(passwordEditText, errorTextView, getString(R.string.error_message_password))) {
             return;
         }
 
         if (!userDBHandler.checkUser(userNameEditText.getText().toString().trim())) {
-            System.out.println("testing");
 
             String usernameInput = userNameEditText.getText().toString();
             String passwordInput = passwordEditText.getText().toString();
-            String userType = typeSpinner.getSelectedItem().toString();
+            //String userType = typeSpinner.getSelectedItem().toString();
 
 
             user.set_username(usernameInput);
             user.set_password(passwordInput);
             user.set_type(typeSpinner.getSelectedItem().toString());
 
-            //loggedInUserType = userType;
 
 
 
             userDBHandler.addUser(user);
 
-            errorTextView.setText("Registered");
+            errorTextView.setText(getString(R.string.successful_registration));
 
-            //todo transistion to login screen
 
         } else {
-            errorTextView.setText("Username already exists.");
+            errorTextView.setText(getString(R.string.error_username_exists));
         }
 
 

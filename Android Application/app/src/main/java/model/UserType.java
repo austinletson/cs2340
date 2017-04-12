@@ -2,6 +2,7 @@ package model;
 
 /**
  * Created by cpettiford on 3/27/17.
+ * Version 1.0
  */
 
 public final class UserType {

@@ -3,7 +3,7 @@
     android:layout_width="match_parent" android:layout_height="match_parent">
 
     <TextView
-        android:text="Username"
+        android:text="@string/username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="44dp"
@@ -16,7 +16,7 @@
         android:layout_alignParentStart="true" />
 
     <Button
-        android:text="Login"
+        android:text="@string/login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/loginButton"
@@ -27,7 +27,7 @@
         android:onClick="loginPressed"/>
 
     <TextView
-        android:text="Password"
+        android:text="@string/password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="84dp"
@@ -69,7 +69,7 @@
         android:layout_alignStart="@+id/usernameLabel" />
 
     <TextView
-        android:text="TextView"
+        android:text="@string/login_error"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="49dp"

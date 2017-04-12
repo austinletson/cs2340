@@ -9,14 +9,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import a2340.rainapp.R;
-import database.UserDBHandler;
-import model.UserHandler;
 import model.UserType;
-
-import a2340.rainapp.controllers.RegisterActivity;
 
 /**
  * Created by austinletson on 2/14/17.
+ * Version 1.0
  */
 
 public class MainApplicationScreenActivity extends AppCompatActivity {
@@ -34,17 +31,16 @@ public class MainApplicationScreenActivity extends AppCompatActivity {
 
     /**
      * called when logout button is pressed
-     * @param view
+     * @param view view
      */
     public void logoutPressed(View view) {
-        UserHandler.getHandler().set_currentUser(null);
         Intent intent = new Intent(this, WelcomeActivity.class);
         startActivity(intent);
     }
 
     /**
      * called when editProf button is pressed
-     * @param view
+     * @param view view
      */
     public void editProfPressed(View view) {
         Intent intent = new Intent(this, ProfileActivity.class);
@@ -53,7 +49,7 @@ public class MainApplicationScreenActivity extends AppCompatActivity {
 
     /**
      * called when viewReport button is pressed
-     * @param view
+     * @param view view
      */
     public void viewReportsPressed(View view) {
         Intent intent = new Intent(this, ViewReportsActivity.class);
@@ -62,7 +58,7 @@ public class MainApplicationScreenActivity extends AppCompatActivity {
 
     /**
      * called when submit Report button is pressed
-     * @param view
+     * @param view view
      */
     public void submitReportPressed(View view) {
         System.out.println("here");
@@ -72,7 +68,7 @@ public class MainApplicationScreenActivity extends AppCompatActivity {
 
     /**
      * called when water availability button is pressed
-     * @param view
+     * @param view view
      */
     public void waterAvailPressed(View view) {
         Intent intent = new Intent(this, MapsActivity.class);
@@ -81,7 +77,7 @@ public class MainApplicationScreenActivity extends AppCompatActivity {
 
     /**
      * called when viewPurityReport button is pressed
-     * @param view
+     * @param view view
      */
     public void viewPurityReportsPressed(View view) {
         if (LoginActivity.loggedInUserType.equals(UserType.WORKER) ||
@@ -105,7 +101,7 @@ public class MainApplicationScreenActivity extends AppCompatActivity {
 
     /**
      * called when submit purity Report button is pressed
-     * @param view
+     * @param view view
      */
     public void submitPurityReportPressed(View view) {
         Intent intent = new Intent(this, SubmitPurityReportActivity.class);
@@ -114,7 +110,7 @@ public class MainApplicationScreenActivity extends AppCompatActivity {
 
     /**
      * called when view history graph button is pressed
-     * @param view
+     * @param view view
      */
     public void viewHistoryGraphPressed(View view) {
         if (LoginActivity.loggedInUserType.equals(UserType.MANAGER)) {

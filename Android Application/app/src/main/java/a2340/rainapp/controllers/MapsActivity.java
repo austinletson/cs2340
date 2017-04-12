@@ -21,7 +21,7 @@ import database.UserDBHandler;
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
-    private UserDBHandler db = new UserDBHandler(MapsActivity.this);
+    private final UserDBHandler db = new UserDBHandler(MapsActivity.this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

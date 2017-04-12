@@ -7,14 +7,12 @@ import android.widget.EditText;
 import android.widget.TextView;
 import a2340.rainapp.R;
 import database.InputValidation;
-import model.User;
 import database.UserDBHandler;
-import android.database.sqlite.SQLiteDatabase;
-
 
 
 /**
  * Created by austinletson on 2/21/17.
+ * Version 1.0
  */
 
 public class ProfileActivity extends AppCompatActivity {
@@ -28,12 +26,8 @@ public class ProfileActivity extends AppCompatActivity {
     private InputValidation inputValidation;
     private UserDBHandler userDBHandler;
 
-    private static final String SELECT_SQL =
-            "SELECT email, address, title FROM users WHERE username = "
-                    + LoginActivity.loggedInUser;
 
-    private User user;
-    private SQLiteDatabase db;
+
 
     private final AppCompatActivity activity = ProfileActivity.this;
 
@@ -100,34 +94,34 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     private void initObjects() {
+
         userDBHandler = new UserDBHandler(activity);
         inputValidation = new InputValidation(activity);
-        user = new User();
 
     }
 
     /**
      * Called when update is pressed, updates all profile fields
-     * @param view
+     * @param view view
      */
     public void onUpdatePressed (View view) {
         storeProfileInfo();
     }
 
     private void storeProfileInfo() {
-        if (!inputValidation.isEditTextFilled(addressEdit, alertTextView,
+        if (inputValidation.isEditTextFilled(addressEdit, alertTextView,
                 getString(R.string.error_message_address))) {
             return;
         }
-        if (!inputValidation.isEditTextFilled(emailEdit, alertTextView,
+        if (inputValidation.isEditTextFilled(emailEdit, alertTextView,
                 getString(R.string.error_message_email))) {
             return;
         }
-        if (!inputValidation.isEditTextFilled(titleEdit, alertTextView,
+        if (inputValidation.isEditTextFilled(titleEdit, alertTextView,
                 getString(R.string.error_message_title))) {
             return;
         } else {
-            alertTextView.setText("Your information has been saved.");
+            alertTextView.setText(getString(R.string.profile_updated_successfully));
         }
 
 

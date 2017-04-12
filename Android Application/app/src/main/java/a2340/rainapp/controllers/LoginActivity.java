@@ -3,9 +3,10 @@ package a2340.rainapp.controllers;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.view.View;
+
 
 
 import a2340.rainapp.R;
@@ -15,13 +16,14 @@ import database.UserDBHandler;
 
 /**
  * Created by austinletson on 2/13/17.
+ * Version 1.0
  */
 
 public class LoginActivity extends AppCompatActivity {
     private final AppCompatActivity activity = LoginActivity.this;
-    EditText userNameEditText;
-    EditText passwordEditText;
-    TextView alertTextView;
+    private EditText userNameEditText;
+    private EditText passwordEditText;
+    private TextView alertTextView;
 
     static String loggedInUser = "";
     static String loggedInUserEmail = "";
@@ -37,7 +39,6 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_page);
-        getSupportActionBar().hide();
 
         initView();
         initObjects();
@@ -57,7 +58,7 @@ public class LoginActivity extends AppCompatActivity {
 
     /**
      * called when login pressed
-     * @param view
+     *@param view view
      */
     public void loginPressed(View view) {
         verifyFromSQLite();
@@ -66,10 +67,10 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void verifyFromSQLite() {
-        if (!inputValidation.isEditTextFilled(userNameEditText, alertTextView, getString(R.string.error_message_username))) {
+        if (inputValidation.isEditTextFilled(userNameEditText, alertTextView, getString(R.string.error_message_username))) {
             return;
         }
-        if (!inputValidation.isEditTextFilled(passwordEditText, alertTextView, getString(R.string.error_message_password))) {
+        if (inputValidation.isEditTextFilled(passwordEditText, alertTextView, getString(R.string.error_message_password))) {
             return;
         }
         if (userDBHandler.checkUser(userNameEditText.getText().toString().trim()

@@ -2,6 +2,7 @@ package model;
 
 /**
  * Created by cpettiford on 3/29/17.
+ * Version 1.0
  */
 
 public class SourceReportWaterType {
@@ -13,7 +14,4 @@ public class SourceReportWaterType {
     public static final String SPRING = "Spring";
     public static final String OTHER = "Other";
 
-    public SourceReportWaterType() {
-
-    }
 }

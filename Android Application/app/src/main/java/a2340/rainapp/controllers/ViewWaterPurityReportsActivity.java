@@ -19,14 +19,14 @@ import database.UserDBHandler;
 
 /**
  * Created by cpettiford on 3/28/17.
+ * Version 1.0
  */
 
 public class ViewWaterPurityReportsActivity extends ListActivity {
 
     private UserDBHandler userDBHandler;
 
-    private ArrayList<String> purityReports = new ArrayList<String>();
-    private String tableName = userDBHandler.TABLE_PURITY_REPORTS;
+    private final ArrayList<String> purityReports = new ArrayList<>();
     private SQLiteDatabase newDB;
 
     /** Called when the activity is first created. */
@@ -40,12 +40,15 @@ public class ViewWaterPurityReportsActivity extends ListActivity {
     }
 
     private void displayResultList() {
-        setListAdapter(new ArrayAdapter<String>(this,
+        setListAdapter(new ArrayAdapter<>(this,
                 android.R.layout.simple_list_item_1, purityReports));
         getListView().setTextFilterEnabled(true);
 
     }
     private void populatePurityReports() {
+
+        String tableName = userDBHandler.TABLE_PURITY_REPORTS;
+
         try {
             userDBHandler = new UserDBHandler(this.getApplicationContext());
             newDB = userDBHandler.getWritableDatabase();

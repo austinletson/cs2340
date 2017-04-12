@@ -2,6 +2,7 @@ package model;
 
 /**
  * Created by cpettiford on 3/29/17.
+ * Version 1.0
  */
 
 public class SourceReportCondition {

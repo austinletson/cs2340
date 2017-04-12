@@ -4,17 +4,17 @@
     android:layout_height="match_parent">
 
     <Button
-        android:text="Create/Edit Profile"
+        android:text="@string/create_edit_profile"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/profileButton"
         android:onClick="editProfPressed" />
 
     <Button
-        android:text="Log Out"
+        android:text="@string/logout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/logOutButton"
-        android:onClick="logtoutPressed"/>
+        android:onClick="logoutPressed"/>
 
 </LinearLayout>

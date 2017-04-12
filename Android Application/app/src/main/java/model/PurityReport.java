@@ -5,36 +5,25 @@ import android.util.Log;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
-import model.User;
 
 /**
  * Created by austinletson on 3/15/17.
+ * Version 1.0
  */
 
 public class PurityReport {
 
     private Date _reportDate;
-    private long _reportNumber;
     private String _username;
     private double _latitude;
     private double _longitude;
     private String _condition;
     private double virusPPM;
     private double contaminantPPM;
-    private User user = new User();
-    private DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+    private final DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
 
-    public PurityReport(double _latitude, double _longitude, String _username, String _condition, double virusPPM, double contaminantPPM) {
-        this._latitude = _latitude;
-        this._longitude = _longitude;
-        this._username = _username;
-        this._condition = _condition;
-        this.virusPPM = virusPPM;
-        this.contaminantPPM = contaminantPPM;
 
-    }
 
     public PurityReport() {
 
@@ -170,22 +159,8 @@ public class PurityReport {
     }
 
 
-    /**
-     * gets the number of the report
-     * @return the number of the report
-     */
-    public long get_reportNumber() {
-        return _reportNumber;
-    }
 
 
-    /**
-     * sets the number of the srouce report
-     * @param _reportNumber
-     */
-    public void set_reportNumber(long _reportNumber) {
-        this._reportNumber = _reportNumber;
-    }
 
 
     @Override

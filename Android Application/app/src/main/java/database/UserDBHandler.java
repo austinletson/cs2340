@@ -1,7 +1,5 @@
 package database;
 
-import a2340.rainapp.controllers.LoginActivity;
-
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -20,6 +18,7 @@ import model.User;
 
 /**
  * Created by cpettiford on 3/27/17.
+ * Version 1.0
  */
 
 public class UserDBHandler extends SQLiteOpenHelper {
@@ -27,34 +26,34 @@ public class UserDBHandler extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "rain_app.db";
     private static final int DATABASE_VERSION = 1;
 
-    public static final String TABLE_USERS = "users";
-    public static final String COLUMN_ID = "uID";
-    public static final String COLUMN_USERNAME = "username";
-    public static final String COLUMN_PASSWORD = "password";
-    public static final String COLUMN_USERTYPE = "user_type";
-    public static final String COLUMN_EMAIL = "email";
-    public static final String COLUMN_ADDRESS = "address";
-    public static final String COLUMN_TITLE = "title";
-    public static final String COLUMN_NAME = "name";
+    private static final String TABLE_USERS = "users";
+    private static final String COLUMN_ID = "uID";
+    private static final String COLUMN_USERNAME = "username";
+    private static final String COLUMN_PASSWORD = "password";
+    private static final String COLUMN_USERTYPE = "user_type";
+    private static final String COLUMN_EMAIL = "email";
+    private static final String COLUMN_ADDRESS = "address";
+    private static final String COLUMN_TITLE = "title";
+    private static final String COLUMN_NAME = "name";
 
     public static final String TABLE_PURITY_REPORTS = "purity_reports";
-    public static final String COLUMN_NO_PR = "report_number";
-    public static final String COLUMN_PR_DATE = "date";
-    public static final String COLUMN_USERNAME_PR = "username";
-    public static final String COLUMN_LATITUDE_PR = "latitude";
-    public static final String COLUMN_LONGITUDE_PR = "longitude";
-    public static final String COLUMN_CONDITION_PR = "condition";
-    public static final String COLUMN_VIRUSPPM = "virus_ppm";
-    public static final String COLUMN_CONTAMINANTPPM = "contaminant_ppm";
+    private static final String COLUMN_NO_PR = "report_number";
+    private static final String COLUMN_PR_DATE = "date";
+    private static final String COLUMN_USERNAME_PR = "username";
+    private static final String COLUMN_LATITUDE_PR = "latitude";
+    private static final String COLUMN_LONGITUDE_PR = "longitude";
+    private static final String COLUMN_CONDITION_PR = "condition";
+    private static final String COLUMN_VIRUSPPM = "virus_ppm";
+    private static final String COLUMN_CONTAMINANTPPM = "contaminant_ppm";
 
     public static final String TABLE_SOURCE_REPORTS = "source_reports";
-    public static final String COLUMN_NO_SR = "report_number";
-    public static final String COLUMN_SR_DATE = "date";
-    public static final String COLUMN_USERNAME_SR = "username";
-    public static final String COLUMN_LATITUDE_SR = "latitude";
-    public static final String COLUMN_LONGITUDE_SR = "longitude";
-    public static final String COLUMN_TYPE = "type";
-    public static final String COLUMN_CONDITION_SR = "condition";
+    private static final String COLUMN_NO_SR = "report_number";
+    private static final String COLUMN_SR_DATE = "date";
+    private static final String COLUMN_USERNAME_SR = "username";
+    private static final String COLUMN_LATITUDE_SR = "latitude";
+    private static final String COLUMN_LONGITUDE_SR = "longitude";
+    private static final String COLUMN_TYPE = "type";
+    private static final String COLUMN_CONDITION_SR = "condition";
 
 
 
@@ -93,9 +92,7 @@ public class UserDBHandler extends SQLiteOpenHelper {
             COLUMN_CONDITION_SR + " TEXT" +
             ")";
 
-    private String DROP_TABLE_USERS = "DROP TABLE IF EXISTS " + TABLE_USERS;
-    private String DROP_TABLE_PURITY_REPORTS = "DROP TABLE IF EXISTS " + TABLE_PURITY_REPORTS;
-    private String DROP_TABLE_SOURCE_REPORTS = "DROP TABLE IF EXISTS " + TABLE_SOURCE_REPORTS;
+
 
     public UserDBHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -111,6 +108,12 @@ public class UserDBHandler extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+
+        String DROP_TABLE_USERS = "DROP TABLE IF EXISTS " + TABLE_USERS;
+        String DROP_TABLE_PURITY_REPORTS = "DROP TABLE IF EXISTS " + TABLE_PURITY_REPORTS;
+        String DROP_TABLE_SOURCE_REPORTS = "DROP TABLE IF EXISTS " + TABLE_SOURCE_REPORTS;
+
+
         db.execSQL(DROP_TABLE_USERS);
         db.execSQL(DROP_TABLE_PURITY_REPORTS);
         db.execSQL(DROP_TABLE_SOURCE_REPORTS);
@@ -158,7 +161,7 @@ public class UserDBHandler extends SQLiteOpenHelper {
         // sorting orders
         String sortOrder =
                 COLUMN_USERNAME + " ASC";
-        List<User> userList = new ArrayList<User>();
+        List<User> userList = new ArrayList<>();
 
         SQLiteDatabase db = this.getReadableDatabase();
 
@@ -199,7 +202,7 @@ public class UserDBHandler extends SQLiteOpenHelper {
 
     /**
      * gets the email of the current user
-     * @param username
+     * @param username username
      * @return the email of the current user
      */
     public String getUserEmail(String username) {
@@ -208,14 +211,15 @@ public class UserDBHandler extends SQLiteOpenHelper {
 
         Cursor cursor = db.rawQuery("SELECT * FROM users WHERE username = '" + username + "'",null);
 
-        if (cursor.moveToFirst()) {
-            do {
 
-                String email = cursor.getString(cursor.getColumnIndex(COLUMN_EMAIL));
+        if (cursor.moveToFirst()) {
+//            do {
+
+                //String email = cursor.getString(cursor.getColumnIndex(COLUMN_EMAIL));
 
                 return cursor.getString(cursor.getColumnIndex(COLUMN_EMAIL));
 
-            } while (cursor.moveToNext());
+//            } while (cursor.moveToNext());
         }
 
         cursor.close();
@@ -227,7 +231,7 @@ public class UserDBHandler extends SQLiteOpenHelper {
 
     /**
      * gets the current user's address
-     * @param username
+     * @param username username
      * @return the address of the current user
      */
     public String getUserAddress(String username) {
@@ -237,13 +241,13 @@ public class UserDBHandler extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery("SELECT * FROM users WHERE username = '" + username + "'",null);
 
         if (cursor.moveToFirst()) {
-            do {
+            //do {
 
-                String address = cursor.getString(cursor.getColumnIndex(COLUMN_ADDRESS));
+                //String address = cursor.getString(cursor.getColumnIndex(COLUMN_ADDRESS));
 
                 return cursor.getString(cursor.getColumnIndex(COLUMN_ADDRESS));
 
-            } while (cursor.moveToNext());
+            //} while (cursor.moveToNext());
         }
 
         cursor.close();
@@ -256,7 +260,7 @@ public class UserDBHandler extends SQLiteOpenHelper {
 
     /**
      * gets the current user's title
-     * @param username
+     * @param username username
      * @return the title of the current user
      */
     public String getUserTitle(String username) {
@@ -266,13 +270,13 @@ public class UserDBHandler extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery("SELECT * FROM users WHERE username = '" + username + "'",null);
 
         if (cursor.moveToFirst()) {
-            do {
+            //do {
 
-                String address = cursor.getString(cursor.getColumnIndex(COLUMN_TITLE));
+               // String address = cursor.getString(cursor.getColumnIndex(COLUMN_TITLE));
 
                 return cursor.getString(cursor.getColumnIndex(COLUMN_TITLE));
 
-            } while (cursor.moveToNext());
+            //} while (cursor.moveToNext());
         }
 
         cursor.close();
@@ -284,7 +288,7 @@ public class UserDBHandler extends SQLiteOpenHelper {
 
     /**
      * gets the current user's type
-     * @param username
+     * @param username username
      * @return the type of the current user
      */
     public String getUserType(String username) {
@@ -294,13 +298,13 @@ public class UserDBHandler extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery("SELECT * FROM users WHERE username = '" + username + "'",null);
 
         if (cursor.moveToFirst()) {
-            do {
+           // do {
 
-                String type = cursor.getString(cursor.getColumnIndex(COLUMN_USERTYPE));
+                //String type = cursor.getString(cursor.getColumnIndex(COLUMN_USERTYPE));
 
                 return cursor.getString(cursor.getColumnIndex(COLUMN_USERTYPE));
 
-            } while (cursor.moveToNext());
+            //} while (cursor.moveToNext());
         }
 
         cursor.close();
@@ -312,10 +316,10 @@ public class UserDBHandler extends SQLiteOpenHelper {
 
     /**
      * updates the user's information
-     * @param username
-     * @param email
-     * @param address
-     * @param title
+     * @param username username
+     * @param email email
+     * @param address address
+     * @param title title
      * @return true if user's information is updated, false otherwise
      */
     public boolean updateUser(String username, String email, String address, String title) {
@@ -345,7 +349,7 @@ public class UserDBHandler extends SQLiteOpenHelper {
 
     /**
      * deletes user from the database
-     * @param user
+     * @param user user
      */
     public void deleteUser(User user) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -358,7 +362,7 @@ public class UserDBHandler extends SQLiteOpenHelper {
 
     /**
      * checks whether the username is taken
-     * @param username
+     * @param username username
      * @return true if username is taken, false otherwise
      */
     public boolean checkUser(String username) {
@@ -387,18 +391,15 @@ public class UserDBHandler extends SQLiteOpenHelper {
         cursor.close();
         db.close();
 
-        if (cursorCount > 0) {
-            return true;
-        }
+        return cursorCount > 0;
 
-        return false;
     }
 
 
     /**
      * checks whether the user is stored in the database
-     * @param username
-     * @param password
+     * @param username username
+     * @param password password
      * @return true if user already exists, false otherwise
      */
     public boolean checkUser(String username, String password) {
@@ -427,17 +428,14 @@ public class UserDBHandler extends SQLiteOpenHelper {
 
         cursor.close();
         db.close();
-        if (cursorCount > 0) {
-            return true;
-        }
+        return cursorCount > 0;
 
-        return false;
     }
 
 
     /**
      * adds a purity report to the database
-     * @param report
+     * @param report report
      */
     public void addPurityReport(PurityReport report) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -548,7 +546,7 @@ public class UserDBHandler extends SQLiteOpenHelper {
 
     /**
      * adds a source report to the database
-     * @param report
+     * @param report report
      */
     public void addSourceReport(Report report) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -567,35 +565,6 @@ public class UserDBHandler extends SQLiteOpenHelper {
         db.close();
     }
 
-    /**
-     * adds dummy data for source report
-     * @param report report
-     * @param username username
-     * @param date date
-     * @param latitude latitude
-     * @param longitude longitude
-     * @param condition condition
-     * @param type type
-     */
-    public void dummySourceReport(String username, String date, double latitude,
-                                  double longitude, String condition, String type) {
-
-        SQLiteDatabase db = this.getWritableDatabase();
-
-        ContentValues values = new ContentValues();
-        values.put(COLUMN_USERNAME_SR, username);
-        values.put(COLUMN_SR_DATE, date);
-        values.put(COLUMN_LATITUDE_SR, latitude);
-        values.put(COLUMN_LONGITUDE_SR, longitude);
-        values.put(COLUMN_CONDITION_SR, condition);
-        values.put(COLUMN_TYPE, type);
-
-
-        // Inserting Row
-        db.insert(TABLE_SOURCE_REPORTS, null, values);
-        db.close();
-
-    }
 
     /**
      * gets a list of all source reports

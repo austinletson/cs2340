@@ -3,7 +3,7 @@
     android:layout_width="match_parent" android:layout_height="match_parent">
 
     <TextView
-        android:text="Username"
+        android:text="@string/username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="44dp"
@@ -41,7 +41,7 @@
         android:layout_alignEnd="@+id/register_usernameEdit" />
 
     <TextView
-        android:text="Password"
+        android:text="@string/password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="19dp"
@@ -52,7 +52,7 @@
         android:layout_alignStart="@+id/register_usernameEdit" />
 
     <Button
-        android:text="Register"
+        android:text="@string/register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/registerButton"
@@ -78,7 +78,7 @@
         android:ems="10"
         android:id="@+id/register_nameEdit"
         android:textAlignment="center"
-        android:hint="Name"
+        android:hint="@string/name"
         android:layout_below="@+id/register_errorTextView"
         android:layout_centerHorizontal="true" />
 
@@ -91,7 +91,7 @@
         android:layout_marginBottom="12dp" />
 
     <TextView
-        android:text="Type"
+        android:text="@string/type"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/typeLabel"

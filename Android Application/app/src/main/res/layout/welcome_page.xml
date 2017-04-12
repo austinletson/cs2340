@@ -4,7 +4,7 @@
     android:layout_height="match_parent">
 
     <Button
-        android:text="Login"
+        android:text="@string/login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/welcomeButtonLogin"
@@ -12,7 +12,7 @@
         android:onClick="onLoginPressed"/>
 
     <Button
-        android:text="Register"
+        android:text="@string/register"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/welcomeButtonRegister"
