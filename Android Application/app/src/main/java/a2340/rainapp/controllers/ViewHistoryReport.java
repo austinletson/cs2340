@@ -144,7 +144,20 @@ public class ViewHistoryReport extends AppCompatActivity {
         }
     }
 
+HEAD
     private HashMap<Integer, ArrayList<Double>> grabMap(double latitude, double longitude, int year, List<PurityReport> reports, String spinnerValue) {
+
+    /**
+     * returns a map of all the months to the values for that month
+     * @param latitude lat
+     * @param longitude long
+     * @param year year
+     * @param reports reports to put in map
+     * @param spinnerValue spinnervalue
+     * @return The map of all
+     */
+    public HashMap<Integer, ArrayList<Double>> grabMap(double latitude, double longitude, int year, List<PurityReport> reports, String spinnerValue) {
+ aa57442e3cbe9d1f6aec2272ea9955e41d07623f
         HashMap<Integer, ArrayList<Double>> averageMap = new HashMap<>();
         boolean areThereReports = false;
         for (int i = 1; i <= 12; i++) {
