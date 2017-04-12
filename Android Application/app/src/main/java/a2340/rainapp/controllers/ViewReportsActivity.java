@@ -44,7 +44,7 @@ public class ViewReportsActivity extends ListActivity {
 
     }
     private void populateReports() {
-        String tableName = userDBHandler.TABLE_SOURCE_REPORTS;
+        String tableName = UserDBHandler.TABLE_SOURCE_REPORTS;
 
         try {
             userDBHandler = new UserDBHandler(this.getApplicationContext());
@@ -72,6 +72,7 @@ public class ViewReportsActivity extends ListActivity {
                             ",Type: " + type + ",Date: " + date);
                 }while (c.moveToNext());
             }
+            c.close();
         } catch (SQLiteException se ) {
             Log.e(getClass().getSimpleName(), "Could not create or Open the database");
         } finally {

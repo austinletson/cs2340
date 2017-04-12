@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Locale;
 
 import a2340.rainapp.R;
 import database.InputValidation;
@@ -95,7 +96,7 @@ public class SubmitReportActivity extends AppCompatActivity {
 
 
         dateText = (TextView) findViewById(R.id.dateText);
-        SimpleDateFormat ft = new SimpleDateFormat("E yyyy.MM.dd");
+        SimpleDateFormat ft = new SimpleDateFormat("E yyyy.MM.dd", Locale.getDefault());
         dateText.setText(ft.format(Calendar.getInstance().getTime()));
 
 

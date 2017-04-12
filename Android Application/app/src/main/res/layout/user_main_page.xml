@@ -40,7 +40,6 @@
         android:textSize="24sp"
         android:onClick="waterAvailPressed"
         android:layout_above="@+id/viewProfileButton"
-        android:layout_alignLeft="@+id/viewReportsButton"
         android:layout_alignStart="@+id/viewReportsButton" />
 
     <Button
@@ -52,7 +51,6 @@
         android:textSize="24sp"
         android:onClick="submitReportPressed"
         android:layout_below="@+id/mainPageLabel"
-        android:layout_alignRight="@+id/viewReportsButton"
         android:layout_alignEnd="@+id/viewReportsButton"
         android:layout_marginTop="26dp" />
 

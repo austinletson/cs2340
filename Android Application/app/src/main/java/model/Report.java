@@ -65,9 +65,8 @@ public class Report {
 
     /**
      * sets the date of the source report
-     * @param _reportDate report date
      */
-    public void set_reportDate(String _reportDate) {
+    public void set_reportDate() {
         this._reportDate = Calendar.getInstance().getTime().toString();
     }
 

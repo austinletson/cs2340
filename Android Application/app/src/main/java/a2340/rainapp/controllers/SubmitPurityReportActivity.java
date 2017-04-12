@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Locale;
 
 import a2340.rainapp.R;
 import database.InputValidation;
@@ -73,7 +74,7 @@ public class SubmitPurityReportActivity extends AppCompatActivity {
 
 
         dateText = (TextView) findViewById(R.id.purityDate);
-        SimpleDateFormat ft = new SimpleDateFormat("MM/dd/yyyy");
+        SimpleDateFormat ft = new SimpleDateFormat("MM/dd/yyyy", Locale.getDefault());
         dateText.setText(ft.format(Calendar.getInstance().getTime()));
 
         virusEdit = (EditText) findViewById(R.id.virusPPMEditText);

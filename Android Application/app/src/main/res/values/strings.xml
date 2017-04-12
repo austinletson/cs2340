@@ -7,8 +7,6 @@
     <string name="error_message_title">Please enter all values</string>
     <string name="error_message_address">Enter Address</string>
     <string name="error_valid_username_password">Invalid username and password combination.</string>
-    <string name="error_message_name">Enter Name</string>
-    <string name="success_message">Registration Successful</string>
     <string name="profile_updated_successfully">Your information has been saved</string>
     <string name="error_username_exists">Username Already Exists</string>
     <string name="error_latitude">Enter a non-negative latitude</string>

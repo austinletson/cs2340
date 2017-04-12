@@ -6,6 +6,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 /**
  * Created by austinletson on 3/15/17.
@@ -21,9 +22,19 @@ public class PurityReport {
     private String _condition;
     private double virusPPM;
     private double contaminantPPM;
-    private final DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+    private final DateFormat df = new SimpleDateFormat("MM/dd/yyyy", Locale.getDefault());
 
 
+
+    public PurityReport(double _latitude, double _longitude, String _username, String _condition, double virusPPM, double contaminantPPM) {
+        this._latitude = _latitude;
+        this._longitude = _longitude;
+        this._username = _username;
+        this._condition = _condition;
+        this.virusPPM = virusPPM;
+        this.contaminantPPM = contaminantPPM;
+
+    }
 
     public PurityReport() {
 

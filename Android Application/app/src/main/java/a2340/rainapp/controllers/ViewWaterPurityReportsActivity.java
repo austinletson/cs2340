@@ -24,8 +24,6 @@ import database.UserDBHandler;
 
 public class ViewWaterPurityReportsActivity extends ListActivity {
 
-    private UserDBHandler userDBHandler;
-
     private final ArrayList<String> purityReports = new ArrayList<>();
     private SQLiteDatabase newDB;
 
@@ -47,10 +45,10 @@ public class ViewWaterPurityReportsActivity extends ListActivity {
     }
     private void populatePurityReports() {
 
-        String tableName = userDBHandler.TABLE_PURITY_REPORTS;
+        String tableName = UserDBHandler.TABLE_PURITY_REPORTS;
 
         try {
-            userDBHandler = new UserDBHandler(this.getApplicationContext());
+            UserDBHandler userDBHandler = new UserDBHandler(this.getApplicationContext());
             newDB = userDBHandler.getWritableDatabase();
             String q = "SELECT * FROM " + tableName;
             Cursor c = newDB.rawQuery(q, null);
@@ -74,6 +72,7 @@ public class ViewWaterPurityReportsActivity extends ListActivity {
                     }while (c.moveToNext());
                 }
             }
+            c.close();
         } catch (SQLiteException se ) {
             Log.e(getClass().getSimpleName(), "Could not create or Open the database");
         } finally {
